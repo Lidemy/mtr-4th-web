@@ -1,0 +1,19 @@
+// mixin
+mixin head_block(headInfo)  
+  head
+      link(rel='stylesheet' href='/public/css/main.css')
+      title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
+
+// layout
+doctype html
+html(lang='en')
+
+  block head
+    +head_block('default')
+
+  body
+    block header
+      include header.pug
+    block content
+    block footer
+

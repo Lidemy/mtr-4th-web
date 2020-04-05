@@ -1,0 +1,31 @@
+%fontawesome-icon {
+  @extend %fa-icon;
+  @extend .fas;
+  display: inline-block;
+  text-rendering: auto;
+}
+
+/* ------- extends ------- */
+%transition {
+    transition: all .3s;
+}
+
+%reset {
+    margin: 0;
+    padding: 0;
+}
+
+%responsive-img {
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+%weight-font-style {
+  font-family: 'Palanquin Dark', sans-serif;
+  letter-spacing: 0.15rem;
+  font-weight: bold;
+}

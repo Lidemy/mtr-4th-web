@@ -1,0 +1,11 @@
+header.header
+  .header__inner
+    a.header__logo(href="") Lidemy
+    nav 
+      ul
+        - var list = ["計畫介紹", "課程大綱", "課程資訊", "教學成果", "FAQ"]
+        each item in list
+            li 
+              a(href="")= item
+    a.header__cta-btn(href="") 
+      span 了解報名資訊

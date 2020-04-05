@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.02rem;
+  font-family: '微軟正黑體', Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+  // margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  line-height: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #999;
+
+  strong {
+    color: #333;
+  }
+
+  a {
+    border-bottom: 1px dotted #999;
+    color: #000;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+code {
+  font-size: 13px;
+  color: lighten($main-color, 5%);
+}
