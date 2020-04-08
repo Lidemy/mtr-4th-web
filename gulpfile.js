@@ -1,46 +1,101 @@
 const gulp = require('gulp');
-const { src, dest, parallel } = require('gulp');
+const { src, dest } = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
+const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
-const livereload = require('gulp-livereload');
+const connect = require('gulp-connect');
+const imageMin = require('gulp-imagemin');
+const del = require('del')
+const babel = require('gulp-babel');
+
+const base = {
+  src: 'src',
+  dest: 'public',
+}
+const paths = {
+  css: {
+    src: `${base.src}/scss/*.scss`,
+    dest: `${base.dest}/css`,
+  },
+  js: {
+    src: `${base.src}/js/**/*.js`,
+    dest: `${base.dest}/js`,
+  },
+  html: {
+    src: `${base.src}/html/*.pug`,
+    dest: base.dest,
+  },
+  image: {
+    src: `${base.src}/image/*`,
+    dest: `${base.dest}/image`,
+  }
+};
+
+function clean() {
+  return del([base.dest]);
+}
 
 function html() {
-  return src('src/html/*.pug')
+  return src(paths.html.src)
     .pipe(pug())
-    .pipe(dest('public'))
-    .pipe(livereload())
+    .pipe(dest(base.dest))
+    .pipe(connect.reload())
 }
 
 function css() {
-  return src('src/scss/*.scss')
+  const processors = [
+    autoprefixer({ overrideBrowserslist: ['last 2 version'] }),
+  ];
+  return src(paths.css.src)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(postcss(processors))
     .pipe(minifyCSS())
     .pipe(sourcemaps.write())
-    .pipe(dest('public/css'))
-    .pipe(livereload())
+    .pipe(rename({
+      basename: 'main',
+      suffix: '.min'
+    }))
+    .pipe(dest(paths.css.dest))
+    .pipe(connect.reload())
+}
+
+function img() {
+  return src(paths.image.src)
+    .pipe(imageMin())
+    .pipe(dest(paths.image.dest))
+    .pipe(connect.reload())
 }
 
 function js() {
-  return src('src/**/*.js', { sourcemaps: true })
+  return src(paths.js.src, { sourcemaps: true })
+    .pipe(babel())
     .pipe(concat('app.min.js'))
-    .pipe(dest('public/js', { sourcemaps: true }))
+    .pipe(dest(paths.js.dest, { sourcemaps: true }))
+    .pipe(connect.reload())
 }
 
-function watchFiles() {
-  livereload.listen(5500);
-  gulp.watch("./src/scss/**/*", css);
-  gulp.watch("./src/html/**/*", html);
+function watch() {
+  gulp.watch(`${base.src}/scss/**/*`, css);
+  gulp.watch(`${base.src}/html/**/*`, html);
+  gulp.watch(`${base.src}/image/*`, img);
 }
 
-const watch = gulp.parallel(watchFiles);
-const build = gulp.series(watch, html, css, js);
+function server() {
+  var options = {
+    port: 8080,
+    livereload: true,
+  };
+  connect.server(options);
+};
 
-exports.js = js;
-exports.css = css;
-exports.html = html;
-exports.watch = watch;
+const resource = gulp.parallel(html, css, js, img)
+const build = gulp.series(clean, resource, gulp.parallel(watch, server))
+
+exports.clean = clean;
 exports.default = build;
