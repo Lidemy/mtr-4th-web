@@ -21,7 +21,8 @@
     "@babel/core": "^7.9.0",
     "del": "^5.1.0",
     "font-awesome": "^4.7.0",
-    "gulp-connect": "^5.7.0"
+    "gulp-connect": "^5.7.0",
+    "rfs": "^9.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

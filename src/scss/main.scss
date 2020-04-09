@@ -1,3 +1,6 @@
+@import "../../node_modules/rfs/scss";
+@import './_config.scss';
+
 @import './_variables.scss';
 
 @import "./font-awesome/scss/fontawesome.scss";
@@ -8,4 +11,7 @@
 @import './_layout.scss';
 
 @import './layout/_header.scss';
-@import './layout/_faq.scss'
+
+@import './page/_faq.scss';
+
+

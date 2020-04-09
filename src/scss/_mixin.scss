@@ -1,9 +1,57 @@
-%fontawesome-icon {
-  @extend %fa-icon;
-  @extend .fas;
-  display: inline-block;
-  text-rendering: auto;
+/* ------- media query ------- */
+$breakpoints: (
+    "mobile-s":  $width-mobile-s,
+    "mobile-m":  $width-mobile-m,
+    "mobile-l":  $width-mobile-l,
+    "tablet":    $width-tablet,
+    "desktop-s": $width-desktop-s,
+    "desktop-m": $width-desktop-m,
+    "desktop-l": $width-desktop-l,
+);
+
+@mixin mq($width) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
 }
+
+/* ------- mixins ------- */
+
+/* size */
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+
+/* pseudo */
+@mixin pseudo($display: block, $content: '') {
+    content: '';
+    display: $display;
+}
+
+
+/* position */
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin absolute($args...) {
+    @include position(absolute, $args...);
+}
+
+@mixin relative($args...) {
+    @include position(relative, $args...);
+}
+
 
 /* ------- extends ------- */
 %transition {
@@ -28,4 +76,11 @@
   font-family: 'Palanquin Dark', sans-serif;
   letter-spacing: 0.15rem;
   font-weight: bold;
+}
+
+%fontawesome-icon {
+  @extend %fa-icon;
+  @extend .fas;
+  display: inline-block;
+  text-rendering: auto;
 }
