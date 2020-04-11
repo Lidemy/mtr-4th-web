@@ -1,0 +1,110 @@
+extends layout/layout.pug
+
+
+mixin post_item(title, theme)
+  .section.post(class=theme)
+    h3.post-title= title
+    .post-content
+      block
+
+mixin plan_compare(version, title, sub_title, desc)
+  .plan__item
+    span.plan__version= version
+    h4.plan__title= title
+    h5.plan__sub-title= sub_title
+    p.plan__desc= desc
+      block
+
+mixin plan_compare_content(title)
+  .plan__content
+    .plan__content-title= title
+    block
+
+
+//- header
+block head
+  +head_block({
+    title: '課程資訊'
+  })
+
+//- content
+block content
+  .course-info
+    +post_item('課程制度')
+      p.
+        這個課程有所謂的#[strong 「淘汰制」]，週一至週五每一天都必須在學習系統內報告進度（今天學了哪些東西），兩週內每日進度報告累積缺交三次及淘汰。
+
+    +post_item('收費方式')
+      p.
+        首先，課程#[strong 前兩個月為試用觀察期]，不需要繳交任何費用。我們希望你先進來體驗課程，覺得適合自己再來付費。若是在這期間內決定課程不適合自己，可以無條件退出。
+        <br/><br/>
+        開課兩個月後需要繳交保證金 5000 元以及選擇學費方案，一共有 AB 三種方案，依據求職意願可選擇的方案不同。
+        <br/><br/>
+        若是有求職意願（目前還不是工程師，但想要成為工程師，課程結束之後會出去求職），可以選擇「A 求職方案」或是「B 無條件買斷」。
+
+    section.plan-compare
+      +plan_compare('Plan A', '求職方案', '1.5 倍的月薪 or FREE',
+        '「A 求職方案」很簡單，是程式導師實驗計畫一直堅持的收費方式：「結業後兩個月內若找到工作，學費總額就是 1.5 倍的月薪；找不到工作者費用全免」。')
+        +plan_compare_content('結業後沒找到工作？')
+          p 如果你有求職意願，也跟完了課程沒有被淘汰，結果最後還找不到工作，那我們就會認為是計劃的疏失，是我們必須要改進計畫內容，因此不收任何學費。
+        +plan_compare_content('順利找到工作了！')
+          p 相對地，如果你順利找到了工作，代表這個計畫幫助良多，因此學費會是 1.5 倍的月薪。
+
+      +plan_compare('Plan B', '無條件買斷', '直接花錢買整個課程',
+        '若是沒有求職意願，只能選擇「B 無條件買斷」，這個方案很簡單，就是直接花錢買整個課程。')
+        +plan_compare_content('沒有淘汰制')
+          p 如還記得前面說的淘汰制嗎？若是選擇無條件買斷，就沒有淘汰制了，因此適合時間不固定，無法穩定持續學習卻又想要學習網站開發的人。
+        +plan_compare_content('適合已經是工程師的你')
+          p 除此之外，無條件買斷也適合已經是工程師，想要再加強基礎的人。另外還有一種比較特殊的案例，若是你有求職意願而且對求職非常有把握，也可以選擇「無條件買斷」，因為根據收費機制，只要最後找到的工作月薪大於 36k，無條件買斷就比較划算。
+
+    .compare-table__container
+      section.compare-table
+        +post_item('  方案比一比', 'theme-light')
+          table.table.table-hover.table-bordered.table-striped.text-left
+            thead
+              tr
+                th
+                th A 求職方案
+                th B 無條件買斷
+            tbody
+              tr
+                td 適合對象
+                td 有求職意願的人，未來想要成為工程師的人
+                td 1. 已經是工程師<br>2. 時間一波一波，比較難固定產出，但想要衝一波學習網站開發的人
+              tr
+                td 免學費機制
+                td 結業後兩個月內若找到工作，學費總額就是 1.5 倍的月薪；找不到工作者全免
+                td 無，固定價格
+              tr
+                td 心得
+                td 週一至週五每一天都必須在學習系統內報告進度
+                td 無硬性規定
+              tr
+                td 淘汰規則
+                td 兩週內每日進度報告累積缺交三次即淘汰
+                td 無淘汰規則
+              tr
+                td 繳費方式
+                td(colspan="2") 學費付費時間十分彈性。若是有經濟上的困難，可以等「課程結束」以後再分期付款，最多可以分到 12 期零利率。
+                  | 若是有其他困難也可以再討論付費相關事宜。
+              tr
+                td 試用期
+                td(colspan="2") 課程前兩個月為試用觀察期，不需繳交任何費用。
+              tr
+                td 保證金
+                td(colspan="2") 開課兩個月後繳交保證金 5000 元。
+              tr
+                td 價格
+                td *1.5 倍的月薪<br>
+                  | （依據歷屆學員的資料，月薪中位數約為 43000 元，學費就是 64500 元）
+                td 55000 元
+          p.
+            首選了付費方案以後基本上就無法變更，除非原本選「A 求職方案」，但是後來發現自己沒有求職意願，那有兩條路可以選擇：
+            <br/><br/>
+            #[strong 1. 繼續上課，改為「B 無條件買斷方案」]
+            <br/>
+            #[strong 2. 退出課程，但必須把學費（一個月 12500 元）繳清]
+            <br/><br/>
+            例如說小明在第二個月開始時選了「A 求職方案」，在課程第二個月結束時發現自己並沒有求職意願，想退出課程，就代表他多上了一個月的課，因此必須繳清的學費就是 12500 元。
+            <br/>
+            想知道學費方案為什麼這樣訂，請參考#[a(href="faq.html") 常見問題] 。

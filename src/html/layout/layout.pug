@@ -1,8 +1,11 @@
 // mixin
 mixin head_block(headInfo)  
   head
-      link(rel='stylesheet' href='/public/css/main.min.css')
-      title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link( rel="stylesheet" href="https://fonts.googleapis.com/css2?family=notosanstc&display=swap")
+    link(rel='stylesheet' href='/public/css/main.min.css')
+    title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
 
 // layout
 doctype html
@@ -14,6 +17,6 @@ html(lang='en')
   body
     block header
       include header.pug
-    block content
+    .wrapper
+      block content
     block footer
-

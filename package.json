@@ -6,6 +6,7 @@
   "dependencies": {
     "autoprefixer": "^9.7.6",
     "babel": "^6.23.0",
+    "bootstrap": "^4.4.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",

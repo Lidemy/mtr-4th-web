@@ -3,9 +3,16 @@ header.header
     a.header__logo(href="")
     nav 
       ul
-        - var list = ["計畫介紹", "課程大綱", "課程資訊", "教學成果", "FAQ"]
-        each item in list
+        -
+          var navs = [
+            { name: "計畫介紹", src: "project" },
+            { name: "課程大綱", src: "syllabus" },
+            { name: "教學成果", src: "achievement" },
+            { name: "課程資訊", src: "course-info" },
+            { name: "FAQ",     src: "faq" }
+          ];
+        each item in navs
             li 
-              a(href="")= item
+              a(href=`${item.src}.html`)= item.name
     a.header__cta-btn(href="") 
       span 了解報名資訊
