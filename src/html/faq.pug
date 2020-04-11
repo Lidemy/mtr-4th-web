@@ -4,7 +4,9 @@ extends layout/layout.pug
 mixin list_item(id, title)
   li.faq__list__item(id=id)
     a(href='#' + id).faq__list__item-link 
-      h3.faq__list__item-title= title
+      .faq__list__item-question 
+        span Q
+        h3.faq__list__item-question-title= title  
       i(class="fas fa-chevron-up")
     .faq__list__item-content
       span A
@@ -15,13 +17,13 @@ mixin list_item(id, title)
 block head
   meta(charset="UTF-8")
   meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   +head_block({
     title: 'FAQ'
   })
-
-
+  
 block content
-  .faq__container
+  .section.faq
     h2.faq__title FAQ
     ul.faq__list
       +list_item('question1', '為什麼這個計畫到了第四期還是「實驗」計畫？')
@@ -44,3 +46,4 @@ block content
         p 再來看看買斷制，買斷制主要是給「沒有求職意願」的人的方案，因為原本的收費模式不是用，所以才有了買斷制。對那些對自己求職很有自信的人，也一樣可以透過買斷制來節省學費。
         p 最後看原本有求職意願後來沒有的案例，對於這種案例，一樣會收取一定比例的學費。這是為什麼呢？因為以前幾屆發生過這種情況，那就是原本有求職意願，到後來卻沒有了。依據以前的制度，這種情況一樣只需要付 5000 元保證金即可，沒有其他額外費用。
         p 但學費之所以會設計成「找到工作後的 1.5 倍月薪」，是因為相信大家都有求職意願，願意去找工作，並且以找到工作與否來判定計畫是否有效。如果沒有了求職意願，就不應該用這個模式來計費。因此，這一期才會調整成「需要付一定比例學費」來維持公平性。
+  script(src="/public/js/app.min.js")

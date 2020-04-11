@@ -52,6 +52,10 @@ $breakpoints: (
     @include position(relative, $args...);
 }
 
+/* border-radius */ 
+@mixin border-radius($pixel...) {
+  border-radius: $pixel;
+}
 
 /* ------- extends ------- */
 %transition {

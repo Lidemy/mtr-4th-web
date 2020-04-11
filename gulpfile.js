@@ -83,6 +83,7 @@ function js() {
 function watch() {
   gulp.watch(`${base.src}/scss/**/*`, css);
   gulp.watch(`${base.src}/html/**/*`, html);
+  gulp.watch(`${base.src}/js/**/*`, js);
   gulp.watch(`${base.src}/image/*`, img);
 }
 
