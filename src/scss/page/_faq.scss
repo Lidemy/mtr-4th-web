@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
 
     &-title {
       @include font-size(16px);
@@ -58,7 +58,7 @@
     background: white;
 
     .fa-chevron-up{
-      @extend %transition;
+      transition: transform 0.5s;
     }
 
     &:hover {
@@ -72,9 +72,11 @@
   @include font-size(15px);
   @include border-radius(0 0 5px 5px);
   @extend %transition;
-  display: none;
-  // align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
   background-color: white;
+  max-height:0;
+  overflow: hidden;
 
   &-text {
     padding: 20px;
@@ -99,7 +101,6 @@
   }
 
   .faq__list__item-content {
-    display: flex;
-    align-items: flex-start;
+    max-height: 2000px;
   }
 }
