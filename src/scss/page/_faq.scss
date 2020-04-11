@@ -96,8 +96,16 @@
 }
 
 .faq__list__item.active {
+  box-shadow: 0px 5px 15px rgba(202, 65, 65, 0.15), 0px 2px 0px rgba(0, 0, 0, 0.05);
+  margin: 15px 0 28px 0;
   .fa-chevron-up {
     transform: rotate(180deg);
+  }
+
+  .faq__list__item-link {
+    @include border-radius(5px 5px 0 0);
+    background-color: $main-color;
+    color: white;
   }
 
   .faq__list__item-content {
