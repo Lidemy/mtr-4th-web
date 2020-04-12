@@ -4,6 +4,7 @@ mixin head_block(headInfo)
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link( rel="stylesheet" href="https://fonts.googleapis.com/css2?family=notosanstc&display=swap")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
     link(rel='stylesheet' href='/public/css/main.min.css')
     title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
 
@@ -20,3 +21,4 @@ html(lang='en')
     .wrapper
       block content
     block footer
+  script(src="/public/js/app.min.js")
