@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $(".faq__list__item").click(function (e) {
+  $(".faq__list__item-link").click(function(e) {
     e.preventDefault()
-    $(this).toggleClass("active").siblings().removeClass("active")
+    $(this).closest(".faq__list__item").toggleClass("active").siblings().removeClass("active")
   })
 });
