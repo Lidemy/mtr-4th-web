@@ -1,42 +1,46 @@
+/* post -------------------- */
 .post {
   max-width: $width-tablet;
-  margin: 0 auto 60px auto;
+  margin: 0 auto;
 
-  &-title {
+  &:not(:nth-last-of-type(1)) {
+      margin-bottom: 2.5rem;
+    }
+
+  &__title {
     @include font-size(22px);
     margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
 
-    .theme-light & {
-      color: white;
+    a:hover {
+      color: $main-color;
+    }
+
+    &:before {
+      display: inline-block;
+      content: '#';
+      color: $main-color;
+      font-size: 16px;
+      @include absolute($top: 3px, $left: 0);
+      font-weight: bold;
     }
   }
 
-  &-content {
+  &__content {
     border-top: 1px dashed $grey-light;
-    border-bottom: 1px dashed $grey-light;
     padding: 25px 0;
-
-    .theme-light & {
-      border-color: white;
-    }
 
     p {
       @include font-size(16px);
       line-height: 2rem;
       color: $grey;
-
-      .theme-light & {
-        color: white;
-        strong {
-         color: white;
-       }
-      }
     }
   }
 }
 
-// strong
-.post-content p a {
+/* post > strong, a */
+.post__content a {
   display: inline-block;
   @include font-size(17px);
   margin: 2px 5px;
@@ -58,7 +62,7 @@
     bottom: -1px;
   }
 }
-.post-content p strong{
+.post__content strong{
   @include font-size(17px);
   margin-bottom: 10px;
   position: relative;
@@ -84,6 +88,31 @@
   }
 }
 
+/* post: theme-light */
+.post {
+  .theme-light &__title {
+    color: white;
+
+    &:before {
+      color: rgba(white, 0.5);
+    }
+
+    a:hover {
+      color: rgba(white, 0.9);
+    }
+  }
+  .theme-light &__content {
+    border-color: white;
+    p {
+      color: white;
+      strong {
+        color: white;
+      }
+    }
+  }
+}
+
+/*  plan-compare -------------------- */
 .plan-compare {
   display: flex;
   justify-content: space-around;
@@ -99,10 +128,6 @@
     background:white;
     border-radius: 10px;
     padding: 30px;
-
-    &:hover {
-      box-shadow: 0px 0px 20px rgba(202, 65, 65, 0.1);
-    }
   }
 }
 
@@ -116,6 +141,7 @@
   }
 }
 
+/* plan-compare > item */
 .plan {
   &__version {
     @include font-size(14px);
@@ -143,9 +169,9 @@
   }
 
   &__sub-title {
+    @include font-size(15px);
     color: white;
     font-weight: normal;
-    @include font-size(15px);
     background: $grey-dark;
     padding: 8px 0;
     margin-bottom: 25px;
@@ -163,6 +189,7 @@
 .plan__item:hover {
   border-color: $main-color;
   transform: translateY(-3px);
+  box-shadow: 0px 0px 20px rgba(202, 65, 65, 0.1);
 
   .plan__title {
     &:before {
@@ -174,12 +201,13 @@
   }
 }
 
+/* plan-compare > item > content */
 .plan__content {
   padding: 25px 0;
   border-top: 1px solid lighten($grey-light, 20);
   text-align: left;
 
-  &-title {
+  &__title {
     @include font-size(18px);
     font-weight: bold;
     color: $grey-dark;
@@ -198,39 +226,105 @@
   }
 }
 
-.compare-table__container {
-  background: $main-color;
-  padding: 50px 0;
-  margin:50px 0;
-
-  .compare-table {
-    max-width: $width-desktop-m;
-    margin: 0 auto;
-  }
+/* compare-table ---------------- */
+.compare-table {
+  max-width: $width-desktop-m;
+  margin: 0 auto;
 }
 
-
-
+/* compare-table > table */
 .table {
-  max-width: $width-desktop-s;
-  margin: 20px auto 40px auto;
-}
-
-.table-bordered,
-.table thead th {
-    border: 1px solid white;
-}
-.table-bordered {
-    td,
-    th {
+  box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
+  margin: 20px 0  30px 0;
+    td, th {
         border: 1px solid white;
         color: #fff;
         min-width: 110px
     }
 
-    thead td,
-    thead th {
+    thead td, thead th {
         background: darken($main-color, 15);
         color: #fff;
     }
+}
+
+/* apply ---------------- */
+.apply {
+  max-width: $width-desktop-l;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .pic {
+    @extend %responsive-img;
+    width: 350px;
+  }
+
+  &__content {
+    max-width: 680px;
+    flex: 1;
+  }
+}
+
+/* apply-list ---------------- */
+.post__content .apply-list {
+  &__item {
+    list-style: none;
+    counter-increment: li;
+    @include relative;
+
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 2.5rem;
+    }
+
+    &:before {
+      @include absolute($top: -5px, $left: -30px);
+      @include font-size(24px);
+      content: counter(li);
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      color: $main-color;
+      font-weight: bold;
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__title {
+    @include font-size(16px);
+    color: $grey;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    @include font-size(14px);
+    color: $grey-light;
+    line-height: 1.5rem;
+  }
+}
+
+/* letter-template ---------------- */
+.letter-template {
+  ol {
+    background: $main-color-dark;
+    padding: 30px 20px 30px 60px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 0px #9D2A2A;
+    margin: 2rem 0;
+  }
+
+  .post__content .apply-list {
+    &__item {
+      margin-bottom: 1.5rem;
+      &:before {
+        color: white;
+      }
+    }
+    &__title {
+      color: white;
+    }
+     &__desc {
+      color: rgba(white, 0.75);
+    }
+  }
 }
