@@ -204,10 +204,12 @@ nav li:hover {
   transition: height .5s;
 }
 
-.header__menu.is-opened {
-  height: 100%;
+.header__menu {
+  body.is-menu-opened & {
+    height: 100%;
+  }
 
-  .header__menu__close-btn {
+  body.is-menu-opened & .header__menu__close-btn {
     display: inline-block;
   }
 }
@@ -272,6 +274,6 @@ nav li:hover {
   visibility: hidden;
 }
 
-.overflow-hidden {
+.is-menu-opened {
   overflow: hidden;
 }
