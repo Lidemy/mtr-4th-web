@@ -3,12 +3,12 @@ $(document).ready(function() {
     var scrollHeight = $(document).scrollTop();
     if(scrollHeight > 120) {
       $(".header").addClass("is-shrunk");
-      $(".header__cta-btn, nav").addClass("off")
+      $(".header__cta-btn, .header__nav").addClass("off")
     } else {
       $(".header").removeClass("is-shrunk");
      
       setTimeout(function() {
-        $(".header__cta-btn, nav").removeClass("off")
+        $(".header__cta-btn, .header__nav").removeClass("off")
       }, 350);
     }
   })

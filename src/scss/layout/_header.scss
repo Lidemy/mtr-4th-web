@@ -1,49 +1,12 @@
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9;
-  &.is-shrunk {
-    .header__box {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .header__content {
-      display: flex;
-      justify-content: space-between;
-      width: 280px;
-    }
-
-    .header__cta-btn {
-      display: none;
-    }
-
-    nav {
-      display: none;
-    }
-
-    .header__responsive__icon {
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-.header__wrapper {
   position: fixed;
-  width: 100%;
-  margin: 30px auto;
-}
-
-.header__box {
+  z-index: 9;
   display: flex;
   justify-content: flex-end;
+  width: 100%;
   padding: 0 140px;
+  margin: 30px auto;
+
   @include mq('desktop-m') {
     padding: 0 60px;
   }
@@ -53,6 +16,31 @@
   }
 }
 
+.header.is-shrunk {
+  .header__content {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+  }
+
+  .header__cta-btn {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .header__responsive__icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// content
 .header__content {
   height: 90px;
   width: 100%;
@@ -85,7 +73,7 @@ nav {
   display: flex;
   flex: 1;
   justify-content: center;
-  
+
   @include mq('tablet') {
     display: none;
   }
@@ -201,26 +189,19 @@ nav li:hover {
   height: 0;
   overflow-y: auto;
   z-index: 10;
-  transition: height .5s;
+  transition: height 0.5s;
+  background: $main-color;
 }
 
 .header__menu {
   body.is-menu-opened & {
+    width: 100%;
     height: 100%;
   }
 
   body.is-menu-opened & .header__menu__close-btn {
     display: inline-block;
   }
-}
-
-.header__menu__wrapper {
-  background: $main-color;
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  
 }
 
 .header__menu__close-btn {
@@ -232,7 +213,7 @@ nav li:hover {
   border: 0;
   padding: 40px;
   background-color: transparent;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
   transition-delay: opacity 1s;
   display: none;
 
