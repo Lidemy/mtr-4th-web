@@ -64,6 +64,11 @@
   box-shadow: 0 4px 30px 0 $shadow-color;
   border: solid 0.5px $shadow-color;
   transition: width 0.275s cubic-bezier(0.07, 0.82, 0.41, 0.97);
+
+  @include mq('tablet') {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 // logo
@@ -81,7 +86,7 @@ nav {
   flex: 1;
   justify-content: center;
   
-  @include mq('desktop-m') {
+  @include mq('tablet') {
     display: none;
   }
 
@@ -159,6 +164,10 @@ nav li:hover {
       right: -10px;
     }
   }
+
+  @include mq('desktop-s') {
+    display: none;
+  }
 }
 
 // responsive icon
@@ -177,13 +186,13 @@ nav li:hover {
   }
 
   @include mq('tablet') {
-    width: 9.333333333333334vw;
-    height: 9.333333333333334vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 // responsive menu
-
 .header__menu {
   position: fixed;
   top: 0;
@@ -199,7 +208,7 @@ nav li:hover {
   height: 100%;
 
   .header__menu__close-btn {
-    opacity: 1;
+    display: inline-block;
   }
 }
 
@@ -221,9 +230,9 @@ nav li:hover {
   border: 0;
   padding: 40px;
   background-color: transparent;
-  opacity: 0;
   transition: opacity .5s;
   transition-delay: opacity 1s;
+  display: none;
 
   &:hover {
     color: white;
