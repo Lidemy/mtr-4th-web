@@ -1,18 +1,31 @@
 header.header
-  .header__inner
-    a.header__logo(href="")
-    nav 
-      ul
-        -
-          var navs = [
-            { name: "計畫介紹", src: "project" },
-            { name: "課程大綱", src: "syllabus" },
-            { name: "教學成果", src: "achievement" },
-            { name: "課程資訊", src: "course-info" },
-            { name: "FAQ",     src: "faq" }
-          ];
-        each item in navs
+  .header__wrapper
+    .header__box
+      .header__content
+        a.header__logo(href="")
+        nav 
+          ul
+            - 
+              var navs = [
+                { name: "計畫介紹", src: "project" },
+                { name: "課程大綱", src: "syllabus" },
+                { name: "教學成果", src: "achievement" },
+                { name: "課程資訊", src: "course-info" },
+                { name: "FAQ",     src: "faq" }
+              ];
+            each item in navs
+              li 
+                a(href=`${item.src}.html`)= item.name
+        a.header__cta-btn(href="") 
+          span 了解報名資訊
+        i(class="fas fa-bars header__responsive__icon")
+  .header__menu
+    .header__menu__wrapper
+      button.header__menu__close-btn
+        i(class="fas fa-times")
+      .header__menu__content
+        h3 MENU
+        ul
+          each item in navs
             li 
               a(href=`${item.src}.html`)= item.name
-    a.header__cta-btn(href="") 
-      span 了解報名資訊
