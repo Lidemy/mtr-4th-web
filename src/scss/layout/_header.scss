@@ -220,14 +220,17 @@ nav li:hover {
   top: 0;
   border: 0;
   padding: 40px;
-  outline: none;
-  background-color: $main-color;
+  background-color: transparent;
   opacity: 0;
   transition: opacity .5s;
   transition-delay: opacity 1s;
 
   &:hover {
     color: white;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
