@@ -11,12 +11,13 @@ ul {
   margin: 0;
 }
 
-a {
+a, button {
   text-decoration: none;
   color: inherit;
   border: none;
   &:hover {
     text-decoration: none;
+    color: $main-color;
   }
 }
 

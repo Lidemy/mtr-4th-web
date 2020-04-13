@@ -120,38 +120,8 @@ nav li:hover {
 
 // CTA button
 .header__cta-btn {
-  @extend %transition;
+  @include button_1($withIcon: true);
   transition-delay: 0.2s;
-  padding: 15px 30px 15px 25px;
-  border-radius: 50px;
-  background-color: $main-color;
-  box-shadow: 0 5px 5px 0 $shadow-color;
-  margin-left: auto;
-
-  span {
-    font-size: 15px;
-    line-height: 0.92;
-    letter-spacing: 1.92px;
-    color: white;
-  }
-
-  &:after {
-    @extend %fontawesome-icon;
-    @extend %transition;
-    color: white;
-    content: fa-content($fa-var-long-arrow-alt-right);
-    position: relative;
-    right: -5px;
-  }
-
-  &:hover {
-    padding: 15px 40px 15px 35px;
-    background-color: darken($main-color, 5);
-
-    &:after {
-      right: -10px;
-    }
-  }
 
   @include mq('desktop-s') {
     display: none;
@@ -170,7 +140,7 @@ nav li:hover {
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.04);
   }
 
   @include mq('tablet') {

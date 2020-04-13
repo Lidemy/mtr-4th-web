@@ -11,9 +11,11 @@
 @import './_reset.scss';
 @import './_mixin.scss';
 @import './_layout.scss';
+@import './_element.scss';
 
 @import './layout/_header.scss';
 @import './layout/_footer.scss';
+@import './layout/_cta_block.scss';
 
 @import './page/_faq.scss';
 @import './page/_course-info.scss';

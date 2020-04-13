@@ -2,7 +2,7 @@ extends layout/layout.pug
 
 
 mixin post_item(title, id, theme)
-  section.section.post(class=`${id} ${theme}`)
+  section.section.post(class=`${id} ${theme ? theme : ''}`)
     h3.post__title
       a(href=`#${id}`)= title
     .post__content
@@ -166,3 +166,5 @@ block content
             | 例如說你寫的小說、你畫的圖、你的一篇廢文等等。
         p.
           收到信件之後大概兩三天內會回覆一個罐頭回信，讓你知道有收到了。若是過一週都沒收到回信，麻煩請私訊粉絲團詢問。請記得，Google 表單填完跟寄信之後才算是報名成功，兩者缺一不可。
+
+  include layout/cta_block.pug

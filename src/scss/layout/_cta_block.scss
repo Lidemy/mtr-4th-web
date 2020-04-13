@@ -1,0 +1,37 @@
+.cta {
+  max-width: $width-desktop-s;
+  text-align: center;
+  padding: 70px 0;
+
+  background: url(/public/image/img_cta_bg.svg) left bottom no-repeat;
+  background-size: 230px auto;
+  background-position: 0 165px;
+
+  &__title {
+    @include font-size(26px);
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    @include font-size(14px);
+    max-width: 500px;
+    margin: 0 auto 1rem;
+  }
+}
+
+.cta__button {
+  @include button_1($withIcon: true);
+  &:not(:nth-last-of-type(1)) {
+    margin-right: 10px;
+  }
+
+  &-apply {
+  }
+
+  &-mail {
+    background: darken($grey, 15);
+    &:hover {
+      background: darken($grey, 25);
+    }
+  }
+}
