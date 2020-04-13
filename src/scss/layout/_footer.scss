@@ -1,0 +1,52 @@
+.footer {
+	width: 100%;
+	background: white;
+	color: $grey;
+}
+
+.footer__content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 40px 100px;
+}
+
+.footer__socialLinks {
+	p {
+		@include font-size(14px);
+	}
+}
+
+.footer__nav-list {
+	display: flex;
+	flex-direction: row;
+}
+
+.footer__nav-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	h4 {
+		@include font-size(14px);
+		padding-bottom: 12px;
+		margin-bottom: 15px;
+		font-weight: 800;
+		border-bottom: 1px solid $grey-light;
+	}
+
+	a {
+		@include font-size(12px);
+		line-height: 2;
+
+		&:first-child {
+		}
+	}
+}
+
+.footer__footnote {
+	@include font-size(12px);
+	text-align: center;
+	background: $main-color;
+	color: white;
+}

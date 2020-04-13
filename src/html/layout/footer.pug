@@ -1,0 +1,69 @@
+mixin footer_nav_item(item) 
+  li.footer__nav-item.ml-5
+    h4.footer__nav-title= item.title
+    each content in item.contents
+      a(href=`${content.link}`)= content.text
+
+//- footer
+block footer
+  footer.footer
+    .footer__content
+      .footer__socialLinks.pr-5
+        img.footer__logo(src="", alt="")
+        h3 Lidemy
+        p 用六個月的時間，培養出一個找得到工作且基礎紮實的網頁工程師。
+      ul.footer__nav-list
+        -
+          var footerItems = [
+            {
+              title: "HOME",
+              contents: [
+                { text: "課程特色", link: "http://localhost:8080/public/index.html"},
+                { text: "課程內容", link: "http://localhost:8080/public/index.html"},
+                { text: "教學方式", link: "http://localhost:8080/public/index.html"},
+                { text: "課程時程", link: "http://localhost:8080/public/index.html"},
+                { text: "適合怎樣的人", link: "http://localhost:8080/public/index.html"},
+                { text: "學員心得節錄", link: "http://localhost:8080/public/index.html"},
+              ]
+            },
+            {
+              title: "INTRODUCE",
+              contents: [
+                { text: "計畫介紹", link: "http://localhost:8080/public/introduce.html"},
+                { text: "老師介紹", link: "http://localhost:8080/public/introduce.html"},
+                { text: "歷屆改進心得", link: "http://localhost:8080/public/introduce.html"},
+              ]
+            },
+            {
+              title: "COURSE",
+              contents: [
+                { text: "課程大綱", link: "http://localhost:8080/public/course.html"},
+                { text: "學習地圖", link: "http://localhost:8080/public/course.html"},
+              ]
+            },
+            {
+              title: "RESULT",
+              contents: [
+                { text: "歷屆數據", link: "http://localhost:8080/public/result.html"},
+                { text: "結業心得", link: "http://localhost:8080/public/result.html"},
+              ]
+            },
+            {
+              title: "APPLY",
+              contents: [
+                { text: "課程制度", link: "http://localhost:8080/public/course-info.html#rule"},
+                { text: "收費方式", link: "http://localhost:8080/public/course-info.html#charge"},
+                { text: "報名方式", link: "http://localhost:8080/public/course-info.html#apply"},
+                { text: "報名信內容", link: "http://localhost:8080/public/course-info.html#letter"},
+              ]
+            },
+            {
+              title: "FAQ",
+              contents: [
+                { text: "常見問題", link: "http://localhost:8080/public/faq.html"},
+              ]
+            },
+          ];
+        each item in footerItems
+          +footer_nav_item(item)
+    p.footer__footnote.py-2.mb-0 © 2020 Lidemy. All Right Resevered.
