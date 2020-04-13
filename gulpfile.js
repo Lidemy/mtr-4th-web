@@ -16,6 +16,7 @@ const babel = require('gulp-babel');
 const base = {
   src: 'src',
   dest: 'public',
+  ghPage: 'docs',
 }
 const paths = {
   css: {
@@ -37,7 +38,7 @@ const paths = {
 };
 
 function clean() {
-  return del([base.dest]);
+  return del([base.dest, base.ghPage]);
 }
 
 function html() {
@@ -63,6 +64,11 @@ function css() {
     }))
     .pipe(dest(paths.css.dest))
     .pipe(connect.reload())
+}
+
+function font() {
+  return src(`${base.src}/webfonts/*`)
+    .pipe(dest(`${base.dest}/webfonts`))
 }
 
 function img() {
@@ -95,8 +101,14 @@ function server() {
   connect.server(options);
 };
 
-const resource = gulp.parallel(html, css, js, img)
+function make() {
+  return src(`${base.dest}/**/*`)
+    .pipe(dest(base.ghPage))
+}
+
+const resource = gulp.parallel(html, css, js, img, font)
 const build = gulp.series(clean, resource, gulp.parallel(watch, server))
 
 exports.clean = clean;
 exports.default = build;
+exports.make = make;
