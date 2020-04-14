@@ -4,10 +4,10 @@
   line-height: 1.5;
   margin: 0 auto;
   &__title {
+    @include font-size(36px);
     font-family: Montserrat;
-    font-size: 36px;
     font-weight: bold;
-    line-height: 2.5;
+    line-height: 2.5em;
     color: $main-color;
     text-align: center;
   }
@@ -20,6 +20,7 @@
 }
 
 .faq__list__item {
+  @extend %transition;
   @include border-radius(5px);
   width: 90%;
   margin-bottom: 13px;
@@ -34,7 +35,7 @@
 
     &-title {
       @include font-size(16px);
-      font-weight: normal;
+      font-weight: bold;
       padding: 0 18px;
       margin: 0;
     }
@@ -71,11 +72,11 @@
 .faq__list__item-content {
   @include font-size(15px);
   @include border-radius(0 0 5px 5px);
-  @extend %transition;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  max-height:0;
   display: flex;
   align-items: flex-start;
   background-color: white;
-  max-height:0;
   overflow: hidden;
 
   &-text {
@@ -113,6 +114,7 @@
   }
 
   .faq__list__item-content {
+    transition: max-height 1s ease-in-out;
     max-height: 2000px;
   }
 }
