@@ -1,66 +1,77 @@
 mixin footer_nav_item(item) 
-  li.footer__nav-item.ml-5
+  li.footer__nav-item
     h4.footer__nav-title= item.title
     each content in item.contents
       a(href=`${content.link}`)= content.text
 
 //- footer
+block header 
+
 block footer
   footer.footer
     .footer__content
-      .footer__socialLinks.pr-5
-        img.footer__logo(src="", alt="")
-        h3 Lidemy
+      .footer__links
+        a(href="#").footer__logo
+          img(src="./image/logo_lidemy.png" alt="lidemy logo").footer__logo-img
+          h3 Lidemy
         p 用六個月的時間，培養出一個找得到工作且基礎紮實的網頁工程師。
+        p.footer__follow FOLLOW US
+        .footer__social__icons
+          a(href="#").footer__github-link
+            <i class="fab fa-github"></i>
+          a(href="#").footer__facebook-link
+            <i class="fab fa-facebook-square"></i>
+          a(href="#").footer__medium-link
+            <i class="fab fa-medium"></i>
       ul.footer__nav-list
         -
           var footerItems = [
             {
               title: "HOME",
               contents: [
-                { text: "課程特色", link: "http://localhost:8080/public/index.html"},
-                { text: "課程內容", link: "http://localhost:8080/public/index.html"},
-                { text: "教學方式", link: "http://localhost:8080/public/index.html"},
-                { text: "課程時程", link: "http://localhost:8080/public/index.html"},
-                { text: "適合怎樣的人", link: "http://localhost:8080/public/index.html"},
-                { text: "學員心得節錄", link: "http://localhost:8080/public/index.html"},
+                { text: "課程特色", link: "index.html#features"},
+                { text: "課程內容", link: "index.html#content"},
+                { text: "教學方式", link: "index.html#methods"},
+                { text: "課程時程", link: "index.html#schedule"},
+                { text: "適合怎樣的人", link: "index.html#target"},
+                { text: "學員心得節錄", link: "index.html#experience"},
               ]
             },
             {
               title: "INTRODUCE",
               contents: [
-                { text: "計畫介紹", link: "http://localhost:8080/public/introduce.html"},
-                { text: "老師介紹", link: "http://localhost:8080/public/introduce.html"},
-                { text: "歷屆改進心得", link: "http://localhost:8080/public/introduce.html"},
+                { text: "計畫介紹", link: "introduce.html#planIntro"},
+                { text: "老師介紹", link: "introduce.html#teacherIntro"},
+                { text: "歷屆改進心得", link: "introduce.html#experience"},
               ]
             },
             {
               title: "COURSE",
               contents: [
-                { text: "課程大綱", link: "http://localhost:8080/public/course.html"},
-                { text: "學習地圖", link: "http://localhost:8080/public/course.html"},
+                { text: "課程大綱", link: "course.html#outline"},
+                { text: "學習地圖", link: "course.html#map"},
               ]
             },
             {
               title: "RESULT",
               contents: [
-                { text: "歷屆數據", link: "http://localhost:8080/public/result.html"},
-                { text: "結業心得", link: "http://localhost:8080/public/result.html"},
+                { text: "歷屆數據", link: "result.html#data"},
+                { text: "結業心得", link: "result.html#experience"},
               ]
             },
             {
               title: "APPLY",
               contents: [
-                { text: "課程制度", link: "http://localhost:8080/public/course-info.html#rule"},
-                { text: "收費方式", link: "http://localhost:8080/public/course-info.html#charge"},
-                { text: "報名方式", link: "http://localhost:8080/public/course-info.html#apply"},
-                { text: "報名信內容", link: "http://localhost:8080/public/course-info.html#letter"},
+                { text: "課程制度", link: "course-info.html#rule"},
+                { text: "收費方式", link: "course-info.html#charge"},
+                { text: "報名方式", link: "course-info.html#apply"},
+                { text: "報名信內容", link: "course-info.html#letter"},
               ]
             },
             {
               title: "FAQ",
               contents: [
-                { text: "常見問題", link: "http://localhost:8080/public/faq.html"},
+                { text: "常見問題", link: "faq.html"},
               ]
             },
           ];

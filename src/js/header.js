@@ -8,8 +8,8 @@ $(document).ready(function() {
       $(".header").removeClass("is-shrunk");
      
       setTimeout(function() {
-        $(".header__cta-btn, .header__nav").removeClass("off")
-      }, 350);
+        $(".header__cta-btn.off, .header__nav.off").removeClass("off")
+      }, 500);
     }
   })
 
