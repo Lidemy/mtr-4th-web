@@ -12,6 +12,7 @@
     margin-bottom: 20px;
     position: relative;
     padding-left: 15px;
+    color: $color-theme-dark;
 
     a:hover {
       color: $main-color;
@@ -45,21 +46,19 @@
   @include font-size(17px);
   margin: 2px 5px;
   padding: 0px 10px;
-  border-radius: 5px;
-  background: darken($main-color, 10);
-  border-bottom: 2px solid darken($main-color, 20);
+  color: $color-theme-dark;
+  font-weight: bold;
+  border-bottom: 2px solid $color-theme-dark;
   box-shadow: 0 0 1px rgba(black, 0.1);
   line-height: 1.7rem;
-  position: relative;
 
   .theme-light & {
     color: white;
   }
 
   &:hover {
-    border-width: 1px;
-    line-height: 1.8rem;
-    bottom: -1px;
+    border-color: lighten($color-theme-dark, 30);
+    color: lighten($color-theme-dark, 30);
   }
 }
 .post__content strong{
@@ -74,7 +73,7 @@
   &:before {
     content: '';
     display: block;
-    background: #ffc4c4;
+    background: #e1c9c9;
     width: 100%;
     height: 9px;
     position: absolute;
@@ -233,8 +232,13 @@
 
 /* compare-table > table */
 .table {
+  border-radius: 5px;
+  overflow: hidden;
+  border-collapse: collapse;
   box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
   margin: 20px 0  30px 0;
+  background: #c47b7b;
+
     td, th {
         border: 1px solid white;
         color: #fff;
@@ -242,7 +246,7 @@
     }
 
     thead td, thead th {
-        background: darken($main-color, 15);
+        background: #4f3f3f;
         color: #fff;
     }
 }
@@ -305,18 +309,19 @@
 /* letter-template ---------------- */
 .letter-template {
   ol {
-    background: $main-color-dark;
+    background: $color-theme-dark;
     padding: 30px 20px 30px 60px;
     border-radius: 15px;
-    box-shadow: 0px 4px 0px #9D2A2A;
-    margin: 2rem 0;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
+    margin: 2rem 0 2.5rem 0;
+    position: relative;
   }
 
   .post__content .apply-list {
     &__item {
       margin-bottom: 1.5rem;
       &:before {
-        color: white;
+        color: #e9baac;
       }
     }
     &__title {
@@ -324,6 +329,35 @@
     }
      &__desc {
       color: rgba(white, 0.75);
+    }
+  }
+}
+/* letter-template > .copy */
+.copy__container {
+  @include absolute($bottom: -20px, $left: 0);
+  width: 100%;
+  text-align: center;
+
+  #copy__text {
+    width: 0;
+    height: 0;
+    opacity:0;
+  }
+
+  .copy__btn {
+    @include button_1($withIcon: true, $iconId: $fa-var-copy);
+    background-color: #a1817a;
+    font-weight: bold;
+    box-shadow: 0 4px 0px #c6c1c0;
+    &:after {
+      transition: none;
+      right: auto;
+      left: 5px;
+    }
+
+
+    &:hover {
+      background: darken(#a1817a, 5);
     }
   }
 }

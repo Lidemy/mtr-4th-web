@@ -1,4 +1,4 @@
-@mixin button_1($withIcon) {
+@mixin button_1($withIcon, $iconId: $fa-var-long-arrow-alt-right) {
   @extend %transition;
   display: inline-block;
   padding: 12px 25px;
@@ -18,13 +18,12 @@
       @extend %fontawesome-icon;
       @extend %transition;
       color: white;
-      content: fa-content($fa-var-long-arrow-alt-right);
+      content: fa-content($iconId);
       position: relative;
       right: -5px;
     }
 
     &:hover {
-      padding: 12px 40px 12px 35px;
       background-color: darken($main-color, 5);
 
       &:after {
