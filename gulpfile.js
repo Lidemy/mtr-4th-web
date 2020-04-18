@@ -63,7 +63,8 @@ const js = (done) => {
         }))
         .pipe(gulp.dest(paths.js.dest));
     });
-    es.merge(tasks).on('end', done);
+    es.merge(tasks).on('end', done)
+      .pipe(connect.reload());
   })
 }
 

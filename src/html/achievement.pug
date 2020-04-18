@@ -1,0 +1,14 @@
+extends layout/layout.pug
+
+//- header
+block head
+  +head_block({
+    title: '歷屆成果'
+  })
+
+//- content
+block content
+  section.section.student-report
+    .chart-container
+      canvas#chart
+  script(src="js/chart.bundle.js")
