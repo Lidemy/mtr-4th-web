@@ -1,0 +1,6 @@
+mixin post_item(title, id, theme)
+  section.section.post(class=`${id} ${theme ? theme : ''}`)
+    h3.post__title
+      a(href=`#${id}`)= title
+    .post__content
+      block

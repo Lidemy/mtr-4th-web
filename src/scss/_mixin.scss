@@ -30,7 +30,7 @@ $breakpoints: (
 
 /* pseudo */
 @mixin pseudo($display: block, $content: '') {
-    content: '';
+    content: $content;
     display: $display;
 }
 

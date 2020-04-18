@@ -1,12 +1,6 @@
 extends layout/layout.pug
 
-
-mixin post_item(title, id, theme)
-  section.section.post(class=`${id} ${theme ? theme : ''}`)
-    h3.post__title
-      a(href=`#${id}`)= title
-    .post__content
-      block
+include mixin/_mixin.pug
 
 mixin plan_compare(version, title, sub_title, desc)
   section.plan__item

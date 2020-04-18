@@ -10,16 +10,6 @@ const options = {
       top: 20,
     }
   },
-  title: {
-    display: true,
-    fontSize: 24,
-    position: 'top',
-    text: '學生求職成果',
-    padding: 20,
-  },
-  scales: {
-
-  },
   legend: {
     align: 'center',
     position: 'top',
@@ -27,7 +17,6 @@ const options = {
     labels: {
       fontColor: '#666',
       fontSize: 12,
-      // padding: 20,
     }
   },
 }
@@ -40,7 +29,7 @@ const data = {
   },
   datasets: [
     {
-      label: '結業人數',
+      label: '時限內求職成功人數',
       backgroundColor: '#D26B6B',
       hoverBackgroundColor: '#C25A5A',
       borderColor: '#FFD9D9',
@@ -50,7 +39,7 @@ const data = {
 
     },
     {
-      label: '時限內求職成功人數',
+      label: '結業人數',
       backgroundColor: '#FC849A',
       hoverBackgroundColor: '#F28397',
       borderColor: '#E27474',

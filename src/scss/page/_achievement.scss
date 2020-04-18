@@ -14,11 +14,47 @@
   }
 }
 
+/* student-report -------------------- */
 .student-report {
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  @extend %shadow-card;
   max-width: $width-desktop-s;
-  padding: 40px 20px;
-  margin: 0 auto 2.5rem auto;
+  padding-top: 40px;
+  margin-bottom:2.5rem;
+
+  &__links {
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto;
+
+     a {
+        @extend %link;
+        border: none;
+        color: $grey;
+        text-decoration-color: #c8c8c8;
+        text-decoration-style: solid;
+        margin-bottom: .5rem;
+
+        em {
+          font-style: normal;
+          color: $main-color;
+        }
+      }
+  }
+  .post {
+    &__title, &__content  {
+      text-align: center;
+    }
+  }
+}
+
+@include mq('desktop-m') {
+  .student-report {
+    margin: 0 20px 1rem 20px;
+  }
+}
+
+/* student-experience -------------------- */
+.student-experience {
+  @extend %shadow-card;
+  max-width: $width-desktop-s;
 }

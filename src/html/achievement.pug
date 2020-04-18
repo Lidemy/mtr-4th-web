@@ -1,14 +1,37 @@
 extends layout/layout.pug
 
+include mixin/_mixin.pug
+
 //- header
 block head
   +head_block({
     title: '歷屆成果'
   })
 
+
 //- content
 block content
   section.section.student-report
-    .chart-container
-      canvas#chart
+    +post_item('歷屆成果報告', 'data')
+      p.
+        以下是歷屆的學生求職狀況，如果想要了解更詳細的資訊，可以參考以下文章：
+      .student-report__links
+        a(href='') #[em 第一期]： 程式導師實驗計畫第一期成果與心得
+        a(href='') #[em 第二期]： 27% 的人找到工作——程式導師實驗計畫第二期成果報吿
+        a(href='') #[em 第三期]： 華麗謝幕：程式導師實驗計畫第三期成果以及未來走向
+
+    +post_item('學生求職成果', 'report')
+      .chart-container
+        canvas#chart
+      p.annotation * 結業的定義：課程結束時沒有被淘汰制淘汰，意思就是一直有在跟課程，但結業時不一定有「把課程都上完」，詳情可見第三期心得，裡面有詳細數據。
+
+  .full-bg.theme-dark.my-5
+    section.section.student-experience
+      +post_item('歷屆學員心得', 'experience')
+        p.
+          以程式導師實驗計畫在每一期結束時都會請學生寫課程心得，好的壞的都可以，還會提醒盡量寫缺點，這樣才能盡快在下一期改進。
+          除此之外，並不是只有時限內找到工作的人會留下心得。時限內沒有找到工作的學生所留下的心得同等重要，而且有平衡報導的效果。
+          <br><br>
+          許多課程的心得永遠只看得到那些表面的光鮮亮麗，忽略了背後的痛苦掙扎，這個計畫的心得想呈現的是學生最真實的想法。 底下是各期的完整心得：
+
   script(src="js/chart.bundle.js")
