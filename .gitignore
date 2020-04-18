@@ -2,4 +2,6 @@
 
 
 public/
+docs/
 node_modules/
+build/

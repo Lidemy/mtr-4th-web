@@ -20,7 +20,7 @@ const es = require('event-stream');
 const base = {
   src: 'src',
   dest: 'public',
-  ghPage: 'docs',
+  ghPage: 'build',
 }
 const paths = {
   css: {
