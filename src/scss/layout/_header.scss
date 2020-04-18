@@ -1,3 +1,4 @@
+/* header -------------------- */
 .header {
   position: fixed;
   z-index: 9;
@@ -9,39 +10,23 @@
   pointer-events: none;
 
   @include mq('desktop-m') {
-    padding: 0 60px;
+    padding: 0 30px;
   }
 
   @include mq('tablet') {
-    padding: 0 6vw;
+    padding: 0 4vw;
   }
 }
 
-.header.is-shrunk {
-  .header__content {
-    display: flex;
-    justify-content: space-between;
-    width: 280px;
-  }
-
-  nav {
-    display: none;
-  }
-
-  .header__cta-btn {
-    display: none;
-  }
-
-  .header__responsive__icon {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+header.menu-opened {
+  @include mq('desktop-s') {
+    .header__content {
+      height: auto;
+    }
   }
 }
 
-// content
+/* header > content */
 .header__content {
   height: 90px;
   width: 100%;
@@ -53,16 +38,31 @@
   pointer-events: auto;
   box-shadow: 0 4px 30px 0 $shadow-color;
   border: solid 0.5px $shadow-color;
-  transition: width 0.275s cubic-bezier(0.07, 0.82, 0.41, 0.97);
+  transition: all 0.275s cubic-bezier(0.07, 0.82, 0.41, 0.97);
+  transition-property: width, height;
 
-  @include mq('tablet') {
-    display: flex;
-    justify-content: space-between;
+  @include mq('desktop-s') {
+    overflow: hidden;
+    flex-direction: column;
+    align-items: flex-start;
+
   }
 }
 
-// logo
+/* header > content > logo */
 .header__logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mq('desktop-s') {
+    width: 100%;
+    margin-bottom: 34px;
+  }
+}
+
+.header__logo-img {
   display: block;
   height: 40px;
   width: 110px;
@@ -70,69 +70,7 @@
   background-size: 100% auto;
 }
 
-// nav
-nav {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  opacity: 1;
-  transition: opacity 1s;
-
-  @include mq('tablet') {
-    display: none;
-  }
-
-  li {
-    display: inline-block;
-    font-size: 15px;
-    color: $grey;
-
-    a {
-      @extend %transition;
-      display: inline-block;
-      padding: 5px 0;
-      margin: 0 15px;
-      position: relative;
-
-      &:before {
-        z-index: 1;
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 100%;
-        height: 1px;
-        background: $main-color;
-        transform: scale(0, 1);
-        transition: transform 0.6s ease;
-      }
-    }
-  }
-}
-
-// nav
-nav li:hover {
-  a {
-    color: $main-color;
-
-    &:before {
-      transform-origin: left;
-      transform: scale(1, 1);
-    }
-  }
-}
-
-// CTA button
-.header__cta-btn {
-  @include button_1($withIcon: true);
-  transition-delay: 0.2s;
-
-  @include mq('desktop-s') {
-    display: none;
-  }
-}
-
-// responsive icon
+/* header > content > icon */
 .header__responsive__icon {
   @extend %transition;
   @include border-radius(50%);
@@ -147,90 +85,130 @@ nav li:hover {
     transform: scale(1.04);
   }
 
-  @include mq('tablet') {
+  @include mq('desktop-s') {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
 
-// responsive menu
-.header__menu {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* header > content > nav */
+nav {
   width: 100%;
-  height: 0;
-  overflow: hidden;
-  z-index: 10;
-  transition: height 0.5s;
-  background: $main-color;
-  pointer-events: auto;
-}
-
-.header__menu {
-  body.is-menu-opened & {
-    width: 100%;
-    height: 100%;
-  }
-
-  body.is-menu-opened & .header__menu__close-btn {
-    display: inline-block;
-  }
-}
-
-.header__menu__close-btn {
-  @extend %transition;
-  @include font-size(50px);
-  position: fixed;
-  right: 0;
-  top: 0;
-  border: 0;
-  padding: 40px;
-  background-color: transparent;
-  transition: opacity 0.5s;
-  transition-delay: opacity 1s;
-  display: none;
-
-  &:hover {
-    color: white;
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.header__menu__content {
   display: flex;
-  flex-direction: column;
+  flex: 1;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 150px;
-  color: white;
+  opacity: 1;
+  transition: opacity 1s;
 
-  h3 {
-    @include font-size(50px);
-  }
+  ul {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
 
-  a {
-    @include font-size(20px);
-    line-height: 2;
-    padding: 10px 20px;
-
-    &:hover {
-      background-color: $grey-light;
-      color: white;
+    @include mq('desktop-s') {
+      flex-direction: column;
     }
   }
 }
 
-.off {
-  visibility: hidden;
-  opacity: 0;
+/* nav > ul > li */
+nav li {
+  display: inline-block;
+  font-size: 15px;
+  color: $grey;
+
+  @include mq('desktop-s') {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:nth-last-of-type(1) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      margin-bottom: 27px;
+    }
+  }
+
+  a {
+    @extend %transition;
+    display: inline-block;
+    width: 100%;
+    padding: 16px 0;
+    margin: 0 15px;
+    position: relative;
+
+    &:before {
+      z-index: 1;
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: $main-color;
+      transform: scale(0, 1);
+      transition: transform 0.6s ease;
+
+      @include mq('desktop-s') {
+        width: 0;
+      }
+    }
+  }
 }
 
-.is-menu-opened {
-  overflow: hidden;
+/* nav > ul > li:hover */
+nav li:hover {
+  a {
+    color: $main-color;
+
+    &:before {
+      transform-origin: left;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+/* header > content > CTA button */
+.header__cta-btn {
+  @include button_1($withIcon: true);
+  transition-delay: 0.2s;
+
+}
+
+/* media query */
+@media (min-width: $width-desktop-l) {
+  // header shrunk
+  .header.is-shrunk {
+    .header__logo {
+      width: 100%;
+    }
+
+    .header__content {
+      display: flex;
+      justify-content: space-between;
+      width: 280px;
+    }
+
+    nav {
+      display: none;
+    }
+
+    .header__cta-btn {
+      display: none;
+    }
+
+    .header__responsive__icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* header invisible */
+  nav.content-invisible,
+  .header__cta-btn.content-invisible {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
