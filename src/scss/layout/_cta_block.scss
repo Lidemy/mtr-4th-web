@@ -1,7 +1,7 @@
 .cta {
   max-width: $width-desktop-s;
   text-align: center;
-  padding: 70px 0;
+  padding: 70px 20px;
 
   background: url(./../image/img_cta_bg.svg) left bottom no-repeat;
   background-size: 230px auto;
@@ -16,6 +16,24 @@
     @include font-size(14px);
     max-width: 500px;
     margin: 0 auto 1rem;
+  }
+}
+
+@include mq('tablet') {
+  .cta {
+    padding-bottom: 130px;
+    background-position: center 250px;
+  }
+}
+@include mq('mobile-s') {
+  .cta {
+    padding-bottom: 150px;
+    background-position: center 330px;
+
+    &__button {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 

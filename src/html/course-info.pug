@@ -67,44 +67,45 @@ block content
   .full-bg.my-5
     section.compare-table
       +post_item('方案比一比', 'compare')
-        table.table.table-hover.table-bordered.table-striped.text-left
-          thead
-            tr
-              th
-              th A 求職方案
-              th B 無條件買斷
-          tbody
-            tr
-              td 適合對象
-              td 有求職意願的人，未來想要成為工程師的人
-              td 1. 已經是工程師<br>2. 時間一波一波，比較難固定產出，但想要衝一波學習網站開發的人
-            tr
-              td 免學費機制
-              td 結業後兩個月內若找到工作，學費總額就是 1.5 倍的月薪；找不到工作者全免
-              td 無，固定價格
-            tr
-              td 心得
-              td 週一至週五每一天都必須在學習系統內報告進度
-              td 無硬性規定
-            tr
-              td 淘汰規則
-              td 兩週內每日進度報告累積缺交三次即淘汰
-              td 無淘汰規則
-            tr
-              td 繳費方式
-              td(colspan="2") 學費付費時間十分彈性。若是有經濟上的困難，可以等「課程結束」以後再分期付款，最多可以分到 12 期零利率。
-                | 若是有其他困難也可以再討論付費相關事宜。
-            tr
-              td 試用期
-              td(colspan="2") 課程前兩個月為試用觀察期，不需繳交任何費用。
-            tr
-              td 保證金
-              td(colspan="2") 開課兩個月後繳交保證金 5000 元。
-            tr
-              td 價格
-              td *1.5 倍的月薪<br>
-                | （依據歷屆學員的資料，月薪中位數約為 43000 元，學費就是 64500 元）
-              td 55000 元
+        .table-responsive-sm
+          table.table.table-hover.table-bordered.table-striped.text-left
+            thead
+              tr
+                th
+                th A 求職方案
+                th B 無條件買斷
+            tbody
+              tr
+                td 適合對象
+                td 有求職意願的人，未來想要成為工程師的人
+                td 1. 已經是工程師<br>2. 時間一波一波，比較難固定產出，但想要衝一波學習網站開發的人
+              tr
+                td 免學費機制
+                td 結業後兩個月內若找到工作，學費總額就是 1.5 倍的月薪；找不到工作者全免
+                td 無，固定價格
+              tr
+                td 心得
+                td 週一至週五每一天都必須在學習系統內報告進度
+                td 無硬性規定
+              tr
+                td 淘汰規則
+                td 兩週內每日進度報告累積缺交三次即淘汰
+                td 無淘汰規則
+              tr
+                td 繳費方式
+                td(colspan="2") 學費付費時間十分彈性。若是有經濟上的困難，可以等「課程結束」以後再分期付款，最多可以分到 12 期零利率。
+                  | 若是有其他困難也可以再討論付費相關事宜。
+              tr
+                td 試用期
+                td(colspan="2") 課程前兩個月為試用觀察期，不需繳交任何費用。
+              tr
+                td 保證金
+                td(colspan="2") 開課兩個月後繳交保證金 5000 元。
+              tr
+                td 價格
+                td *1.5 倍的月薪<br>
+                  | （依據歷屆學員的資料，月薪中位數約為 43000 元，學費就是 64500 元）
+                td 55000 元
         p.
           首選了付費方案以後基本上就無法變更，除非原本選「A 求職方案」，但是後來發現自己沒有求職意願，那有兩條路可以選擇：
           <br/><br/>
@@ -128,7 +129,7 @@ block content
       .pic
         img(src="image/img_apply.svg", alt="")
       .apply__content
-        +post_item('報名方式', 'apply')
+        +post_item('報名方式', 'registration')
           ol
             +apply-list__item('填寫 Google 表單（一些基本資料）')
             +apply-list__item('去研究什麼是 Scratch，並且做出一個小作品')

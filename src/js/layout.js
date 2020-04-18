@@ -1,4 +1,4 @@
-window.addEventListener("hashchange", function (e) {
+function scrollToHash(e) {
   e.preventDefault();
   const url = location.hash.substr(1);
   const target = document.querySelector(`.${url}`).offsetTop - 60;
@@ -7,4 +7,8 @@ window.addEventListener("hashchange", function (e) {
     left: 0,
     behavior: 'smooth' // => 滑動效果
   });
+}
+
+['hashchange', 'DOMContentLoaded'].forEach(function (item) {
+  window.addEventListener(item, scrollToHash);
 });

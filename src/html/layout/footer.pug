@@ -11,17 +11,18 @@ block footer
   footer.footer
     .footer__content
       .footer__links
-        a(href="#").footer__logo
-          img(src="./image/logo_lidemy.png" alt="lidemy logo").footer__logo-img
+        a(href="#").logo
+          .pic
+            img(src="./image/logo_lidemy.png" alt="lidemy logo").footer__logo-img
           h3 Lidemy
         p 用六個月的時間，培養出一個找得到工作且基礎紮實的網頁工程師。
         p.footer__follow FOLLOW US
-        .footer__social__icons
-          a(href="#").footer__github-link
+        .footer__social.social-icons
+          a(href="#").github-link
             <i class="fab fa-github"></i>
-          a(href="#").footer__facebook-link
+          a(href="#").facebook-link
             <i class="fab fa-facebook-square"></i>
-          a(href="#").footer__medium-link
+          a(href="#").medium-link
             <i class="fab fa-medium"></i>
       ul.footer__nav-list
         -
@@ -64,7 +65,7 @@ block footer
               contents: [
                 { text: "課程制度", link: "course-info.html#rule"},
                 { text: "收費方式", link: "course-info.html#charge"},
-                { text: "報名方式", link: "course-info.html#apply"},
+                { text: "報名方式", link: "course-info.html#registration"},
                 { text: "報名信內容", link: "course-info.html#letter"},
               ]
             },

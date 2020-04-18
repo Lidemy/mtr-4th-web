@@ -22,19 +22,21 @@
 	flex-direction: column;
 	width: 250px;
 
-	.footer__logo {
+	.logo {
 		display: flex;
 		align-items: center;
 		margin-bottom: 28px;
 
-		&-img {
-			width: 58px;
-			height: 58px;
+		.pic {
+			@extend %responsive-img;
+			width: 55px;
+			height: 55px;
 			margin-right: 16px;
 		}
 
 		h3 {
-			@include font-size(24px)
+			@include font-size(24px);
+			margin: 0;
 		}	
 	}
 
@@ -45,11 +47,11 @@
 	.footer__follow {
 		color: black;
 		font-weight: bold;
-		letter-spacing: 6px;
+		letter-spacing: 0.12rem;
 	}
 }
 
-.footer__social__icons {
+.social-icons {
 	a {
 		@include font-size(27px);
 		margin-right: 24px;
@@ -59,7 +61,6 @@
 // footer navs 
 .footer__nav-list {
 	display: flex;
-	// flex-direction: row;
 	justify-content: space-evenly;
 	flex: 1;
 	max-width: 750px;
@@ -91,4 +92,47 @@
 	text-align: center;
 	background: $main-color;
 	color: white;
+}
+
+
+@include mq('desktop-s') {
+	.footer {
+		&__content {
+			flex-direction: column;
+			padding: 40px 30px;
+
+		}
+		&__links {
+			width: 100%;
+
+			.logo {
+				margin-bottom: .5rem;
+				.pic {
+					width: 40px;
+					height: 40px;
+				}
+
+				h3 {
+					@include font-size(16px)
+				}
+			}
+
+			p {
+				@include font-size(13px)
+			}
+
+		}
+
+		&__social {
+			justify-content: center;
+		}
+
+		&__follow {
+			display: none;
+		}
+
+		&__nav-list {
+			display: none;
+		}
+  }
 }
