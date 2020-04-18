@@ -1,3 +1,7 @@
+import boostrap from 'bootstrap';
+import $ from 'jquery';
+import ClipboardJS from 'clipboard';
+
 $('[data-toggle="tooltip"]').tooltip()
 
 function setTooltip(btn, message) {
@@ -25,5 +29,3 @@ clipboard.on('error', function (e) {
   setTooltip(e.trigger, 'Failed!');
   hideTooltip(e.trigger);
 });
-
-

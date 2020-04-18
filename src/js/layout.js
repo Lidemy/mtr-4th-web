@@ -1,6 +1,9 @@
 function scrollToHash(e) {
   e.preventDefault();
+
   const url = location.hash.substr(1);
+  if (!url) return
+
   const target = document.querySelector(`.${url}`).offsetTop - 60;
   window.scrollTo({
     top: target,

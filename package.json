@@ -4,12 +4,14 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "@babel/runtime": "^7.9.2",
+    "@popperjs/core": "^2.3.3",
     "autoprefixer": "^9.7.6",
     "babel": "^6.23.0",
     "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
     "clipboard": "^2.0.6",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-imagemin": "^7.1.0",
@@ -21,10 +23,22 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.1",
     "del": "^5.1.0",
+    "event-stream": "^4.0.1",
     "font-awesome": "^4.7.0",
+    "glob": "^7.1.6",
+    "gulp-babel": "^8.0.0",
     "gulp-connect": "^5.7.0",
-    "rfs": "^9.0.2"
+    "jquery": "^3.5.0",
+    "popper.js": "^1.16.1",
+    "rfs": "^9.0.2",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

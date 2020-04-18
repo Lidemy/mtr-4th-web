@@ -11,7 +11,11 @@ const sourcemaps = require('gulp-sourcemaps');
 const connect = require('gulp-connect');
 const imageMin = require('gulp-imagemin');
 const del = require('del')
-const babel = require('gulp-babel');
+const browserify = require("browserify");
+const babelify = require("babelify");
+const source = require("vinyl-source-stream");
+const glob = require('glob');
+const es = require('event-stream');
 
 const base = {
   src: 'src',
@@ -39,6 +43,28 @@ const paths = {
 
 function clean() {
   return del([base.dest, base.ghPage]);
+}
+
+const js = (done) => {
+  glob('./src/js/bundle/*.js', function (err, files) {
+    if (err) done(err);
+
+    files.push('src/js/index.js');
+    var tasks = files.map(function (entry) {
+      return browserify({
+        entries: [entry],
+        debug: true,
+        transform: [babelify.configure(),]
+      })
+        .bundle()
+        .pipe(source(entry.match(/[^\\/]+$/)[0]))
+        .pipe(rename({
+          extname: '.bundle.js'
+        }))
+        .pipe(gulp.dest(paths.js.dest));
+    });
+    es.merge(tasks).on('end', done);
+  })
 }
 
 function html() {
@@ -75,14 +101,6 @@ function img() {
   return src(paths.image.src)
     .pipe(imageMin())
     .pipe(dest(paths.image.dest))
-    .pipe(connect.reload())
-}
-
-function js() {
-  return src(paths.js.src, { sourcemaps: true })
-    .pipe(babel())
-    .pipe(concat('app.min.js'))
-    .pipe(dest(paths.js.dest, { sourcemaps: true }))
     .pipe(connect.reload())
 }
 
