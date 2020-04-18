@@ -131,10 +131,13 @@ nav li {
   a {
     @extend %transition;
     display: inline-block;
-    width: 100%;
     padding: 16px 0;
     margin: 0 15px;
     position: relative;
+
+    @include mq('desktop-s') {
+      width: 100%;
+    }
 
     &:before {
       z-index: 1;
