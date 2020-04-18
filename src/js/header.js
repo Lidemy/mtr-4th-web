@@ -29,7 +29,7 @@ $(document).ready(function() {
     } else {
       setTimeout(function() {
         $(".header__cta-btn.content-invisible, .header__nav.content-invisible").removeClass("content-invisible")
-      }, 500);
+      }, 50);
     }
   })
 })

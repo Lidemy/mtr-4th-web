@@ -42,7 +42,12 @@ const paths = {
 };
 
 function clean() {
-  return del([base.dest, base.ghPage]);
+  return del([
+    base.dest,
+    `${base.ghPage}/*`,
+    `!${base.ghPage}/.git`,
+    `!${base.ghPage}/.gitignore`,
+  ]);
 }
 
 const js = (done) => {
@@ -130,4 +135,4 @@ const build = gulp.series(clean, resource, gulp.parallel(watch, server))
 
 exports.clean = clean;
 exports.default = build;
-exports.make = make;
+exports.make = gulp.series(clean, resource, make);
