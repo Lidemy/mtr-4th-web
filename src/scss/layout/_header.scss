@@ -178,7 +178,7 @@ nav li:hover {
 }
 
 /* media query */
-@media (min-width: $width-desktop-l) {
+@media (min-width: $width-desktop-s) {
   // header shrunk
   .header.is-shrunk {
     .header__logo {

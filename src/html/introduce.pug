@@ -1,0 +1,247 @@
+extends layout/layout.pug
+
+//- mixin
+mixin project_list_item(item)
+  li.project__list-item
+    i(class=`fas ${item.icon} project__list-item-icon`)
+    h4= item.title
+    p= item.text
+
+mixin about_intro_item(item)
+  .about__teacher-intro-content
+    h4= item.title
+    p= item.text
+
+mixin about_article_link(article)
+  a(href=`${article.link}` target="_blank")= article.title
+
+mixin improvement_card(card)
+  .improvement__card__container
+    li.improvement__list-card
+      span= card.date
+      <br/>
+      h4= card.title
+      ul
+        each text in card.content
+          li= text
+    .arrow-icon
+    
+mixin improvement_article(article) 
+  - const tags = ['第一期', '第二期', '第三期']
+  li
+    time= article.date
+    a(href=`${article.link}` target="_blank")= article.title
+    each tag, idx in tags
+      if (article.tag === idx + 1) 
+        span(class=`tag__theme-${++idx}`)= tag
+    
+//- header
+block head
+  +head_block({
+    title: '計畫介紹'
+  })
+
+//- content
+block content
+  section.project
+    .project__text 
+      h3 實驗 <span>X</span> 自學 <span>X</span> 公開
+      p.
+        程式導師實驗計畫開始於 2017 年 12 月，大概每半年為一期，
+        當初創立的目標為：「四個月內，把你培養成一個找得到工作的網頁工程師（前端或後端）」，
+        一直到第二期結束後發現時間太短，因此改為六個月。
+    .project__list__container
+      ul.project__list
+        - 
+          var projectItems = [
+            {
+              title: "這是一堂會不斷進化的課程",
+              text: "計劃名稱會有「實驗」兩個字，是因為課程結束以後會誠實地做檢討（並且對外公開檢討成果），把不足的部分補齊。實驗兩字不代表這堂課不完整，它代表了「實驗精神」，不斷去試錯，不斷去改進，讓課程變得更好，學生也會一起變得更好。",
+              icon: "fa-chart-line"
+            },
+            {
+              title: "基礎紮實與自學能力才是生存之道",
+              text: "計這個技術演進飛快的年代，掌握好這兩點才是生存之道。這裡一樣教你如何使用工具，但也會一併把背後原理教給你。課程規劃在中後期刻意不給太詳細的資訊，就是為了讓學生培養自學能力。",
+              icon: "fa-chalkboard-teacher"
+            },
+            {
+              title: "正視自己的缺點並公開出來",
+              text: "「公開」是這個計畫不同於其他人之處。 每一期的就業率、學生人數、薪水資訊以及檢討報告都是公開資訊—— 因為你所看到的缺點，在下一期都會有所改進。課綱以及作業也都公開在 GitHub 上，若是對課程內容有疑慮，可以請周遭熟悉技術的朋友幫你看看課綱品質如何。",
+              icon: "fa-eye"
+            }
+          ];
+        each item in projectItems
+          +project_list_item(item)
+  section.about
+    .about__info
+      .about__teacher-title
+        h3 About Huli
+        span 關於導師
+      .about__teacher-intro
+        - 
+          var introItems = [
+            {
+              title: "如果你想聽一些感覺很厲害的，把標籤貼好貼滿的版本，那我會這樣跟你說：",
+              text: "小六開始自學程式，考大學時因為不喜歡物理化學所以選了文組，考上了台大哲學系。唸了一年半之後毅然決然休學出去工作，接著被新加坡跨國公司看中邀請面試，在新加坡待了兩年半，離開前為一間跨國新創公司的 Front-end team lead。"
+            },
+            {
+              title: "如果你想聽比較誠實的版本，我會這樣介紹自己：",
+              text: "重度拖延症患者，興趣是光想不做，有很多想做的事，卻一件都沒有執行。無聊的時候喜歡寫寫文章，發現自己好像有把事情講得比其他人清楚的能力；興趣是偶爾看看動畫，偶爾追劇（最近看了想見你、愛的迫降跟梨泰院 class）以及看 YouTube（各大 YouTuber 都有看一點）。"
+            }
+          ]
+        each item in introItems
+          +about_intro_item(item)
+      .about__articles-title
+        h3 Articles
+        span 我寫過的技術文章
+        p.
+          喜歡寫字，寫了很多在技術圈小有名氣的文章，
+          在 Medium 平台上的部落格有 6500 人追蹤，個人技術部落格有 150 萬瀏覽次數。
+      .about__articles-content
+        .about__articles-content-easy
+          h4 比較偏故事性，#[strong 淺顯易懂 ]的文章：
+          -
+            var easyArticles = [
+              {
+                title: "零基礎的小明要如何成為前端工程師？",
+                link: "https://medium.com/hulis-blog/frontend-engineer-guide-297821512f4e"
+              },
+              {
+                title: "跟著小明一起搞懂技術名詞：MVC、SPA 與 SSR",
+                link: "https://medium.com/@hulitw/introduction-mvc-spa-and-ssr-545c941669e9"
+              },
+              {
+                title: "從拉麵店的販賣機理解什麼是 API",
+                link: "https://medium.com/@hulitw/ramen-and-api-6238437dc544"
+              },
+              {
+                title: "白話 Session 與 Cookie：從經營雜貨店開始",
+                link: "https://medium.com/@hulitw/session-and-cookie-15e47ed838bc",
+              },
+              {
+                title: "從傳紙條輕鬆學習基本網路概念",
+                link: "https://medium.com/@hulitw/learning-tcp-ip-http-via-sending-letter-5d3299203660"
+              }
+            ]
+          ul.about__articles-content-list
+            each article in easyArticles
+              +about_article_link(article)
+        .about__articles-content-hard
+          h4 比較 #[strong 硬實力 ] 的技術文章有：
+          - 
+            var hardArticles = [
+              {
+                title: "深入探討 JavaScript 中的參數傳遞：call by value 還是 reference？",
+                link: "https://blog.huli.tw/2018/06/23/javascript-call-by-value-or-reference/"
+              },
+              {
+                title: "我知道你懂 hoisting，可是你了解到多深？",
+                link: "https://blog.huli.tw/2018/11/10/javascript-hoisting-and-tdz/"
+              },
+              {
+                title: "深入 Session 與 Cookie：Express、PHP 與 Rails 的實作",
+                link: "https://blog.huli.tw/2019/08/09/session-and-cookie-part3/"
+              },
+              {
+                title: "我遇過的最難的 Cookie 問題",
+                link: "https://blog.huli.tw/2017/08/27/a-cookie-problem/"
+              },
+              {
+                title: "從 V8 bytecode 探討 let 與 var 的效能問題",
+                link: "https://blog.huli.tw/2020/02/20/let-vs-var-bytecode/"
+              }
+            ]
+          ul.about__articles-content-list
+            each article in hardArticles
+              +about_article_link(article)
+  section.improvement
+    .improvement__intro
+      img(src="./image/img_project_2.svg")
+      .improvement__intro-content
+        span Author name
+        h3 歷來改進心得 
+        p.
+          每一期計畫結束以後，都會花一點時間檢討，並且在下一期改進。
+          以第三期為例，在課程結束後與十幾位同學開了一次期末聚會兼檢討會，一週一週檢討課程，
+          從學生的回饋中尋求改進方法。秉持著公開透明的原則，每一期的缺點以及可以改進的事項都會公開在網路上。
+    ul.improvement__list
+      - 
+        var improvementCards = [
+          { 
+            date: "2018/9",
+            title: "第二期改進內容",
+            content: [
+              "調整課綱，讓學習曲線不要那麼陡峭",
+              "強化程式基礎",
+              "新增淘汰制，增加學習動力"
+            ]
+          },
+          {
+            date: "2019/4",
+            title: "第三期改進內容",
+            content: [
+              "時間由四個月增長為六個月",
+              "新增 JavaScript 核心課程內容，強化 JavaScript 能力",
+              "新增部分線上課程，從原本看直播存檔學習調整為看影片",
+              "新增自行開發學習系統，增強課程凝聚力",
+              "新增網路基礎課程，幫助理解網路相關知識"
+            ]
+          },
+          {
+            date: "2020/5",
+            title: "第四期改進內容",
+            content: [
+              "引進助教制度，讓助教一起幫忙改作業",
+              "修正 PHP 後端課程內容",
+              "重新調整每週作業",
+              "引入產品以及開發流程相關課程確立 final project 合作機制"
+            ]
+          }
+        ]
+      each card in improvementCards
+        +improvement_card(card)
+    .improvement__articles 
+      p 以上是各期大略改進的內容，想看細節的話可以參考當初的心得文章：
+      ul.improvement__articles__list
+        -
+          var articles = [
+            {
+              date: "2018/6/25",
+              title: "程式導師實驗計畫第一期成果與心得",
+              link: "https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb",
+              tag: 1,
+            },
+            {
+              date: "2018/12/4",
+              title: "這是一堂沒那麼適合初學者的課程——程式導師實驗計畫第二期期中反思",
+              link: "https://medium.com/hulis-blog/mentor-program-2nd-mid-c7539f67b7d7",
+              tag: 2,
+            },
+            {
+              date: "2019/1/21",
+              title: "四個月過去了，來找我學程式的學生們怎麼樣了？",
+              link: "https://medium.com/hulis-blog/mentor-program-2nd-review-e7c15f24dfb8",
+              tag: 2,
+            },
+            {
+              date: "2019/3/13",
+              title: "27% 的人找到工作——程式導師實驗計畫第二期成果報吿",
+              link: "https://medium.com/hulis-blog/mentor-program-2nd-result-3cb7c2b6627e",
+              tag: 2,
+            },
+            {
+              date: "2019/5/29",
+              title: "從線上到線下：第三期教學實驗滿月心得分享",
+              link: "https://medium.com/hulis-blog/from-online-to-offline-bd99e545277a",
+              tag: 3,
+            },
+            {
+              date: "2019/12/15",
+              title: "華麗謝幕：程式導師實驗計畫第三期成果以及未來走向",
+              link: "https://medium.com/@hulitw/mentor-program-3rd-result-df178bb55f4",
+              tag: 3,
+            },
+          ];
+        each article in articles 
+          +improvement_article(article)
+        
