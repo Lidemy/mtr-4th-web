@@ -1,70 +1,83 @@
 /* ------- media query ------- */
 $breakpoints: (
-    "mobile-s":  $width-mobile-s,
-    "mobile-m":  $width-mobile-m,
-    "mobile-l":  $width-mobile-l,
-    "tablet":    $width-tablet,
-    "desktop-s": $width-desktop-s,
-    "desktop-m": $width-desktop-m,
-    "desktop-l": $width-desktop-l,
+  'mobile-s': $width-mobile-s,
+  'mobile-m': $width-mobile-m,
+  'mobile-l': $width-mobile-l,
+  'tablet': $width-tablet,
+  'desktop-s': $width-desktop-s,
+  'desktop-m': $width-desktop-m,
+  'desktop-l': $width-desktop-l,
 );
 
 @mixin mq($width) {
-    @if map_has_key($breakpoints, $width) {
-        $width: map_get($breakpoints, $width);
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
 
-        @media screen and (max-width: $width) {
-            @content;
-        }
+    @media screen and (max-width: $width) {
+      @content;
     }
+  }
 }
 
 /* ------- mixins ------- */
 
 /* size */
 @mixin size($width, $height: $width) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
-
 
 /* pseudo */
 @mixin pseudo($display: block, $content: '') {
-    content: $content;
-    display: $display;
+  content: $content;
+  display: $display;
 }
 
+@mixin arrow-icon-pseudo($url, $width: 45px, $height: 20px) {
+  @include pseudo(inline-block);
+  @include relative($top: 7px, $left: 15px);
+  width: $width;
+  height: $height;
+  background: url($url) left top no-repeat;
+  background-size: 100% auto;
+}
 
 /* position */
-@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
-    position: $position;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
+@mixin position(
+  $position,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }
 
 @mixin absolute($args...) {
-    @include position(absolute, $args...);
+  @include position(absolute, $args...);
 }
 
 @mixin relative($args...) {
-    @include position(relative, $args...);
+  @include position(relative, $args...);
 }
 
-/* border-radius */ 
+/* border-radius */
 @mixin border-radius($pixel...) {
   border-radius: $pixel;
 }
 
 /* ------- extends ------- */
 %transition {
-    transition: all .3s;
+  transition: all 0.3s;
 }
 
 %reset {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 %responsive-img {
@@ -87,4 +100,16 @@ $breakpoints: (
   @extend .fas;
   display: inline-block;
   text-rendering: auto;
+}
+
+%custom-border-bottom {
+  content: '';
+  display: block;
+  background: #ebd8d8;
+  width: 100%;
+  height: 9px;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  z-index: -1;
 }
