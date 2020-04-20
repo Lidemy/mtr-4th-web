@@ -58,3 +58,106 @@
   @extend %shadow-card;
   max-width: $width-desktop-s;
 }
+
+
+.student-list {
+  &__container {
+    background: rgba(233, 233, 233, 0.9);
+    padding: 50px 30px 50px 50px;
+    border-radius: 50px;
+    margin: 40px;
+  }
+
+  &__group {
+    margin-bottom: 20px;
+    padding-left: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    flex: 1;
+    align-content: center;
+
+    &:before {
+      @include pseudo(inline-block);
+      @include absolute($top: 0, $left: 0);
+      width: 4px;
+      height: 100%;
+      border-radius: 2px;
+    }
+  }
+
+  &__card {
+    transition: transform 0.5s;
+    flex-grow: 1;
+    display: inline-block;
+    background: white;
+    padding: 5px 20px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin: 0 10px 10px;
+    flex: 0 1 150px;
+
+    p {
+      @include font-size(15px);
+      margin-bottom: 0;
+      color: $grey-dark;
+      font-weight: bold;
+    }
+    span {
+      font-size: 13px;
+      color: $grey-light;
+      position: relative;
+      &:after {
+        @include pseudo(inline-block);
+        width: 10px;
+        height: 10px;
+        background: $main-color;
+        margin-left: 7px;
+        border-radius: 5px;
+      }
+    }
+
+  }
+}
+
+
+$groupColor: (
+  group_0: $main-color,
+  group_1: #FF9393,
+  group_2: $grey-light,
+);
+
+/* .student-list: theme */
+@each $group, $color in $groupColor {
+  .student-list {
+    &__group {
+      &.#{$group}:before {
+        background: $color;
+      }
+    }
+
+    &__card {
+      .#{$group} & span:after {
+        background: $color;
+      }
+    }
+  }
+}
+
+/* .student-list > card:hover */
+.student-list__card:hover {
+  transform: translateY(-1px);
+
+  & > * {
+    color: white
+  }
+
+  @each $group, $color in $groupColor {
+    .#{$group} & {
+      background: $color;
+      span:after {
+        background: lighten($color, 20);
+      }
+    }
+  }
+}
