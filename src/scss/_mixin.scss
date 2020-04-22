@@ -7,6 +7,7 @@ $breakpoints: (
   'desktop-s': $width-desktop-s,
   'desktop-m': $width-desktop-m,
   'desktop-l': $width-desktop-l,
+  'desktop-xl': $width-desktop-xl
 );
 
 @mixin mq($width) {
@@ -33,7 +34,7 @@ $breakpoints: (
   display: $display;
 }
 
-@mixin arrow-icon-pseudo($url, $width: 45px, $height: 20px) {
+@mixin arrow-icon-pseudo($url: './../image/icon_arrow_right_red.png', $width: 45px, $height: 20px) {
   @include pseudo(inline-block);
   @include relative($top: 7px, $left: 15px);
   width: $width;
