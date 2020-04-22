@@ -59,13 +59,27 @@
   max-width: $width-desktop-s;
 }
 
-
 .student-list {
+  background: rgba(233, 233, 233, 0.9);
+  padding: 90px 30px 50px 50px;
+  border-radius: 50px;
+  position: relative;
+  
+  &:before {
+    @include pseudo(block);
+    @include absolute($top: -225px, $left: 0);
+    background: url(./../image/img_student_experence.svg) top center no-repeat;
+    background-size: 53% auto;
+    width: 100%;
+    height: 250px;
+  }
+
   &__container {
-    background: rgba(233, 233, 233, 0.9);
-    padding: 50px 30px 50px 50px;
-    border-radius: 50px;
-    margin: 40px;
+    background: url(./../image/bg_grid.png) center center repeat;
+    background-size: 24px;
+    position: relative;
+    padding: 70px 35px 30px;
+    margin: 150px 35px 30px;
   }
 
   &__group {
@@ -95,7 +109,7 @@
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     margin: 0 10px 10px;
-    flex: 0 1 150px;
+    flex: 0 1 135px;
 
     p {
       @include font-size(15px);
@@ -116,28 +130,85 @@
         border-radius: 5px;
       }
     }
-
   }
 }
 
+/* .student-list > menu */
+.student-list__menu {
+  @include absolute($top: -20px, $left: 0);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__link {
+    display: flex;
+    max-width: 180px;
+    margin-right: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    a {
+      display: inline-block;
+      padding: 10px 50px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 5px rgba(61, 8, 8, 0.15);
+      margin-bottom: 10px;
+    }
+
+    p {
+      @include font-size(15px);
+      font-weight: bold;
+      color: white;
+      margin: 0;
+      letter-spacing: 0.18rem;
+      line-height: 30px;
+
+      i {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 11px;
+        line-height: 30px;
+      }
+    }
+    span {
+      font-size: 13px;
+      color: $grey;
+      padding-bottom: 2px;
+      border-bottom: 1px solid lighten($grey-light, 20);
+    }
+  }
+}
 
 $groupColor: (
-  group_0: $main-color,
-  group_1: #FF9393,
-  group_2: $grey-light,
+  0: $main-color,
+  1: #FF9393,
+  2: $grey-light,
 );
 
+/* .student-list > menu */
+@each $groupNum, $color in $groupColor {
+  .student-list__menu__link {
+    &.link_#{$groupNum} a {
+      background: $color;
+    }
+
+    &.link_#{$groupNum}:hover a {
+      background: lighten($color, 5);
+    }
+  }
+}
+
 /* .student-list: theme */
-@each $group, $color in $groupColor {
+@each $groupNum, $color in $groupColor {
   .student-list {
     &__group {
-      &.#{$group}:before {
+      &.group_#{$groupNum}:before {
         background: $color;
       }
     }
 
     &__card {
-      .#{$group} & span:after {
+      .group_#{$groupNum} & span:after {
         background: $color;
       }
     }
@@ -152,8 +223,8 @@ $groupColor: (
     color: white
   }
 
-  @each $group, $color in $groupColor {
-    .#{$group} & {
+  @each $groupNum, $color in $groupColor {
+    .group_#{$groupNum} & {
       background: $color;
       span:after {
         background: lighten($color, 20);
