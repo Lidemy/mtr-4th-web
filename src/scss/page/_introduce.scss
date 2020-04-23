@@ -3,6 +3,10 @@
   background: url('../image/img_project_1.svg') no-repeat;
   background-size: 350px auto;
   background-position: right 200px top 0px;
+
+  @include mq('desktop-s') {
+    background: none;
+  }
 }
 
 /* project__text */
@@ -10,6 +14,10 @@
   max-width: $width-desktop-s;
   padding: 100px 20px 0 20px;
   margin: 0 auto 70px auto;
+
+  @include mq('desktop-s') {
+    text-align: center;
+  }
 
   h3 {
     @include font-size(34px);
@@ -23,6 +31,15 @@
   p {
     max-width: 490px;
     line-height: 2em;
+
+    @include mq('desktop-s') {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @include mq('desktop-s') {
+    padding-top: 40px;
   }
 }
 
@@ -30,34 +47,49 @@
 .project__list__container {
   width: 100%;
   background: linear-gradient(180deg, $main-bg-Color 38%, $main-color 0%);
+
+  @include mq('desktop-s') {
+    background: $main-color;
+  }
 }
 
 .project__list {
   max-width: $width-desktop-l;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 
+  @include mq('desktop-s') {
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &-item {
-    @include border-radius(10px);
-    width: 31.33333%;
-    margin: 0 1%;
+    width: calc((100% - 64px) / 3);
+    margin: 0 16px;
     text-align: center;
     background-color: white;
+    border-radius: 10px;
     padding: 33px 27px;
     box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
 
+    @include mq('desktop-s') {
+      width: auto;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
     h4 {
       @include font-size(18px);
-      margin: 25px 0 19px 0;
+      margin: 25px 0 20px 0;
     }
 
     p {
       @include font-size(14px);
       letter-spacing: 0.2px;
       line-height: 28px;
-      color: #373f41;
+      color: $grey;
     }
   }
 
@@ -71,13 +103,17 @@
 .about {
   background-color: $main-color;
   padding: 140px 20px 115px 20px;
+
+  @include mq('desktop-s') {
+    padding-top: 70px;
+  }
 }
 
 .about__info {
-  @include border-radius(15px);
   max-width: $width-desktop-m;
   margin: 0 auto;
   background-color: white;
+  border-radius: 15px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   padding: 65px 55px;
 }
@@ -89,9 +125,8 @@
 
   h3 {
     @include font-size(36px);
-    font-family: Mplus 1p;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.6);
+    color: $grey;
   }
 
   span {
@@ -102,16 +137,18 @@
 
 /* about > teacher > intro */
 .about__teacher-intro {
-  display: flex;
-  flex-direction: column;
-  color: rgba(0, 0, 0, 0.6);
+  color: $grey;
 
   &-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px dashed #c4c4c4;
-    padding: 54px 0;
+    padding: 55px 0;
+
+    @include mq('desktop-s') {
+      flex-direction: column;
+    }
   }
 
   h4 {
@@ -120,6 +157,14 @@
     line-height: 32px;
     position: relative;
     z-index: 1;
+
+    @include mq('desktop-s') {
+      width: 60%;
+    }
+
+    @include mq('mobile-l') {
+      width: 90%;
+    }
 
     &:before {
       content: '';
@@ -138,7 +183,14 @@
     @include font-size(15px);
     width: 45%;
     line-height: 33px;
-    letter-spacing: -0.015em;
+
+    @include mq('desktop-s') {
+      width: 80%;
+    }
+
+    @include mq('mobile-l') {
+      width: 100%;
+    }
   }
 }
 
@@ -149,9 +201,8 @@
 
   h3 {
     @include font-size(36px);
-    font-family: Mplus 1p;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.6);
+    color: $grey;
   }
 
   span {
@@ -163,14 +214,14 @@
 
   p {
     @include font-size(16px);
-    max-width: 85%;
-    color: rgba(0, 0, 0, 0.8);
+    width: 85%;
+    color: $grey-dark;
   }
 }
 
 /* about > articles > content */
 .about__articles-content {
-  padding-top: 38px;
+  padding-top: 40px;
   border-bottom: 1px dashed #c4c4c4;
 
   h4 {
@@ -183,27 +234,29 @@
   }
 
   &-list {
-    padding: 0 0 46px 0;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 45px;
 
     a {
-      margin: 20px 0 0 -20px;
-    }
-  }
+      display: block;
+      margin: 20px 0 0 5px; // 20px 0px 0 5px;
+      padding-left: 20px;
+      position: relative;
 
-  &-easy {
-    ul a {
       &:before {
-        @include arrow-icon-pseudo('./../image/icon_arrow_right_red.png');
+        @include arrow-icon-pseudo();
+        @include absolute($top: 3px, $left: -8px);
       }
-    }
-  }
 
-  &-hard {
-    ul a {
-      &:before {
-        @include arrow-icon-pseudo('./../image/icon_arrow_right_blue.png');
+      .theme-easy &:before {
+        background-image: url('./../image/icon_arrow_right_red.png');
+      }
+
+      .theme-hard &:before {
+        background-image: url('./../image/icon_arrow_right_blue.png');
+      }
+
+      .theme-hard &:hover {
+        color: $sub-color;
       }
     }
   }
@@ -213,16 +266,26 @@
 .improvement__intro {
   background: #a22424;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 40px 20px 0 20px;
 
+  img {
+    @include mq('tablet') {
+      display: none;
+    }
+  }
+
   &-content {
+    @include font-size(14px);
     max-width: 700px;
     margin-left: 65px;
     color: white;
-    @include font-size(14px);
+
+    @include mq('tablet') {
+      margin-left: 0px;
+    }
+
     h3 {
       @include font-size(36px);
       font-weight: normal;
@@ -239,55 +302,89 @@
 .improvement__list {
   background: $main-color;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   padding: 100px 20px;
+
+  @include mq('desktop-xl') {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .improvement__card__container {
-  // width: calc((100% - 40px) / 3);
   display: flex;
   justify-content: space-evenly;
-  // border: 1px solid white;
+  width: 470px;
+
+  @include mq('desktop-xl') {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+  }
+
+  @include mq('tablet') {
+    width: 100%;
+  }
 
   &:nth-last-of-type(1) .arrow-icon {
     display: none;
   }
-  
+  &:nth-last-of-type(1) {
+    width: 400px;
+
+    @include mq('desktop-xl') {
+      width: 650px;
+    }
+
+    @include mq('tablet') {
+      width: 100%;
+    }
+  }
   .arrow-icon {
-    @include border-radius(50%);
     display: inline-block;
     width: 37px;
     height: 37px;
-    background: #9D2A2A;
+    background: #9d2a2a;
     align-self: center;
+    border-radius: 50%;
     margin: 15px;
     position: relative;
 
     &:before {
-      @include absolute($top: 3px, $left: 8px);
+      @extend %fontawesome-icon;
+      @include absolute($top: 7px, $left: 8px);
+      content: fa-content($fa-var-arrow-right);
       font-size: 22px;
       color: white;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 800;
-      content: '\f061';
+
+      @include mq('desktop-xl') {
+        content: fa-content($fa-var-arrow-down);
+      }
     }
   }
 }
 
 .improvement__list-card {
-  @include border-radius(15px);
-  // width: calc((100% - 50px) / 3);
-  max-width: 400px;
+  border-radius: 15px;
+  width: 400px;
   background: white;
   padding: 35px 25px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+  @include mq('desktop-xl') {
+    width: 650px;
+  }
+
+  @include mq('tablet') {
+    width: 100%;
+  }
+
   span {
-    @include border-radius(7px);
     background: $main-color;
     color: white;
     padding: 5px 10px;
+    border-radius: 7px;
   }
 
   h4 {
@@ -298,7 +395,7 @@
     z-index: 1;
 
     &:before {
-      @extend %custom-border-bottom
+      @extend %custom-border-bottom;
     }
   }
 
@@ -320,7 +417,7 @@
 .improvement__articles {
   background: $main-color;
   color: white;
-  padding-bottom: 140px;
+  padding:0 20px 140px 20px;
 
   p {
     @include font-size(18px);
@@ -329,32 +426,36 @@
   }
 }
 
-.improvement__articles__list{
-  @include border-radius(20px);
+.improvement__articles__list {
   max-width: 800px;
   margin: 0 auto;
-  border: 1.5px solid #EDEEEF;
+  border: 1.5px solid white;
+  border-radius: 20px;
   padding: 40px;
   margin-top: 46px;
 }
 
 .improvement__articles__list li {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   padding: 25px 0 15px 0;
-  border-bottom: 1px dashed #C4C4C4;
+  border-bottom: 1px dashed #c4c4c4;
 
   &:nth-last-of-type(1) {
     border: none;
   }
-  
+
   time {
     @include font-size(12px);
     width: 70px;
     display: inline-block;
     margin-right: 20px;
+
+    @include mq('tablet') {
+      order: 1;
+    }
   }
 
   a {
@@ -362,27 +463,35 @@
     flex: 1;
     font-weight: bold;
     &:hover {
-      color: #EDEEEF
+      color: darken(white, 10);
     }
 
+    @include mq('tablet') {
+      order: 3;
+      flex-basis: 100%;
+      margin-top: 20px;
+    }
   }
   span {
     @include font-size(12px);
-    @include border-radius(2px);
+    border-radius: 2px;
     padding: 5px 15px;
-    margin-left: 0;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+
+    @include mq('tablet') {
+      order: 2;
+    }
   }
 }
 
 .tag__theme-1 {
-  background-color: #D9ADAD;
+  background-color: #d9adad;
 }
 
 .tag__theme-2 {
-  background-color: #F36F6F;
+  background-color: #f36f6f;
 }
 
 .tag__theme-3 {
-  background-color: #F67558;
+  background-color: #f67558;
 }
