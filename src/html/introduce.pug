@@ -42,6 +42,9 @@ block head
   })
 
 //- content
+block current 
+  - var currentUrl = "introduce"
+
 block content
   section.project
     .project__text 
@@ -52,7 +55,7 @@ block content
         一直到第二期結束後發現時間太短，因此改為六個月。
     .project__list__container
       ul.project__list
-        - 
+        -
           var projectItems = [
             {
               title: "這是一堂會不斷進化的課程",
@@ -78,7 +81,7 @@ block content
         h3 About Huli
         span 關於導師
       .about__teacher-intro
-        - 
+        -
           var introItems = [
             {
               title: "如果你想聽一些感覺很厲害的，把標籤貼好貼滿的版本，那我會這樣跟你說：",
@@ -128,7 +131,7 @@ block content
               +about_article_link(article)
         .about__articles-content.theme-hard
           h4 比較 #[strong 硬實力 ] 的技術文章有：
-          - 
+          -
             var hardArticles = [
               {
                 title: "深入探討 JavaScript 中的參數傳遞：call by value 還是 reference？",
@@ -166,7 +169,7 @@ block content
           以第三期為例，在課程結束後與十幾位同學開了一次期末聚會兼檢討會，一週一週檢討課程，
           從學生的回饋中尋求改進方法。秉持著公開透明的原則，每一期的缺點以及可以改進的事項都會公開在網路上。
     ul.improvement__list
-      - 
+      -
         var improvementCards = [
           { 
             date: "2018/9",

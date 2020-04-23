@@ -116,6 +116,10 @@
   border-radius: 15px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   padding: 65px 55px;
+
+  @include mq('mobile-l') {
+    padding: 65px 25px;
+  }
 }
 
 /* about > teacher > title */

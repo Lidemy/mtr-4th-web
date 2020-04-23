@@ -17,6 +17,8 @@ html(lang='en')
     +head_block('default')
 
   body
+    block current
+      - var currentUrl
     block header
       include header.pug
     .wrapper
