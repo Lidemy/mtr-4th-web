@@ -3,9 +3,6 @@ mixin head_block(headInfo)
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=notosanstc&display=swap")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap")
-    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous")
     link(rel='stylesheet' href='css/main.min.css')
     title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
 
@@ -23,4 +20,8 @@ html(lang='en')
       block content
     block footer
       include footer.pug
-    script(src="js/index.bundle.js")
+
+    // ignore me
+    script(defer src="js/index.bundle.js")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap")
+

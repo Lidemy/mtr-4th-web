@@ -41,18 +41,39 @@
       }
   }
   .post {
-    &__title, &__content  {
+    .common__title, &__content  {
       text-align: center;
     }
   }
 }
 
-@include mq('desktop-m') {
+@include mq('desktop-s') {
   .student-report {
     margin: 0 20px 1rem 20px;
+
+    .post {
+      padding: 0;
+    }
   }
 }
 
+@include mq('tablet-s') {
+  .student-report {
+
+    .post {
+      padding: 0;
+    }
+
+    &__links {
+      max-width: 100%;
+      padding-top: 1rem;
+      a {
+        padding: 0;
+        margin: 2px 0;
+      }
+    }
+  }
+}
 /* student-experience -------------------- */
 .student-experience {
   @extend %shadow-card;
@@ -67,9 +88,9 @@
   
   &:before {
     @include pseudo(block);
-    @include absolute($top: -225px, $left: 0);
+    @include absolute($top: -245px, $left: 0);
     background: url(./../image/img_student_experence.svg) top center no-repeat;
-    background-size: 53% auto;
+    background-size: 400px auto;
     width: 100%;
     height: 250px;
   }
@@ -90,6 +111,7 @@
     position: relative;
     flex: 1;
     align-content: center;
+    justify-content: flex-start;
 
     &:before {
       @include pseudo(inline-block);
@@ -99,35 +121,97 @@
       border-radius: 2px;
     }
   }
+}
 
-  &__card {
-    transition: transform 0.5s;
-    flex-grow: 1;
-    display: inline-block;
-    background: white;
-    padding: 5px 20px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    margin: 0 10px 10px;
-    flex: 0 1 135px;
+@include mq('desktop-s') {
+  .student-list {
+    padding: 90px 10px 50px 30px;
 
-    p {
-      @include font-size(15px);
-      margin-bottom: 0;
-      color: $grey-dark;
-      font-weight: bold;
+    &__container {
+      margin: 150px 0 30px;
+      padding: 70px 18px 30px;
     }
-    span {
-      font-size: 13px;
-      color: $grey-light;
-      position: relative;
-      &:after {
-        @include pseudo(inline-block);
-        width: 10px;
-        height: 10px;
-        background: $main-color;
-        margin-left: 7px;
-        border-radius: 5px;
+  }
+}
+
+@include mq('tablet') {
+  .student-list {
+    padding: 90px 10px 50px 30px;
+
+    &:before {
+      top: -200px;
+      background-size: 350px auto;
+    }
+
+    &__container {
+      padding-top: 40px;
+    }
+  }
+}
+
+/* .student-list > card */
+.student-list__card {
+  transition: transform 0.5s;
+  flex-grow: 1;
+  display: inline-block;
+  background: white;
+  padding: 5px 20px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 0 10px 10px 0;
+  flex: 0 1 145px;
+
+  p {
+    @include font-size(15px);
+    margin-bottom: 0;
+    color: $grey-dark;
+    font-weight: bold;
+  }
+  span {
+    font-size: 13px;
+    color: $grey-light;
+    position: relative;
+    &:after {
+      @include pseudo(inline-block);
+      width: 10px;
+      height: 10px;
+      background: $main-color;
+      margin-left: 7px;
+      border-radius: 5px;
+    }
+  }
+}
+
+
+@include mq('mobile-l') {
+  .student-list {
+    padding: 90px 10px 30px;
+    border-radius: 20px;
+
+    &:before {
+      background-size: 230px auto;
+      top: -150px;
+    }
+
+    &__container {
+      padding: 70px 5px 30px;
+      margin-top: 50px;
+    }
+
+    &__group {
+      padding: 5px;
+      &:before {
+        width: 100%;
+        height: 3px;
+        bottom: -10px;
+        top: auto;
+      }
+    }
+    &__card {
+      flex-basis: calc(50% - 5px);
+
+      &:nth-child(even) {
+        margin-right: 0;
       }
     }
   }
@@ -146,6 +230,8 @@
     margin-right: 10px;
     justify-content: center;
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 
     a {
       display: inline-block;
@@ -179,13 +265,34 @@
   }
 }
 
+
+@include mq('tablet') {
+  .student-list__menu__link {
+    a {
+      padding: 10px 25px;
+    }
+  }
+}
+@include mq('mobile-l') {
+  .student-list__menu__link {
+    a {
+      padding: 5px 15px;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+
 $groupColor: (
   0: $main-color,
   1: #FF9393,
   2: $grey-light,
 );
 
-/* .student-list > menu */
+/* .student-list > menu:theme */
 @each $groupNum, $color in $groupColor {
   .student-list__menu__link {
     &.link_#{$groupNum} a {

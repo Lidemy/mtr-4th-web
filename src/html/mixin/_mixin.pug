@@ -1,6 +1,9 @@
+mixin common_title(title, id, alignType='center')
+  h3.common__title(class=`${alignType}`)
+    a(href=`#${id}`)= title
+
 mixin post_item(title, id, theme)
   section.section.post(class=`${id} ${theme ? theme : ''}`)
-    h3.post__title
-      a(href=`#${id}`)= title
+    +common_title(title, id, 'left')
     .post__content
       block

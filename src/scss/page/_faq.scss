@@ -103,22 +103,25 @@
   }
 }
 
+/* uncss:ignore start */
 /* active */
 .faq__list__item.active {
   box-shadow: 0px 5px 15px rgba(202, 65, 65, 0.15), 0px 2px 0px rgba(0, 0, 0, 0.05);
   margin: 15px 0 28px 0;
+  /* uncss:ignore */
   .fa-chevron-up {
     transform: rotate(180deg);
   }
-
+  /* uncss:ignore */
   .faq__list__item-link {
     @include border-radius(5px 5px 0 0);
     background-color: $main-color;
     color: white;
   }
-
+  /* uncss:ignore */
   .faq__list__item-content {
     transition: max-height 1s ease-in-out;
     max-height: 2000px;
   }
 }
+/* uncss:ignore end */

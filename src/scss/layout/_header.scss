@@ -18,6 +18,7 @@
   }
 }
 
+/* uncss:ignore */
 header.menu-opened {
   @include mq('desktop-s') {
     .header__content {
@@ -99,7 +100,7 @@ nav {
   flex: 1;
   justify-content: center;
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity .5s;
 
   ul {
     display: flex;
@@ -177,6 +178,7 @@ nav li:hover {
 
 }
 
+/* uncss:ignore start */
 /* media query */
 @media (min-width: $width-desktop-s) {
   // header shrunk
@@ -215,3 +217,4 @@ nav li:hover {
     opacity: 0;
   }
 }
+/* uncss:ignore end */

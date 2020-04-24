@@ -41,6 +41,38 @@
   margin: 0 auto;
 }
 
+/* common__title -------------------- */
+.common__title {
+  @include font-size(22px);
+  line-height: 3.2rem;
+  margin-bottom: 20px;
+  color: $color-theme-dark;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  &.left {
+    text-align: left;
+  }
+
+  a {
+    position: relative;
+    padding-left: 15px;
+
+    &:before {
+      @include pseudo(inline-block, '#');
+      @include absolute($left: 0);
+      color: $main-color;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
 
 /* link -------------------- */
 %link {
@@ -69,29 +101,6 @@
   &:not(:nth-last-of-type(1)) {
       margin-bottom: 2.5rem;
     }
-
-  &__title {
-    @include font-size(22px);
-    margin-bottom: 20px;
-    color: $color-theme-dark;
-    width: 100%;
-
-    a {
-      position: relative;
-      padding-left: 15px;
-      &:before {
-        @include pseudo(inline-block, '#');
-        @include absolute($top: 3px, $left: 0);
-        color: $main-color;
-        font-size: 16px;
-        font-weight: bold;
-      }
-
-      &:hover {
-        color: $main-color;
-      }
-    }
-  }
 
   &__content {
     border-top: 1px dashed $grey-light;

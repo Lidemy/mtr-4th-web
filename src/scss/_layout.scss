@@ -13,16 +13,9 @@ html, body {
 
 .full-bg {
   background: $color-theme-light;
-  padding: 5rem 0;
+  padding: 5rem 20px;
 
   &.theme-dark {
     background: $main-color;
   }
-}
-
-@include mq('tablet') {
-  .section {
-    padding: 0 30px;
-  }
-
 }

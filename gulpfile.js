@@ -3,6 +3,7 @@ const { src, dest } = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
+const uncss = require('postcss-uncss');
 const autoprefixer = require('autoprefixer');
 const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
@@ -16,6 +17,8 @@ const babelify = require("babelify");
 const source = require("vinyl-source-stream");
 const glob = require('glob');
 const es = require('event-stream');
+const uglify = require('gulp-uglify');
+const buffer = require('vinyl-buffer');
 
 const base = {
   src: 'src',
@@ -63,6 +66,8 @@ const js = (done) => {
       })
         .bundle()
         .pipe(source(entry.match(/[^\\/]+$/)[0]))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(rename({
           extname: '.bundle.js'
         }))
@@ -83,6 +88,10 @@ function html() {
 function css() {
   const processors = [
     autoprefixer({ overrideBrowserslist: ['last 2 version'] }),
+    // uncss({
+    //   html: ['public/*.html'],
+    //   timeout: 1000,
+    // })
   ];
   return src(paths.css.src)
     .pipe(sourcemaps.init())
@@ -135,4 +144,5 @@ const build = gulp.series(clean, resource, gulp.parallel(watch, server))
 
 exports.clean = clean;
 exports.default = build;
+exports.css = css
 exports.make = gulp.series(clean, resource, make);
