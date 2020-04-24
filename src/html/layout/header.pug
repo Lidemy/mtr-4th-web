@@ -14,6 +14,6 @@ header.header
             { name: "FAQ",     src: "faq" }
           ];
         each item in navs
-          li 
+          li(class= (currentUrl === item.src ? 'current' : ''))
             a(href=`${item.src}.html`)= item.name
     a.header__cta-btn(href="") 了解報名資訊
