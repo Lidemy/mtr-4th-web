@@ -38,22 +38,22 @@ block content
           {
             title: "程式基礎",
             week: "week1 - week5",
-            anchor: "part1"
+            anchor: "anchor-part1"
           },
           {
             title: "網站開發",
             week: "week6 - week10",
-            anchor: "part2"
+            anchor: "anchor-part2"
           },
           {
             title: "探究原理",
             week: "week11 - week15",
-            anchor: "part3"
+            anchor: "anchor-part3"
           },
           {
             title: "專案開發",
             week: "week16 - week20",
-            anchor: "part4"
+            anchor: "anchor-part4"
           },
         ]
       each content in headerContents 
@@ -61,7 +61,7 @@ block content
           li.syllabus__header-text= content.title
             p= content.week
 
-  section.section.part1#part1
+  section.section.anchor-part1
     .theme-light
       .syllabus__intro
         -
@@ -129,7 +129,7 @@ block content
         ul.syllabus__content__list
           each content in syllabusContents
             +syllabus_item(content)
-  section.section.part2#part2
+  section.section.anchor-part2
     .theme-dark
       .syllabus__intro
         -
@@ -209,7 +209,7 @@ block content
         ul.syllabus__content__list
           each content in syllabusContents
             +syllabus_item(content)
-  section.section.part3#part3
+  section.section.anchor-part3
      .theme-light
       .syllabus__intro
         -
@@ -289,7 +289,7 @@ block content
         ul.syllabus__content__list
           each content in syllabusContents
             +syllabus_item(content)
-  section.section.part4#part4
+  section.section.anchor-part4
     .theme-dark
       .syllabus__intro
         -

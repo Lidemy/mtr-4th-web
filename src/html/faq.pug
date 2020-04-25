@@ -1,12 +1,12 @@
 extends layout/layout.pug
 
 //- mixin
-mixin list_item(title)
-  li.faq__list__item
+mixin list_item(title, activeClass)
+  li(class= `faq__list__item ${activeClass || ''}`)
     a(href='#').faq__list__item-link 
       .faq__list__item-question 
         span Q
-        h3.faq__list__item-question-title= title  
+        h3= title  
       i(class="fas fa-chevron-up")
     .faq__list__item-content
       span A
@@ -26,7 +26,7 @@ block content
   .section.faq
     h2.faq__title FAQ
     ul.faq__list
-      +list_item('為什麼這個計畫到了第四期還是「實驗」計畫？')
+      +list_item('為什麼這個計畫到了第四期還是「實驗」計畫？', 'active')
         p 這個計畫搞不好永遠都會叫做「實驗」計畫，因為每一期我都當作一個實驗，實驗我的教學成效如何、品質如何，根據學生的回饋調整課程內容，繼續做下一輪的實驗，持續優化、改進。
       +list_item('為什麼我要花這麼多錢只為了看線上影片？')
         p 因為這個課程不只有線上影片。

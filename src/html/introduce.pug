@@ -13,11 +13,12 @@ mixin about_intro_item(item)
     p= item.text
 
 mixin about_article_link(article)
-  a(href=`${article.link}` target="_blank")= article.title
+  li
+    a(href=`${article.link}` target="_blank")= article.title
 
 mixin improvement_card(card)
-  .improvement__card__container
-    li.improvement__list-card
+  li.improvement__card__container
+    .improvement__list-card
       span= card.date
       <br/>
       h4= card.title
@@ -46,7 +47,7 @@ block current
   - var currentUrl = "introduce"
 
 block content
-  section.project
+  section.project.anchor-projectIntro
     .project__text 
       h3 實驗 <span>X</span> 自學 <span>X</span> 公開
       p.
@@ -75,7 +76,7 @@ block content
           ];
         each item in projectItems
           +project_list_item(item)
-  section.about
+  section.about.anchor-teacherIntro
     .about__info
       .about__teacher-title
         h3 About Huli
@@ -100,7 +101,7 @@ block content
         p.
           喜歡寫字，寫了很多在技術圈小有名氣的文章，
           在 Medium 平台上的部落格有 6500 人追蹤，個人技術部落格有 150 萬瀏覽次數。
-      .about__articles-content
+      .about__articles-intro
         .about__articles-content.theme-easy
           h4 比較偏故事性，#[strong 淺顯易懂 ]的文章：
           -
@@ -157,7 +158,7 @@ block content
           ul.about__articles-content-list
             each article in hardArticles
               +about_article_link(article)
-  section.improvement
+  section.improvement.anchor-improvement
     .improvement__intro
       img(src="./image/img_project_2.svg")
       .improvement__intro-content

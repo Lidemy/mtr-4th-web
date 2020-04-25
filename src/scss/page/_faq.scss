@@ -1,11 +1,10 @@
 /* faq -------------------- */
 .faq {
   max-width: $width-desktop-s;
-  line-height: 1.5;
+  line-height: 1.5em;
   margin: 0 auto;
   &__title {
     @include font-size(36px);
-    font-family: Montserrat;
     font-weight: bold;
     line-height: 2.5em;
     color: $main-color;
@@ -23,7 +22,7 @@
 .faq__list__item {
   @extend %transition;
   @include border-radius(5px);
-  width: 90%;
+  width: 100%;
   margin-bottom: 13px;
   color: $grey-light;
   border: 1px solid #dedede;
@@ -37,7 +36,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 20px 20px 0;
+  padding: 25px 20px 25px 0;
   color: $grey-light;
   background: white;
 
@@ -58,17 +57,21 @@
   align-items: center;
   justify-content: flex-start;
 
-  &-title {
+  h3 {
     @include font-size(16px);
     font-weight: bold;
-    padding: 0 18px;
-    margin: 0;
+    padding: 0 20px;
+    margin-bottom: 0;
   }
 
   span {
     @include font-size(24px);
     font-weight: bold;
     padding-left: 24px;
+
+    @include mq('mobile-l') {
+      display: none;
+    }
   }
 }
 
@@ -97,9 +100,13 @@
 
   span {
     @include font-size(24px);
-    padding: 16px 0 0 26px;
+    padding: 22px 0 0 26px;
     font-weight: bold;
     color: $main-color;
+
+    @include mq('mobile-l') {
+      display: none;
+    }
   }
 }
 

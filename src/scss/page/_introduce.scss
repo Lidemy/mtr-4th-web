@@ -19,6 +19,10 @@
     text-align: center;
   }
 
+  @include mq('mobile-m') {
+    margin-bottom: 40px;
+  }
+
   h3 {
     @include font-size(34px);
     margin-bottom: 30px;
@@ -107,6 +111,11 @@
   @include mq('desktop-s') {
     padding-top: 70px;
   }
+
+  @include mq('mobile-l') {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
 }
 
 .about__info {
@@ -118,7 +127,7 @@
   padding: 65px 55px;
 
   @include mq('mobile-l') {
-    padding: 65px 25px;
+    padding: 35px 25px;
   }
 }
 
@@ -153,6 +162,10 @@
     @include mq('desktop-s') {
       flex-direction: column;
     }
+
+    @include mq('mobile-l') {
+      padding: 15px 0;
+    }
   }
 
   h4 {
@@ -167,7 +180,7 @@
     }
 
     @include mq('mobile-l') {
-      width: 90%;
+      width: 100%;
     }
 
     &:before {
@@ -203,6 +216,10 @@
   padding: 50px 0;
   border-bottom: 1px dashed #c4c4c4;
 
+  @include mq('mobile-l') {
+    padding: 30px 0;
+  }
+
   h3 {
     @include font-size(36px);
     font-weight: bold;
@@ -220,13 +237,21 @@
     @include font-size(16px);
     width: 85%;
     color: $grey-dark;
+
+    @include mq('mobile-l') {
+      width: 100%;
+    }
   }
 }
 
 /* about > articles > content */
 .about__articles-content {
-  padding-top: 40px;
+  padding: 40px 0;
   border-bottom: 1px dashed #c4c4c4;
+
+  @include mq('mobile-l') {
+    padding: 30px 0;
+  }
 
   h4 {
     @include font-size(18px);
@@ -238,11 +263,9 @@
   }
 
   &-list {
-    margin-bottom: 45px;
-
     a {
       display: block;
-      margin: 20px 0 0 5px; // 20px 0px 0 5px;
+      margin: 20px 0 0 5px; 
       padding-left: 20px;
       position: relative;
 
@@ -274,8 +297,10 @@
   align-items: center;
   padding: 40px 20px 0 20px;
 
-  img {
-    @include mq('tablet') {
+  @include mq('tablet') {
+    padding: 30px 20px;
+
+    img {
       display: none;
     }
   }
@@ -312,6 +337,10 @@
   @include mq('desktop-xl') {
     flex-direction: column;
     align-items: center;
+  }
+
+  @include mq('mobile-l') {
+    padding: 40px 20px;
   }
 }
 
@@ -357,7 +386,7 @@
 
     &:before {
       @extend %fontawesome-icon;
-      @include absolute($top: 7px, $left: 8px);
+      @include absolute($top: 8px, $left: 9px);
       content: fa-content($fa-var-arrow-right);
       font-size: 22px;
       color: white;
@@ -422,6 +451,10 @@
   background: $main-color;
   color: white;
   padding:0 20px 140px 20px;
+
+  @include mq('mobile-l') {
+    padding-bottom: 50px;
+  }
 
   p {
     @include font-size(18px);

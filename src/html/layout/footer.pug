@@ -16,11 +16,11 @@ block footer
         p 用六個月的時間，培養出一個找得到工作且基礎紮實的網頁工程師。
         p.footer__follow FOLLOW US
         .footer__social.social-icons
-          a(href="#").github-link
+          a(href="https://github.com/Lidemy/mentor-program-4th", target="_blank").github-link
             <i class="fab fa-github"></i>
-          a(href="#").facebook-link
+          a(href="https://www.facebook.com/lidemytw/", target="_blank").facebook-link
             <i class="fab fa-facebook-square"></i>
-          a(href="#").medium-link
+          a(href="https://medium.com/@hulitw", target="_blank").medium-link
             <i class="fab fa-medium"></i>
       ul.footer__nav-list
         -
@@ -28,44 +28,47 @@ block footer
             {
               title: "HOME",
               contents: [
-                { text: "課程特色", link: "index.html#features"},
-                { text: "課程內容", link: "index.html#content"},
-                { text: "教學方式", link: "index.html#methods"},
-                { text: "課程時程", link: "index.html#schedule"},
-                { text: "適合怎樣的人", link: "index.html#target"},
-                { text: "學員心得節錄", link: "index.html#experience"},
+                { text: "課程特色", link: "index.html#anchor-features"},
+                { text: "課程內容", link: "index.html#anchor-content"},
+                { text: "教學方式", link: "index.html#anchor-methods"},
+                { text: "課程時程", link: "index.html#anchor-schedule"},
+                { text: "適合怎樣的人", link: "index.html#anchor-target"},
+                { text: "學員心得節錄", link: "index.html#anchor-experience"},
               ]
             },
             {
               title: "INTRODUCE",
               contents: [
-                { text: "計畫介紹", link: "introduce.html#planIntro"},
-                { text: "老師介紹", link: "introduce.html#teacherIntro"},
-                { text: "歷屆改進心得", link: "introduce.html#experience"},
+                { text: "計畫介紹", link: "introduce.html#anchor-projectIntro"},
+                { text: "老師介紹", link: "introduce.html#anchor-teacherIntro"},
+                { text: "歷屆改進心得", link: "introduce.html#anchor-improvement"},
               ]
             },
             {
               title: "COURSE",
               contents: [
-                { text: "課程大綱", link: "course.html#outline"},
-                { text: "學習地圖", link: "course.html#map"},
+                //- { text: "課程大綱", link: "syllabus.html"},
+                { text: "程式基礎", link: "syllabus.html#anchor-part1"},
+                { text: "網站開發", link: "syllabus.html#anchor-part2"},
+                { text: "探究原理", link: "syllabus.html#anchor-part3"},
+                { text: "專案開發", link: "syllabus.html#anchor-part4"},
               ]
             },
             {
               title: "RESULT",
               contents: [
-                { text: "歷屆數據", link: "achievement.html#data"},
-                { text: "學生求職成果", link: "achievement.html#report"},
-                { text: "結業心得", link: "achievement.html#experience"},
+                { text: "歷屆數據", link: "achievement.html#anchor-data"},
+                { text: "學生求職成果", link: "achievement.html#anchor-report"},
+                { text: "結業心得", link: "achievement.html#anchor-experience"},
               ]
             },
             {
               title: "APPLY",
               contents: [
-                { text: "課程制度", link: "course-info.html#rule"},
-                { text: "收費方式", link: "course-info.html#charge"},
-                { text: "報名方式", link: "course-info.html#registration"},
-                { text: "報名信內容", link: "course-info.html#letter"},
+                { text: "課程制度", link: "course-info.html#anchor-rule"},
+                { text: "收費方式", link: "course-info.html#anchor-charge"},
+                { text: "報名方式", link: "course-info.html#anchor-registration"},
+                { text: "報名信內容", link: "course-info.html#anchor-letter"},
               ]
             },
             {

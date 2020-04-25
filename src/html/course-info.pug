@@ -34,11 +34,11 @@ block current
   - var currentUrl = "course-info"
 
 block content
-  +post_item('課程制度', 'rule')
+  +post_item('課程制度', 'anchor-rule')
     p.
       這個課程有所謂的#[strong 「淘汰制」]，週一至週五每一天都必須在學習系統內報告進度（今天學了哪些東西），兩週內每日進度報告累積缺交三次及淘汰。
 
-  +post_item('收費方式', 'charge')
+  +post_item('收費方式', 'anchor-charge')
     p.
       首先，課程#[strong 前兩個月為試用觀察期]，不需要繳交任何費用。我們希望你先進來體驗課程，覺得適合自己再來付費。若是在這期間內決定課程不適合自己，可以無條件退出。
       <br/><br/>
@@ -63,7 +63,7 @@ block content
 
   .full-bg.my-5
     section.compare-table
-      +post_item('方案比一比', 'compare')
+      +post_item('方案比一比', 'anchor-compare')
         .table-responsive-sm
           table.table.table-hover.table-bordered.table-striped.text-left
             thead
@@ -113,7 +113,7 @@ block content
           例如說小明在第二個月開始時選了「A 求職方案」，在課程第二個月結束時發現自己並沒有求職意願，想退出課程，就代表他多上了一個月的課，因此必須繳清的學費就是 12500 元。
           <br/>
           想知道學費方案為什麼這樣訂，請參考#[a(href="faq.html") 常見問題] 。
-      +post_item('什麼時候要交學費？', 'timeline')
+      +post_item('什麼時候要交學費？', 'anchor-timeline')
         p.
           最後，這個計畫最不用擔心的就是付費問題。我們知道許多想要轉職的人在經濟上可能都有一些壓力，因此學費付費時間十分彈性。儘管是在兩個月後就選擇付費方案，但如果有困難，可以等「課程結束」以後再分期付款，最多可分到 12 期零利率，若是有經濟上的困難也可以再討論付費相關事宜。
           <br/><br/>
@@ -126,7 +126,7 @@ block content
       .pic
         img(src="image/img_apply.svg", alt="")
       .apply__content
-        +post_item('報名方式', 'registration')
+        +post_item('報名方式', 'anchor-registration')
           ol
             +apply-list__item('填寫 Google 表單（一些基本資料）')
             +apply-list__item('去研究什麼是 Scratch，並且做出一個小作品')
@@ -144,7 +144,7 @@ block content
 
   .full-bg
     .letter-template
-      +post_item('報名信內容', 'letter')
+      +post_item('報名信內容', 'anchor-letter')
         p.
           報名結果公告那天（2020/06/08），無論有沒有錄取你都會收到信件，絕對不會有無聲卡的情形發生。總而言之，會讓你知道收到報名信了，也會讓你知道你有沒有錄取。（但是沒錄取的通知信有可能是罐頭信件就是了，不好意思）
           <br><br>

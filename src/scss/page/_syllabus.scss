@@ -81,25 +81,26 @@
   position: relative;
 
   @include mq('tablet') {
-    padding: 90px 50px 20px;
-    margin-top: 0;
+    padding: 50px 50px 20px;
+    margin-top: 0px;
   }
 
   @include mq('mobile-l') {
-    padding: 90px 20px 20px;
+    padding: 30px 20px 20px;
+    margin-bottom: 30px;
   }
 }
 
 .syllabus__intro {
   max-width: 850px;
   margin: 0 auto;
-  padding-bottom: 110px;
+  margin-bottom: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  @include mq('mobile-l') {
-    padding-bottom: 30px;
+  @include mq('tablet') {
+    margin-bottom: 20px;
   }
 
   // syllabus__intro-content
@@ -114,6 +115,10 @@
       font-weight: bold;
       padding-bottom: 20px;
       border-bottom: 5px solid black;
+
+      @include mq('mobile-l') {
+        @include font-size(72px);
+      }
     }
 
     p {
@@ -121,12 +126,6 @@
       margin-top: 30px;
       line-height: 38px;
       letter-spacing: 0.11em;
-
-      @include mq('tablet') {
-        background-color: rgba(white, 0.8);
-        padding: 15px 25px 15px 0px;
-        border-radius: 10px;
-      }
     }
 
     &-icon {
@@ -153,6 +152,10 @@
     top: -150px;
     right: -150px;
     z-index: 1;
+
+    @include mq('desktop-s') {
+      top: -320px;
+    }
   }
 
   .syllabus__intro-red-bg {
@@ -182,6 +185,15 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-top: 80px;
+  background-image: url('./../image/bg_slash.png');
+  background-position: top left;
+  background-repeat: repeat-x;
+  background-size: 12px;
+
+  @include mq('tablet') {
+    padding-top: 40px;
+  }
 }
 
 .syllabus__content__item {
@@ -234,7 +246,7 @@
 /* theme dark */
 .theme-dark {
   max-width: $width-desktop-l;
-  margin: 0 auto;
+  margin: 80px auto;
   padding: 90px 110px 20px 110px;
   background: #4d4d4d;
   box-shadow: 0px 4px 25px rgba(226, 116, 116, 0.3);
@@ -245,11 +257,12 @@
   position: relative;
 
   @include mq('tablet') {
-    padding: 90px 50px 20px 50px;
+    padding: 50px 50px 20px;
   }
 
   @include mq('mobile-l') {
-    padding: 90px 20px 20px 20px;
+    padding: 30px 20px 20px;
+    margin-bottom: 30px;
   }
 
   .syllabus__intro {
