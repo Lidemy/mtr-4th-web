@@ -1,0 +1,347 @@
+extends layout/layout.pug
+
+//- mixin
+mixin syllabus_intro(content)
+  if !content.isThemeLight
+    img(src= "./image/theme_light_red_bg.svg", alt= "red_bg").syllabus__intro-red-bg
+    .syllabus_intro-img
+      img(src= "./image/theme_dark_character.svg", alt= "character").syllabus__intro-character
+  .syllabus__intro-content
+    h2= content.title
+    div.syllabus__intro-content-icon= content.week
+    div.syllabus__intro-content-icon= content.desc
+    p.syllabus__intro-text= content.text
+  if content.isThemeLight
+    img(src= "./image/theme_light_blue_bg.svg", alt= "blue_bg").syllabus__intro-blue-bg
+    img(src= "./image/theme_light_red_bg.svg", alt= "red_bg").syllabus__intro-red-bg
+    .syllabus_intro-img
+      img(src= "./image/theme_light_character.svg", alt= "character").syllabus__intro-character
+
+
+mixin syllabus_item(content) 
+  li.syllabus__content__item
+    i(class=`${content.iconClass} ${content.hasColor ? 'has-color' : ''}`)
+    h3= content.title
+    ul
+      each text in content.texts
+        li(class= `${content.hasColor ? 'has-color' : ''}`)= text
+
+//-content
+block current
+  - var currentUrl = "syllabus"
+
+block content
+  section.section.syllabus__header
+    ul
+      -
+        var headerContents = [
+          {
+            title: "程式基礎",
+            week: "week1 - week5",
+            anchor: "part1"
+          },
+          {
+            title: "網站開發",
+            week: "week6 - week10",
+            anchor: "part2"
+          },
+          {
+            title: "探究原理",
+            week: "week11 - week15",
+            anchor: "part3"
+          },
+          {
+            title: "專案開發",
+            week: "week16 - week20",
+            anchor: "part4"
+          },
+        ]
+      each content in headerContents 
+        a(href=`#${content.anchor}`)
+          li.syllabus__header-text= content.title
+            p= content.week
+
+  section.section.part1#part1
+    .theme-light
+      .syllabus__intro
+        -
+          var introContent = 
+            { 
+              title: "Part 1",
+              week: "week 1 - week 5",
+              desc: "程式基礎",
+              text: "培養基礎是很重要的一件事，因此課程的第一部份就是好好地幫你把基礎打好，會讓往後的學習順利很多。在這部份中會教你使用指令操控電腦，講解基礎網路知識，以及使用 JavaScript 練習程式解題。",
+              isThemeLight: true,
+            }
+        +syllabus_intro(introContent)
+      .syllabus__content
+        -
+          var syllabusContents = [
+            {
+              title: "建立良好學習心態",
+              texts: [
+                "學習程式前的心態", 
+                "問問題的心態", 
+                "碰到挫折的心態", 
+                "跟他人比較的心態", 
+                "看待成功與失敗的心態"
+              ],
+              iconClass: "far fa-thumbs-up",
+              hasColor: false
+            },
+            {
+              title: "學習版本控制",
+              texts: [
+                "理解 Git 與 GitHub 的差別", 
+                "理解為什麼需要版本控制", 
+                "熟悉 add、commit、push、pull 等基本 Git 指令", 
+                "熟悉 branch 的使用並送出 Pull Request", 
+                "熟悉 Git flow 交作業流程"
+              ],
+              iconClass: "fab fa-github",
+              hasColor: true
+            },
+            {
+              title: "學習網路基本知識",
+              texts: [
+                "熟悉網路運作大概的模式", 
+                "熟悉什麼是 Request 與 Response", 
+                "熟悉 TCP/IP", 
+                "熟悉 HTTP 及相關知識", 
+                "能夠使用 Node.js 發出 Request"
+              ],
+              iconClass: "fas fa-globe-americas",
+              hasColor: true
+            },
+            {
+              title: "學習 JavaScript 基礎語法及相關知識",
+              texts: [
+                "熟悉變數宣告、判斷式、迴圈以及函式等基礎語法",
+                "熟悉內建函式如 map, filter, reduce 等等",
+                "理解什麼是單元測試 Unit test", 
+                "理解什麼是 NPM", 
+                "能靈活運用程式基本概念來解題"
+              ],
+              iconClass: "fab fa-js",
+              hasColor: false
+            },
+          ];
+        ul.syllabus__content__list
+          each content in syllabusContents
+            +syllabus_item(content)
+  section.section.part2#part2
+    .theme-dark
+      .syllabus__intro
+        -
+          var introContent = 
+            {
+              title: "Part 2",
+              week: "week 6 - week 10",
+              desc: "網站開發",
+              text: "打好基礎以後，就可以開始學習網頁前後端開發。無論以後想走前端還是後端，都必須理解前後端溝通原理以及基本概念。在這部分會透過做出留言板來熟悉前後端開發流程以及協作。",
+              isThemeLight: false,
+            }
+        +syllabus_intro(introContent)
+      .syllabus__content
+        -
+          var syllabusContents = [
+            {
+              title: "學習網頁基礎 HTML",
+              texts: [
+                "熟悉基本及常用標籤的運用", 
+                "熟悉比較冷門的一些標籤", 
+                "熟悉如何使用有語意的（semantic）標籤", 
+                "熟悉 SEO 基本概念", 
+                "熟悉常見網站的 HTML 標籤"
+              ],
+              iconClass: "fab fa-html5",
+              hasColor: false
+            },
+            {
+              title: "學習 CSS",
+              texts: [
+                "熟悉常見屬性如 background, color, width, height 等等", 
+                "知道 inline、block 跟 inline-block 的區別", 
+                "知道什麼是 box model", 
+                "知道 position 的所有屬性及其差別", 
+                "熟悉 CSS selector，可以輕鬆選到想選到的元素"
+              ],
+              iconClass: "fab fa-css3-alt",
+              hasColor: true
+            },
+            {
+              title: "學習 JavaScript 在瀏覽器上的運用",
+              texts: [
+                "知道如何用 JavaScript 操控 DOM 物件", 
+                "知道如何幫一個按鈕加上 event listener", 
+                "知道捕獲與冒泡是什麼", 
+                "知道什麼是事件代理（delegation）", 
+                "知道怎麼用 JavaScript 更改元素的 style"
+              ],
+              iconClass: "fab fa-chrome",
+              hasColor: true
+            },
+            {
+              title: "學習 MySQL 資料庫",
+              texts: [
+                "知道如何使用 Select 選取資料",
+                "知道如何使用 Update 更改資料",
+                "知道如何使用 Delete 刪除資料", 
+                "知道如何使用 Insert 新增資料", 
+                "熟悉 where, join 等等這些基本語法"
+              ],
+              iconClass: "fas fa-database",
+              hasColor: false
+            },
+             {
+              title: "學習後端 PHP 開發",
+              texts: [
+                "理解前端與後端的差別",
+                "理解前後端溝通流程",
+                "熟悉 PHP 基礎語法", 
+                "熟悉 PHP 與資料庫的串接", 
+                "能夠寫出基本網站"
+              ],
+              iconClass: "fab fa-php",
+              hasColor: false
+            },
+          ];
+        ul.syllabus__content__list
+          each content in syllabusContents
+            +syllabus_item(content)
+  section.section.part3#part3
+     .theme-light
+      .syllabus__intro
+        -
+          var introContent = 
+            {
+              title: "Part 3",
+              week: "week 11 - week 20",
+              desc: "探究原理",
+              text: "學會基礎的網頁開發以後，透過一連串練習來熟悉開發流程，也會深入了解一些重要的觀念，讓學員徹底理解背後的原理。這部分主要是熟悉網頁開發中的重要觀念，例如說狀態的維持（Cookie 與 Sesion）等等。",
+              isThemeLight: true,
+            }
+        +syllabus_intro(introContent)
+      .syllabus__content
+        -
+          var syllabusContents = [
+            {
+              title: "學習現代前端開發工具",
+              texts: [
+                "熟悉 jQuery", 
+                "熟悉 Bootstrap", 
+                "熟悉 Gulp", 
+                "熟悉 Webpack", 
+                "熟悉 CSS 預處理器"
+              ],
+              iconClass: "fas fa-tools",
+              hasColor: false
+            },
+            {
+              title: "學習建置 Server 及部署專案",
+              texts: [
+                "知道虛擬空間、虛擬主機以及實體主機的差別", 
+                "知道如何設定網域（A、CNAME）", 
+                "知道如何用 SSH 遠端連線到自己的主機", 
+                "知道如何在伺服器安裝 Apache, PHP 與 MySQL", 
+                "知道如何購買雲端主機"
+              ],
+              iconClass: "fas fa-server",
+              hasColor: true
+            },
+            {
+              title: "學習效能優化相關議題",
+              texts: [
+                "知道 HTTP Cache header 的使用", 
+                "知道如何壓縮圖片大小以及各種格式的區別", 
+                "知道透過 minify 或是 uglify 減少檔案大小", 
+                "知道減少不必要的程式碼", 
+                "知道延遲載入（lazy loading）"
+              ],
+              iconClass: "fas fa-chart-line",
+              hasColor: true
+            },
+            {
+              title: "理解常見資訊安全問題",
+              texts: [
+                "熟悉 SQL Injection 原理及防禦方法",
+                "熟悉 XSS 原理及防禦方法",
+                "熟悉 CSRF 原理及防禦方法", 
+                "知道雜湊與加密的區別", 
+                "知道密碼為什麼要經過雜湊，知道什麼是加鹽"
+              ],
+              iconClass: "fas fa-shield-alt",
+              hasColor: false
+            },
+            {
+              title: "理解 JavaScript 語言核心",
+              texts: [
+                "知道 Event Loop 的運作方式",
+                "知道什麼是作用域（Scope）",
+                "知道 Hoisting 的原理為何", 
+                "知道 Closure（閉包）是什麼", 
+                "知道大部分情況下 this 的值是什麼"
+              ],
+              iconClass: "fab fa-js",
+              hasColor: false
+            },
+          ];
+        ul.syllabus__content__list
+          each content in syllabusContents
+            +syllabus_item(content)
+  section.section.part4#part4
+    .theme-dark
+      .syllabus__intro
+        -
+          var introContent = 
+            {
+              title: "Part 4",
+              week: "week 21 - week 26",
+              desc: "專案開發",
+              text: "最後一個部分會學習現代框架，使用較新的技術進行網站開發，與業界接軌。除此之外，也會統整之前學習的內容，由導師及助教帶領學員分組進行期末專案開發，而這專案就可以直接放入作品集內。",
+              isThemeLight: false,
+            }
+        +syllabus_intro(introContent)
+      .syllabus__content
+        -
+          var syllabusContents = [
+            {
+              title: "熟悉前端 React",
+              texts: [
+                "熟悉 SPA 的概念", 
+                "熟悉 React 核心概念", 
+                "熟悉 state 與 props 的區別", 
+                "熟悉元件的各個生命週期", 
+                "熟悉函式庫例如 react-router 的使用"
+              ],
+              iconClass: "fab fa-react",
+              hasColor: false
+            },
+            {
+              title: "熟悉後端 Express + Sequelize",
+              texts: [
+                "熟悉 Express 框架使用方法", 
+                "熟悉 MVC 開發模式", 
+                "熟悉 ORM 以及 Sequelize", 
+                "熟悉 Seeds, Migration 等概念", 
+                "熟悉 nginx 基礎"
+              ],
+              iconClass: "fas fa-database",
+              hasColor: true
+            },
+            {
+              title: "學習專案分工及 Git 協作",
+              texts: [
+                "熟悉產品開發流程", 
+                "熟悉工作流程", 
+                "熟悉專案分工", 
+                "熟悉 Scrum 及 Agile", 
+                "熟悉 Git flow"
+              ],
+              iconClass: "fas fa-code-branch",
+              hasColor: true
+            },
+          ];
+        ul.syllabus__content__list
+          each content in syllabusContents
+            +syllabus_item(content)
