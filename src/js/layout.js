@@ -15,3 +15,11 @@ function scrollToHash(e) {
 ['hashchange', 'DOMContentLoaded'].forEach(function (item) {
   window.addEventListener(item, scrollToHash);
 });
+
+document.querySelector(".scroll-top-btn").addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // => 滑動效果
+  });
+})
