@@ -23,7 +23,6 @@ const buffer = require('vinyl-buffer');
 const base = {
   src: 'src',
   dest: 'public',
-  ghPage: 'build',
 }
 const paths = {
   css: {
@@ -46,10 +45,9 @@ const paths = {
 
 function clean() {
   return del([
-    base.dest,
-    `${base.ghPage}/*`,
-    `!${base.ghPage}/.git`,
-    `!${base.ghPage}/.gitignore`,
+    `${base.dest}/*`,
+    `!${base.dest}/.git`,
+    `!${base.dest}/.gitignore`,
   ]);
 }
 
@@ -134,15 +132,10 @@ function server() {
   connect.server(options);
 };
 
-function make() {
-  return src(`${base.dest}/**/*`)
-    .pipe(dest(base.ghPage))
-}
-
 const resource = gulp.parallel(html, css, js, img, font)
 const build = gulp.series(clean, resource, gulp.parallel(watch, server))
 
 exports.clean = clean;
 exports.default = build;
 exports.css = css
-exports.make = gulp.series(clean, resource, make);
+exports.make = gulp.series(clean, resource);

@@ -1,3 +1,68 @@
+/* main-visual -------------------- */
+.main-visual {
+  background: url(./../image/img_visual.png) center top no-repeat;
+  background-size: 100% auto;
+  max-width: $width-desktop-m;
+  margin: 1rem auto 3rem auto;
+  height: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+/* main-visual > project__title */
+.project__title {
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+
+  &__num {
+    display: flex;
+    @include font-size(48px);
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+      @include pseudo();
+      @include size(50px);
+      background: url(./../image/logo_lidemy.png) center center no-repeat;
+      background-size: 100%;
+      margin-right: 20px;
+    }
+  }
+
+  &__name {
+    @include font-size(36px);
+    letter-spacing: 1.5rem;
+  }
+}
+
+/* main-visual > project__title */
+.project__desc {
+  @include font-size(20px);
+  line-height: 2.5rem;
+  letter-spacing: .1rem;
+  font-weight: normal;
+  color: $grey-dark;
+
+  strong {
+    font-weight: normal;
+    color: $main-color;
+    letter-spacing: .15rem;
+  }
+
+  span {
+    display: block;
+    @include font-size(16px);
+    letter-spacing: .15rem;
+    color: grey;
+  }
+
+}
+
 /* features -------------------- */
 .features {
   max-width: 1200px;
@@ -5,7 +70,6 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin-bottom: 4rem;
-  // border: 1px solid red;
 
   .common__title {
     flex: 1 0 100%;
@@ -51,16 +115,220 @@
 /* methods -------------------- */
 .methods {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
 
   .common__title {
     margin-bottom: 2rem;
   }
 
   &__desc {
+    flex: 1 0 100%;
     @include font-size(15px);
     letter-spacing: 0.11rem;
     color: $grey;
     max-width: 600px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 4rem;
+  }
+
+}
+
+/* methods > list */
+.methods {
+  &__list {
+    max-width: 980px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  &__item {
+    @extend %transition;
+    position: relative;
+    width: calc((100% - 30px) / 2);
+    padding: 40px 160px 30px 30px;
+    margin-bottom: 2rem;
+    border: 1px solid $grey;
+    background: white;
+    border-radius: 0px 35px 35px 35px;
+    text-align: left;
+
+    .pic {
+      @include absolute($top: 20px, $right: 0);
+      width: 160px;
+      height: 160px;
+      background: url(./../image/img_methods.svg) left top no-repeat;
+      background-size: 140px;
+      background-position: right 20px top 26px;
+    }
+
+    .title {
+      @include font-size(20px);
+      color: $grey-dark;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      flex: 0 0 70%;
+    }
+    .desc {
+      flex: 1;
+      @include font-size(14px);
+    }
+  }
+}
+
+/* methods > list - theme */
+.methods__item {
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:nth-child(2), &:nth-child(3) {
+    background-color: $main-color;
+    border: none;
+
+    .title, .desc {
+      color: white;
+    }
+  }
+
+  &:nth-child(2) {
+    border-radius: 35px 0 35px 35px;
+    .pic {
+      background-position-y: 30%;
+    }
+  }
+  &:nth-child(3) {
+    border-radius: 35px 35px 35px 0;
+    .pic {
+      background-position-y: 67%;
+    }
+  }
+  &:nth-child(4) {
+    border-radius: 35px 35px 0 35px;
+    .pic {
+      background-position-y: 102%;
+    }
+  }
+}
+
+@include mq('desktop-l') {
+  .methods {
+    &__item {
+      max-width: 500px;
+    }
+  }
+}
+
+@include mq('tablet') {
+  .methods {
+    &__list {
+      justify-content: center;
+    }
+    &__item {
+      max-width: 500px;
+      width: auto;
+    }
+  }
+}
+@include mq('mobile-l') {
+  .methods {
+    &__item {
+      max-width: 500px;
+      width: auto;
+      padding: 40px 20px 20px;
+
+      .pic {
+        width: 120px;
+        height: 110px;
+        background-size: 100px;
+      }
+
+      .title {
+        margin-bottom: 60px;
+      }
+      
+    }
+  }
+}
+
+/* about-teacher -------------------- */
+.about-teacher {
+  background: url(./../image/bg_grid.png) center center repeat;
+  background-size: 24px;
+  position: relative;
+  padding: 70px 50px 30px;
+  margin: 150px 0 30px;
+
+  &__container {
+    max-width: $width-desktop-m;
+  }
+
+  &:before {
+    @include pseudo(block);
+    @include absolute($top: -95px, $left: 0);
+    background: url(./../image/img_about_teacher.svg) top center no-repeat;
+    background-size: 400px auto;
+    width: 100%;
+    height: 200px;
+    z-index: 1;
+  }
+
+  &:after {
+    @include pseudo(block);
+    @include absolute($bottom: 0px, $left: 10px);
+    background: url(./../image/img_about_teacher_left.svg) top center no-repeat;
+    width: 90px;
+    height: 191px;
+    z-index: 1;
+  }
+
+  &__content {
+    background: white;
+    padding: 40px 60px 50px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    position: relative;
+    border: 1px solid $grey;
+  }
+}
+
+.about-teacher {
+  &__desc {
+    @include font-size(15px);
+    line-height: 1.9rem;
+    color: darken($grey, 5);
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 650px;
+    margin: 0 auto;
+
+    a {
+      display: block;
+      width: calc((100% - 30px) / 2);
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: $grey;
+
+      &:hover {
+        color: $main-color;
+      }
+
+      &:before {
+        @include pseudo('inline-block');
+        @extend %fontawesome-icon;
+        font-size: 12px;
+        color: $main-color;
+        margin-right: 10px;
+        content: fa-content($fa-var-check);
+      }
+    }
   }
 }

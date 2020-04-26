@@ -16,13 +16,20 @@
   @include mq('tablet') {
     padding: 0 4vw;
   }
+
+  @include mq('mobile-l') {
+    margin: 15px auto;
+  }
+
 }
 
-/* uncss:ignore */
+/* uncss:ignore start */
 header.menu-opened {
   @include mq('desktop-s') {
     .header__content {
       height: auto;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .header__logo {
@@ -38,7 +45,15 @@ header.menu-opened {
       display: block;
     }
   }
+
+  @include mq('mobile-l') {
+    .header__content {
+      padding-top: 30px;
+      border-radius: 20px;
+    }
+  }
 }
+/* uncss:ignore end */
 
 /* header > content */
 .header__content {
@@ -46,9 +61,9 @@ header.menu-opened {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px 40px;
+  padding: 0 40px;
   background: white;
-  border-radius: 40px;
+  border-radius: 50px;
   pointer-events: auto;
   box-shadow: 0 4px 30px 0 $shadow-color;
   border: solid 0.5px $shadow-color;
@@ -57,8 +72,11 @@ header.menu-opened {
 
   @include mq('desktop-s') {
     overflow: hidden;
-    flex-direction: column;
-    align-items: flex-start;
+  }
+
+  @include mq('mobile-l') {
+    padding: 20px 30px;
+    height: 70px;
   }
 }
 
@@ -79,7 +97,11 @@ header.menu-opened {
   height: 40px;
   width: 110px;
   background: url(./../image/logo_mtr.png) left top no-repeat;
-  background-size: 100% auto;
+  background-size: auto 100%;
+
+  @include mq('mobile-l') {
+    height: 30px;
+  }
 }
 
 /* header > content > icon */
@@ -101,6 +123,8 @@ header.menu-opened {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -246,4 +270,5 @@ nav li:hover {
     opacity: 0;
   }
 }
+
 /* uncss:ignore end */

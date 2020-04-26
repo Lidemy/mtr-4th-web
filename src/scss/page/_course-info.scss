@@ -14,6 +14,10 @@
     background:white;
     border-radius: 10px;
     padding: 30px;
+
+    @include mq('mobile-s') {
+      padding: 20px 15px;
+    }
   }
 }
 
@@ -92,7 +96,6 @@
   padding: 25px 0;
   border-top: 1px solid lighten($grey-light, 20);
   text-align: left;
-
   &__title {
     @include font-size(18px);
     font-weight: bold;
@@ -192,15 +195,25 @@
   }
 
   &__title {
-    @include font-size(16px);
-    color: $grey;
+    @include font-size(17px);
+    color: $grey-dark;
     margin-bottom: 10px;
   }
 
   &__desc {
-    @include font-size(14px);
+    @include font-size(15px);
     color: $grey-light;
-    line-height: 1.5rem;
+    line-height: 1.7rem;
+  }
+
+  @include mq('mobile-s') {
+    &__title {
+      font-weight: bold;
+    }
+
+    &__desc {
+      color: $grey;
+    }
   }
 }
 
@@ -213,6 +226,10 @@
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
     margin: 2rem 0 2.5rem 0;
     position: relative;
+
+    @include mq('mobile-s') {
+      padding: 20px 10px  20px 50px;
+    }
   }
 
   .post__content .apply-list {

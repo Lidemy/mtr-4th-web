@@ -41,7 +41,7 @@
     "gulp-connect": "^5.7.0",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
-    "rfs": "^9.0.2",
+    "rfs": "^9.0.3",
     "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {

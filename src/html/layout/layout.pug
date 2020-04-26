@@ -1,5 +1,5 @@
 // mixin
-mixin head_block(headInfo)  
+mixin head_block(headInfo)
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -9,14 +9,14 @@ mixin head_block(headInfo)
 
 // layout
 doctype html
-html(lang='en')
+block current
+  - var currentUrl
 
+html(lang='en')
   block head
     +head_block('default')
 
-  body
-    block current
-      - var currentUrl
+  body(class= (currentUrl === 'index' && 'theme-index'))
     block header
       include header.pug
     .wrapper

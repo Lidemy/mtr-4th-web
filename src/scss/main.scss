@@ -1,4 +1,4 @@
-@import '../../node_modules/rfs/scss';
+
 @import './_config.scss';
 
 @import 'node_modules/bootstrap/scss/bootstrap';
@@ -12,6 +12,8 @@
 @import './_mixin.scss';
 @import './_layout.scss';
 @import './_element.scss';
+
+@import '../../node_modules/rfs/scss';
 
 @import './layout/_header.scss';
 @import './layout/_footer.scss';

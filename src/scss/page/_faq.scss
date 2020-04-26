@@ -24,7 +24,7 @@
   @include border-radius(5px);
   width: 100%;
   margin-bottom: 13px;
-  color: $grey-light;
+  color: $grey;
   border: 1px solid #dedede;
 }
 
@@ -37,7 +37,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 25px 20px 25px 0;
-  color: $grey-light;
+  color: $grey;
   background: white;
 
   .fa-chevron-up{

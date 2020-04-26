@@ -2,6 +2,10 @@ extends layout/layout.pug
 
 include mixin/_mixin.pug
 
+//-content
+block current
+  - var currentUrl = "index"
+
 block head
   +head_block({
     title: 'index'
@@ -13,10 +17,26 @@ mixin features__item(title)
     p.desc
       block
 
+mixin methods__item(title)
+  li.methods__item
+    .pic
+    p.title= title
+    p.desc
+      block
+
 
 block content
-  section.section.features
-    +common_title('課程特色', 'features')
+  section.main-visual__container
+    .main-visual
+      h1.project__title
+        .project__title__num 第四期
+        .project__title__name 程式導師計畫
+      h2.project__desc 不喊口號也不誇大成效，開放透明的 #[strong 網頁前後端線上學習計畫]
+        span 用六個月的時間，培養出一個找得到工作且基礎紮實的網頁工程師。
+          
+    
+  section.section.features.anchor-features
+    +common_title('課程特色', 'anchor-features')
     ul.features__list
       +features__item('技術脈絡')
         | 學程式跟學歷史一樣，要掌握的是脈絡而不是單點。在這邊基礎為主，工具為輔，藉由連貫的課程帶你認識技術脈絡，也培養紮實的基本功。
@@ -33,9 +53,34 @@ block content
         | 除了錄好的線上課程以外，還有不定期直播，開放各式各樣的提問，現場幫你解答。
     .pic.features__pic
       img(src="./image/img_features.svg")
-  section.section.methods
-    +common_title('教學方式', 'methods')
+
+  section.section.methods.anchor-methods
+    +common_title('教學方式', 'anchor-methods')
     p.methods__desc
       | 課程一共有 26 週，前 22 週學習前後端基礎，最後 4 週分組做期末專案。上課方式為觀看錄製好的線上課程影片，碰到問題可以隨時找助教跟老師求救。
       | 每一週都會有一個作業，寫完以後會由助教或老師批改，從中提升程式能力。
+    ul.methods__list
+      +methods__item('26 週前後端開發課程')
+        | 課程一共有 26 週，前 22 週學習前後端基礎，最後 4 週分組做期末專案。
+      +methods__item('線上課程影片')
+        | 上課方式為觀看錄製好的線上課程影片，碰到問題可以隨時找助教跟老師求救。
+      +methods__item('每週作業以及批改')
+        | 每一週都會有一個作業，寫完以後會由助教或老師批改，從中提升程式能力。
+      +methods__item('社群互動系統')
+        | 上課方式為觀看錄製好的線上課程影片，碰到問題可以隨時找助教跟老師求救。
 
+  section.section.about-teacher__container.anchor-about-teacher
+    +common_title('導師介紹', 'anchor-about-teacher')
+    .about-teacher
+      .about-teacher__content
+        p.about-teacher__desc
+          | 小時候開始自學程式，考大學時因為討厭物理化學所以念了個與程式不相干的文組科系，唸到大二就休學出去工作了。在新加坡工作過兩年半，是專職的前端工程師。
+          | 一直都對教學有很大的熱忱，相信把話講得清楚又明白是一種專業，相信分享與交流可以讓世界更美好。
+          <br/><br/>
+          | 我不喜歡把自己講的很厲害，也不喜歡用學經歷說明什麼——我都用作品說話。 底下是我寫過的幾篇文章：
+        .about-teacher__list
+          a(href='') 零基礎的小明要如何成為前端工程師？
+          a(href='') 紮實的網頁前端學習路線與資源推薦
+          a(href='') 從拉麵店的販賣機理解什麼是 API
+          a(href='') 成為前端工程師的四週年回顧
+          a(href='') 當我們在學程式時，要學的到底是什麼？
