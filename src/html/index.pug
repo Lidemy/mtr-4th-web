@@ -24,6 +24,13 @@ mixin methods__item(title)
     p.desc
       block
 
+mixin experience__item(author) 
+  li.previous-experience__list-item
+    .previous-experience__list-item-text
+      block
+    .previous-experience__list-item-author
+      div.author-name= author.name
+      div.author-tag= author.tag
 
 block content
   section.main-visual__container
@@ -84,3 +91,28 @@ block content
           a(href='') 從拉麵店的販賣機理解什麼是 API
           a(href='') 成為前端工程師的四週年回顧
           a(href='') 當我們在學程式時，要學的到底是什麼？
+  section.section.previous-experience.anchor-previous-experience
+    +common_title('歷屆學員心得', 'anchor-previous-experience')
+    ul.previous-experience__list 
+      +experience__item({name: "Yakim hsu", tag: "第三期學生"})
+          p
+            | 萬分感謝 Huli，雖然課程中的互動沒有很多，但最後找工作階段非常謝謝 Huli 不斷得給我建議也一起討論工作如何選擇，
+            | 不只是 mentor，也是個人很好又很強的朋友。
+            <br/><br/>
+            | Huli 總說不喜歡強迫學生要加油，但很神奇的還是會鼓勵到大家，很喜歡課程用心安排的每個環節。
+            | 能作為第三期的學生非常感恩，參加課程是我 2019 年最超值的決定。
+      +experience__item({name: "Roro", tag: "第二期學生"})
+          p
+            | 整體課程跟原本的期待差不多，覺得最大優點就是課綱的設計，
+            | 例如像會進化版本的留言版，學習跟實作上都可以得到很好的驗證。
+            <br/><br/>
+            | huli 回應快速，讓人十分信賴，即使是不確定的部分，也是找答案神人，
+            | 很快可以回一篇直指問題的 link，讓你獲得充分的解答，有好導師可以問問題真的是一件非常幸福的事情。
+      +experience__item({name: "Amelie", tag: "第一期學生"})
+          p
+            | 每次交作業發 PR 後 huli 的 code review、
+            | Slack 上的即時回答、在學生還沒準備好時狠狠地打槍 — huli 一直在給學生最關鍵、最簡潔的 feedback。
+            <br/><br/>
+            | 帶著筆電聽一個老師在 100 人的課堂上講課或是跟線上資源自學，都遠遠比不上直接向 mentor 請教的來得直接，
+            | 我認為這才是真正有效的網路課程，huli 的意見，是教科書上沒有、這行前輩總結出的，最珍貴的經驗。
+        
