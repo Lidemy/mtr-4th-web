@@ -32,6 +32,23 @@ mixin experience__item(author)
       div.author-name= author.name
       div.author-tag= author.tag
 
+mixin schedule__list(name, month, day)
+  li.schedule__list
+    .schedule__list__time
+      span.time__month= month
+      span.time__day= day
+    .schedule__list__name= name
+
+mixin target__dialog(type, name, theme)
+  .target__dialog(class= theme)
+    .target__avatar
+      .target__avatar__img
+      .target__avatar__name
+        | #{type}
+        span= name
+    .target__bubble
+      block
+
 block content
   section.main-visual__container
     .main-visual
@@ -91,6 +108,47 @@ block content
           a(href='') 從拉麵店的販賣機理解什麼是 API
           a(href='') 成為前端工程師的四週年回顧
           a(href='') 當我們在學程式時，要學的到底是什麼？
+
+  section.section.schedule__container.anchor-schedule
+    +common_title('課程時程', 'anchor-schedule')
+    .schedule
+      ul.schedule__list__container
+        +schedule__list('報名開始', '05', '01')
+        +schedule__list('報名結束', '06', '05')
+        +schedule__list('結果通知', '06', '08')
+        +schedule__list('課程開始', '06', '12')
+        +schedule__list('課程結束', '12', '12')
+
+  section.section.target__container.anchor-target
+    +common_title('適合怎樣的人', 'anchor-target')
+    .target
+      +target__dialog('新手', '小美', 'theme-student')
+        .
+          我是#[strong 新手]，適合這堂課嗎？
+      +target__dialog('導師', 'Huli', 'theme-blue')
+        | 原本這個課程就是為了完全沒有程式基礎的新手而生，歷屆也有許多零基礎且非相關背景轉職成功的案例。
+        | 此課程以新手為主，希望能循序漸進且穩紮穩打，幫助零基礎的人轉職成合格的工程師。
+
+      p.target__dialog__line 
+        i(class="fas fa-volume-up")
+        | 有程式基礎的 小花 - 加入聊天室
+      +target__dialog('有基礎的', '小花', 'theme-student')
+        .
+          我有#[strong 程式基礎]，適合這堂課嗎？
+      +target__dialog('導師', 'Huli', 'theme-blue')
+        | 程式基礎的人在課程的起步會比較快，但在網頁這一塊依然有許多東西要學習，因此課程也適合有基礎的人。
+
+      p.target__dialog__line 
+        i(class="fas fa-volume-up")
+        | 工程師 泡泡 - 加入聊天室
+      +target__dialog('工程師', '泡泡', 'theme-student')
+        .
+          我#[strong 已經是工程師了]，適合這堂課嗎？
+      +target__dialog('導師', 'Huli', 'theme-blue')
+        .
+          課程特色之一是基礎紮實，歷屆也有許多已經在工作的工程師發現自己基礎不足而回來上課，想要打好基礎。
+          工程師建議觀看#[a(href="syllabus.html") 詳細課綱]，若是覺得對自己有幫助再來報名課程。
+
   section.section.previous-experience.anchor-previous-experience
     +common_title('歷屆學員心得', 'anchor-previous-experience')
     ul.previous-experience__list 
@@ -115,4 +173,4 @@ block content
             <br/><br/>
             | 帶著筆電聽一個老師在 100 人的課堂上講課或是跟線上資源自學，都遠遠比不上直接向 mentor 請教的來得直接，
             | 我認為這才是真正有效的網路課程，huli 的意見，是教科書上沒有、這行前輩總結出的，最珍貴的經驗。
-        
+  include layout/cta_block.pug

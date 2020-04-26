@@ -3,9 +3,10 @@
   background: url(./../image/img_visual.png) center top no-repeat;
   background-size: 100% auto;
   max-width: $width-desktop-m;
-  margin: 1rem auto 3rem auto;
-  height: 360px;
+  margin: 1rem auto 1rem auto;
   width: 100%;
+  height: calc(90vh - 160px);
+  min-height: 360px;
   text-align: center;
 }
 
@@ -40,8 +41,11 @@
   }
 }
 
+
 /* main-visual > project__title */
 .project__desc {
+  width: 60%;
+  margin: 0 auto;
   @include font-size(20px);
   line-height: 2.5rem;
   letter-spacing: .1rem;
@@ -60,7 +64,91 @@
     letter-spacing: .15rem;
     color: grey;
   }
+}
 
+/* main-visual : rwd */
+@include mq('desktop-m') {
+  .project__title { 
+    padding: 25px;
+    margin-bottom: 2rem;
+
+    &__num {
+      display: flex;
+      @include font-size(36px);
+      margin-bottom: 20px;
+
+      &:before {
+        @include size(40px);
+        margin-right: 20px;
+      }
+    }
+
+    &__name {
+      @include font-size(32px);
+    }
+  }
+  .project__desc {
+    @include font-size(18px);
+    span {
+      @include font-size(15px);
+    }
+  }
+}
+
+@include mq('tablet') {
+  .project__title {
+    padding: 7vw;
+    &__num {
+      margin-bottom: 7vw;
+    }
+    margin-bottom: 0rem;
+  }
+  .project__desc {
+    width: calc(100% - 60px);
+  }
+}
+
+@include mq('mobile-l') {
+  .main-visual {
+    height: calc(90vh - 110px);
+  }
+
+  .project__title {
+    margin-bottom: 7vw;
+
+    &__num {
+      font-size: 26px;
+      margin-bottom: 7vw;
+      position: relative;
+      top: -3vw;
+      left: -2vw;
+
+      &:before {
+        @include size(30px);
+        margin-right: 10px;
+      }
+    }
+
+    &__name {
+      letter-spacing: .4rem;
+    }
+  }
+  .project__desc {
+    letter-spacing: .05rem;
+
+    strong {
+      display: inline-block;
+      padding: 0 10px;
+      background: $main-color;
+      color: white;
+      line-height: 2rem;
+      border-bottom: 2px solid darken($main-color, 10);
+    }
+
+    span {
+      margin-top: 3rem;
+    }
+  }
 }
 
 /* features -------------------- */
@@ -81,9 +169,10 @@
     display: flex;
     flex-wrap: wrap;
 
-    &__pic {
-      width: calc(100% - 600px);
-    }
+  }
+  &__pic {
+    max-width: 350px;
+    @extend %responsive-img;
   }
 }
 
@@ -109,6 +198,32 @@
   &:nth-child(3) .title,
   &:nth-child(6) .title {
     color: $main-color;
+  }
+}
+
+@include mq('desktop-m') {
+  .features {
+    &__list {
+      max-width: 800px;
+    }
+  }
+}
+
+@include mq('tablet') {
+  .features {
+    &__list {
+      width: calc(100% - 40px);
+      flex-flow: column nowrap;
+
+      &__item {
+        flex: 0;
+        padding: 0;
+      }
+    }
+
+    &__pic {
+      display: none;
+    }
   }
 }
 
@@ -239,6 +354,11 @@
       max-width: 500px;
       width: auto;
       padding: 40px 20px 20px;
+      border-radius: 20px;
+      
+      &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4) {
+        border-radius: 20px;
+      }
 
       .pic {
         width: 120px;
@@ -247,6 +367,7 @@
       }
 
       .title {
+        width: calc(100% - 110px);
         margin-bottom: 60px;
       }
       
@@ -333,7 +454,323 @@
   }
 }
 
-/* previous-experience */
+
+@include mq('tablet') {
+  .about-teacher {
+    margin-top: 70px;
+    padding: 70px 20px 2rem;
+
+    &:before {
+      background-size: 300px auto;
+      height: 120px;
+      top: -35px;
+      left: 5%;
+    }
+
+    &:after {
+      left: -15px;
+    }
+
+    &__content {
+    }
+  }
+}
+
+@include mq('tablet-s') {
+  .about-teacher {
+    &__list a {
+      width: calc(100% - 30px);
+      margin: 0 auto 10px;
+    }
+  }
+}
+@include mq('mobile-l') {
+  .about-teacher {
+    padding: 70px 10px 2rem;
+
+    &:before {
+      background-size: 280px auto;
+    }
+
+    &:after {
+      display: none;
+    }
+
+    &__content {
+      padding: 40px 25px 20px;
+      border-radius: 30px;
+    }
+
+    &__list a {
+      width: 100%;
+    }
+  }
+}
+
+
+/* schedule -------------------- */
+.schedule {
+  margin: 4rem 0;
+  &__container {
+    margin-bottom: 4rem;
+  }
+}
+
+.schedule__list {
+  margin-bottom: 1rem;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: $width-tablet;
+    justify-content: space-evenly;
+    margin: 0 auto;
+  }
+
+  &__name {
+    text-align: center;
+    font-weight: bold;
+    color: $main-color;
+  }
+}
+
+/* schedule__list > time */
+.schedule__list__time {
+  @include size(100px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 100px;
+  background: $main-color;
+  color: white;
+  justify-content: space-around;
+  padding: 22px;
+  margin-bottom: 2rem;
+  position: relative;
+  align-items: flex-start;
+
+  &:before {
+    @include pseudo();
+    @include size(115px);
+    @include absolute();
+    border-radius: 115px;
+    border: 1.3px dashed #aaa;
+    align-self: center;
+  }
+
+  &:after {
+    @include pseudo();
+    width: 60px;
+    height: 1px;
+    background: white;
+    position: absolute;
+    transform: rotate(-36deg);
+  }
+  
+  span {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 2.8rem;
+  }
+
+  .time__day {
+    align-self: flex-end;
+  }
+}
+
+@include mq('tablet') {
+  .schedule__list__time {
+    transform: scale(0.8);
+    margin-bottom: .5rem;
+  }
+}
+
+/* schedule__list: theme */
+.schedule__list:nth-of-type(even) {
+  .schedule__list__time {
+    background: $grey-light;
+  }
+
+  .schedule__list__name {
+    color: $grey-light;
+  }
+}
+
+/* target -------------------- */
+.target {
+  margin: 4rem auto;
+  max-width: $width-desktop-s;
+  text-align: center;
+
+  &__dialog {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+
+    &__line {
+      @include font-size(14px);
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      margin: 1.5rem auto;
+
+      i{
+        margin-right: 10px;
+        font-size: 13px;
+      }
+      
+      &:before, &:after {
+        @include pseudo();
+        @include absolute($top: 15px, $left: -70px);
+        width: 50px;
+        height: 1px;
+        background: $grey;
+      }
+
+      &:after { 
+        left: auto;
+        right: -60px;
+      }
+    }
+  }
+
+}
+
+/* target > avatar */
+.target__avatar {
+  margin-right: 2rem;
+  text-align: center;
+
+  &__img {
+    @include size(80px);
+    background: url(./../image/img_avators.svg) center top no-repeat;
+    background-size: 100% auto;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    @include font-size(15px);
+    color: $grey;
+
+    span {
+      color: $main-color;
+      margin-left: 5px;
+    }
+  }
+}
+/* target > bubble */
+.target__bubble {
+  @include font-size(16px);
+  display: inline-block;
+  padding: 13px 20px;
+  background: $main-color;
+  color: white;
+  border-radius: 20px;
+  position: relative;
+  bottom: 30px;
+  max-width: 500px;
+  line-height: 2rem;
+  letter-spacing: 0.06rem;
+
+  &:before {
+    @include pseudo();
+    @include absolute($bottom: -7px, $left: -17px);
+    width: 40px;
+    height: 30px;
+    background: url(./../image/img_bubble_deco.svg) center top no-repeat;
+    background-size: 100% auto;
+  }
+
+  strong {
+    border-bottom: 1px solid white;
+    padding-bottom: 3px;
+    margin: 0 5px;
+  }
+
+  a {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 0 5px;
+
+    &:hover {
+      background: rgba(white, 0.1);
+      color: white;
+    }
+  }
+}
+
+/* target > theme */
+.target__dialog.theme-blue {
+  flex-direction: row-reverse;
+
+  .target__avatar {
+    margin-right: 0;
+    margin-left: 2rem;
+
+    &__img {
+      background-position: bottom;
+    }
+
+    &__name {
+      span {
+        color: $sub-color;
+      }
+    }
+  }
+
+  .target__bubble {
+    background: $sub-color;
+
+    &:before {
+      background-position: center bottom;
+      left: auto;
+      right: -17px;
+      bottom: 10px;
+    }
+  }
+}
+
+.target__dialog:nth-of-type(even) {
+  margin-bottom: 0;
+}
+.target__dialog:nth-of-type(3) {
+  .target__avatar__img {
+    background-position: center 32%;
+  }
+}
+.target__dialog:nth-of-type(5) {
+  .target__avatar__img {
+    background-position: center 68%;
+  }
+}
+
+@include mq('tablet-s') {
+  .target {
+    &__dialog {
+      margin-bottom: 3rem;
+      &__line {
+        border-bottom: 1px solid $grey-light;
+        margin-bottom: 2rem;
+
+        &:before, &:after {
+          display: none;
+        }
+      }
+    }
+
+    &__avatar {
+      transform: scale(0.7);
+      margin-right: 1rem;
+    }
+    &__bubble {
+      flex: 1;
+      padding: 15px;
+    }
+  }
+}
+
+/* previous-experience -------------------- */
 .previous-experience {
   background-color: $main-color;
   padding: 95px 20px 100px 20px;
