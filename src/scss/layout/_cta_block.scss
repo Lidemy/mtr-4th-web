@@ -38,6 +38,7 @@
 
 .cta__button {
   @include button_1($withIcon: true);
+  color: white;
   &:not(:nth-last-of-type(1)) {
     margin-right: 10px;
   }

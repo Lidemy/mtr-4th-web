@@ -18,9 +18,9 @@ block content
       p.
         以下是歷屆的學生求職狀況，如果想要了解更詳細的資訊，可以參考以下文章：
       .student-report__links
-        a(href='') #[em 第一期] 程式導師實驗計畫第一期成果與心得
-        a(href='') #[em 第二期] 27% 的人找到工作——程式導師實驗計畫第二期成果報吿
-        a(href='') #[em 第三期] 華麗謝幕：程式導師實驗計畫第三期成果以及未來走向
+        a(href='https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb', target="_blank") #[em 第一期] 程式導師實驗計畫第一期成果與心得
+        a(href='https://medium.com/hulis-blog/mentor-program-2nd-result-3cb7c2b6627e', target="_blank") #[em 第二期] 27% 的人找到工作——程式導師實驗計畫第二期成果報吿
+        a(href='https://medium.com/@hulitw/mentor-program-3rd-result-df178bb55f4', target="_blank") #[em 第三期] 華麗謝幕：程式導師實驗計畫第三期成果以及未來走向
 
     +post_item('學生求職成果', 'anchor-report')
       .chart-container
@@ -39,9 +39,9 @@ block content
         .student-list
           -
             var studentTags = [
-              { name: '第一期', num: 0, url: '' },
-              { name: '第二期', num: 0, url: '' },
-              { name: '第三期', num: 0, url: '' },
+              { name: '第三期', num: 0, url: 'https://github.com/Lidemy/mentor-program-3rd/issues' },
+              { name: '第二期', num: 0, url: 'https://github.com/Lidemy/mentor-program-2nd/issues' },
+              { name: '第一期', num: 0, url: 'https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb' },
             ]
           nav.student-list__menu
             each tag, idx in studentTags
@@ -54,32 +54,52 @@ block content
           -
             var students = [
               [
+                { name: 'RZ',     url: 'https://github.com/Lidemy/mentor-program-3rd/issues/10', },
+                { name: 'minw',   url: 'https://github.com/Lidemy/mentor-program-3rd/issues/11', },
+                { name: 'prince811009',    url: 'https://github.com/Lidemy/mentor-program-3rd/issues/12', },
+                { name: 'ChihYang41',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/13', },
+                { name: 'yakim-shu',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/14', },
+                { name: 'keronscribe',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/15', },
+                { name: 'shuanshuan',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/16', },
+                { name: 'Ponchimeow',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/17', },
+                { name: 'CindyLyu',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/18', },
+                { name: 'Clay Gao',  url: 'https://github.com/Lidemy/mentor-program-3rd/issues/20', },
+              ],
+              [
+                { name: 'LinY',     url: 'https://github.com/Lidemy/mentor-program-2nd/issues/4', },
+                { name: 'Amelie',   url: 'https://github.com/Lidemy/mentor-program-2nd/issues/7', },
+                { name: 'Marin',    url: 'https://github.com/Lidemy/mentor-program-2nd/issues/8', },
+                { name: 'rubysih',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/9', },
+                { name: 'yuchun',   url: 'https://github.com/Lidemy/mentor-program-2nd/issues/10', },
+                { name: 'Jay',   url: 'https://github.com/Lidemy/mentor-program-2nd/issues/11', },
+                { name: 'Tom',    url: 'https://github.com/Lidemy/mentor-program-2nd/issues/12', },
+                { name: 'Warren',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/13', },
+                { name: 'Elvis',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/14', },
+                { name: 'Ann',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/15', },
+                { name: 'Patty',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/16', },
+                { name: '匿名',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/17', },
+                { name: 'Sharon 1',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/18', },
+                { name: 'Sharon 2',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/19', },
+                { name: 'roro',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/20', },
+                { name: 'eife',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/21', },
+                { name: 'futianshen',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/22', },
+                { name: 'Neo',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/23', },
+                { name: 'x_s',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/24', },
+                { name: 'yuting',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/25', },
+                { name: 'julia',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/26', },
+                { name: 'twgd',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/27', },
+                { name: 'enter3017sky',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/28', },
+              ],
+              [
                 { name: 'Jay',      url: '', },
                 { name: 'Jolin',    url: '', },
                 { name: 'Eason',    url: '', },
-              ],
-              [
-                { name: 'LinY',     url: '', },
-                { name: 'Amelie',   url: '', },
-                { name: 'Marin',    url: '', },
-                { name: 'rubysih',  url: '', },
-                { name: 'LinY',     url: '', },
-                { name: 'Amelie',   url: '', },
-                { name: 'Marin',    url: '', },
-                { name: 'rubysih',  url: '', },
-                { name: 'rubysih',  url: '', },
-              ],
-              [
-                { name: 'LinY',     url: '', },
-                { name: 'Amelie',   url: '', },
-                { name: 'Marin',    url: '', },
-                { name: 'rubysih',  url: '', },
               ],
             ]
           each group, idx in students
             .student-list__group(class=`group_${idx}`)
               each student in group
-                a.student-list__card(href=student.url)
+                a.student-list__card(href=student.url, target="_blank")
                   p= student.name
                   span= studentTags[idx].name
 
