@@ -1,8 +1,10 @@
 import $ from 'jquery';
+import throttle from './throttle'
 
 $(document).ready(function() {
   let timer;
-  $(document).scroll(function() {
+
+  function setShrinkHeader() {
     var scrollHeight = $(document).scrollTop();
     clearTimeout(timer)
     if(scrollHeight > 120) {
@@ -15,10 +17,9 @@ $(document).ready(function() {
         $(".header__cta-btn.content-invisible, .header__nav.content-invisible").removeClass("content-invisible")
       }, 50);
     }
-  })
+  }
 
-  $(".header__responsive__icon").click(function() {
-    // rwd menu
+  function openMenu() {
     $(".header").toggleClass("menu-opened")
 
     // desktop nav shrink 
@@ -31,5 +32,9 @@ $(document).ready(function() {
         $(".header__cta-btn.content-invisible, .header__nav.content-invisible").removeClass("content-invisible")
       }, 50);
     }
-  })
+  }
+
+  $(document).scroll(throttle(setShrinkHeader, 150))
+
+  $(".header__responsive__icon").click(openMenu)
 })

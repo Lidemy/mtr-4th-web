@@ -11,7 +11,8 @@ html, body {
 }
 
 .scroll-top-btn {
-  @include fixed($bottom: 20px, $right: calc((100vw - 1080px) / 2));
+  @extend %transition;
+  @include fixed($bottom: 20px, $right: calc((100vw - 1200px) / 2));
   @include size(50px);
   background-color: lighten($main-color, 8);
   border-radius: 50%;
@@ -30,11 +31,20 @@ html, body {
     color: white;
   }
 
-  @include mq('desktop-m') {
+  @include mq('desktop-l') {
     @include size(35px);
     right: 20px;
   }
 }
+
+/* uncss:ignore start */
+
+.scroll-top-btn.content-invisible {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* uncss:ignore end */
 
 
 .theme-index {
@@ -74,3 +84,4 @@ html, body {
     padding: 3rem 15px;
   }
 }
+

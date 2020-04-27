@@ -266,7 +266,7 @@ nav li:hover {
   }
 
   /* header invisible */
-  nav.content-invisible,
+  .header__nav.content-invisible,
   .header__cta-btn.content-invisible {
     visibility: hidden;
     opacity: 0;

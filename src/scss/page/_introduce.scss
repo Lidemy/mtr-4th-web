@@ -276,6 +276,10 @@
       color: $grey;
       position: relative;
 
+      &:hover {
+        color: $main-color;
+      }
+
       &:before {
         @include arrow-icon-pseudo();
         @include absolute($top: 3px, $left: -8px);

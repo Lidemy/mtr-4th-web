@@ -1,3 +1,5 @@
+import throttle from './throttle';
+
 function scrollToHash(e) {
   e.preventDefault();
 
@@ -23,3 +25,12 @@ document.querySelector(".scroll-top-btn").addEventListener('click', function(e) 
     behavior: 'smooth' // => 滑動效果
   });
 })
+
+window.addEventListener('scroll', throttle(function() {
+  let scrollBarPosition = window.pageYOffset
+  if(scrollBarPosition > 900) {
+    document.querySelector(".scroll-top-btn").classList.remove("content-invisible") 
+  } else {
+    document.querySelector(".scroll-top-btn").classList.add("content-invisible")
+  }
+}, 200))

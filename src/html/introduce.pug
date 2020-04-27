@@ -14,7 +14,7 @@ mixin about_intro_item(item)
 
 mixin about_article_link(article)
   li
-    a(href=`${article.link}` target="_blank")= article.title
+    a(href=`${article.link}`, target="_blank", rel="noopener")= article.title
 
 mixin improvement_card(card)
   li.improvement__card__container
@@ -31,7 +31,7 @@ mixin improvement_article(article)
   - const tags = ['第一期', '第二期', '第三期']
   li
     time= article.date
-    a(href=`${article.link}` target="_blank")= article.title
+    a(href=`${article.link}` target="_blank", rel="noopener")= article.title
     each tag, idx in tags
       if (article.tag === idx + 1) 
         span(class=`tag__theme-${++idx}`)= tag
@@ -163,7 +163,7 @@ block content
       img(src="./image/img_project_2.svg")
       .improvement__intro-content
         //- TODO 
-        span Author name
+        span Huli
         h3 歷來改進心得 
         p.
           每一期計畫結束以後，都會花一點時間檢討，並且在下一期改進。
