@@ -67,6 +67,10 @@ $breakpoints: (
   @include position(relative, $args...);
 }
 
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
 /* border-radius */
 @mixin border-radius($pixel...) {
   border-radius: $pixel;

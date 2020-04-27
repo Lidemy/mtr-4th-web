@@ -11,13 +11,11 @@ html, body {
 }
 
 .scroll-top-btn {
-  @include absolute($bottom: 15px, $right: 15px);
-  width: 80px;
-  height: 80px;
-  position: fixed;
-  background-color: $main-color;
+  @include fixed($bottom: 20px, $right: calc((100vw - 1080px) / 2));
+  @include size(50px);
+  background-color: lighten($main-color, 8);
   border-radius: 50%;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 1);
+  box-shadow: 0 5px 5px rgba(0,0,0, .2);
   z-index: 10;
 
   &:focus {
@@ -26,11 +24,36 @@ html, body {
 
   &:after {
     @extend %fontawesome-icon;
-    @include font-size(40px);
+    @include font-size(15px);
     @include pseudo(inline-block);
-    @include relative($top: 0px, $right: 0px);
     content: fa-content($fa-var-arrow-up);
     color: white;
+  }
+
+  @include mq('desktop-m') {
+    @include size(35px);
+    right: 20px;
+  }
+}
+
+
+.theme-index {
+  background: white;
+  .wrapper {
+    background: url(./../image/img_visual_light.svg) center top no-repeat;
+    background-position-y: 100px;
+    padding-top: 240px;
+
+    @include mq('mobile-l') {
+      background-position-y: 75px;
+      background-size: 20% auto;
+      padding-top: 150px;
+    }
+  }
+
+  .full-bg {
+    background: url(./../image/bg_dot.svg);
+    padding: 0;
   }
 }
 

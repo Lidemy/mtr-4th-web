@@ -206,24 +206,29 @@
     &__list {
       max-width: 800px;
     }
+    &__pic {
+      display: none;
+    }
   }
 }
 
 @include mq('tablet') {
   .features {
     &__list {
-      width: calc(100% - 40px);
+      max-width: 500px;
       flex-flow: column nowrap;
 
       &__item {
         flex: 0;
         padding: 0;
+
+        .title {
+          font-size: 17px;
+        }
       }
     }
 
-    &__pic {
-      display: none;
-    }
+
   }
 }
 
@@ -470,9 +475,6 @@
     &:after {
       left: -15px;
     }
-
-    &__content {
-    }
   }
 }
 
@@ -507,10 +509,10 @@
   }
 }
 
-
 /* schedule -------------------- */
 .schedule {
   margin: 4rem 0;
+
   &__container {
     margin-bottom: 4rem;
   }
@@ -597,7 +599,7 @@
 
 /* target -------------------- */
 .target {
-  margin: 4rem auto;
+  margin: 2rem auto;
   max-width: $width-desktop-s;
   text-align: center;
 
@@ -671,6 +673,7 @@
   max-width: 500px;
   line-height: 2rem;
   letter-spacing: 0.06rem;
+  text-align: left;
 
   &:before {
     @include pseudo();
@@ -685,6 +688,8 @@
     border-bottom: 1px solid white;
     padding-bottom: 3px;
     margin: 0 5px;
+    white-space:nowrap;
+
   }
 
   a {
@@ -692,6 +697,8 @@
     border-radius: 5px;
     padding: 4px 10px;
     margin: 0 5px;
+    white-space:nowrap;
+
 
     &:hover {
       background: rgba(white, 0.1);
@@ -750,8 +757,10 @@
     &__dialog {
       margin-bottom: 3rem;
       &__line {
-        border-bottom: 1px solid $grey-light;
-        margin-bottom: 2rem;
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+        margin-bottom: 2.5rem;
+        border-radius: 23px;
 
         &:before, &:after {
           display: none;
@@ -762,10 +771,14 @@
     &__avatar {
       transform: scale(0.7);
       margin-right: 1rem;
+
+      .target__dialog.theme-blue & {
+        margin-left: 1rem;
+      }
     }
     &__bubble {
       flex: 1;
-      padding: 15px;
+      padding: 15px 20px;
     }
   }
 }
