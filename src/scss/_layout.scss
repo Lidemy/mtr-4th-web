@@ -32,18 +32,19 @@ html, body {
   }
 
   @include mq('desktop-l') {
-    @include size(35px);
     right: 20px;
+  }
+  
+  @include mq('tablet') {
+    @include size(40px);
   }
 }
 
 /* uncss:ignore start */
-
 .scroll-top-btn.content-invisible {
   visibility: hidden;
   opacity: 0;
 }
-
 /* uncss:ignore end */
 
 

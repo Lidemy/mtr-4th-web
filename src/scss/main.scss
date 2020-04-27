@@ -3,6 +3,7 @@
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+@import './sprite/view/_sprite.scss';
 @import './_variables.scss';
 
 @import './font-awesome/scss/fontawesome.scss';
@@ -25,3 +26,4 @@
 @import './page/_achievement.scss';
 @import './page/_introduce.scss';
 @import './page/_syllabus.scss';
+

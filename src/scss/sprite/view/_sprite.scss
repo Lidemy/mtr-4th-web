@@ -1,0 +1,154 @@
+%svg-common {
+	background: url("sprite.svg") no-repeat;
+}
+
+.svg-icon_arrow_right {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg-icon_arrow_right-dims {
+	width: 17px;
+	height: 18px;
+}
+
+.svg-icon_arrow_right_blue {
+	@extend %svg-common;
+	background-position: 0 1.2491325468424705%;
+}
+
+.svg-icon_arrow_right_blue-dims {
+	width: 48px;
+	height: 23px;
+}
+
+.svg-icon_arrow_right_red {
+	@extend %svg-common;
+	background-position: 0 2.8452463566967383%;
+}
+
+.svg-icon_arrow_right_red-dims {
+	width: 48px;
+	height: 23px;
+}
+
+.svg-icon_avatar_1 {
+	@extend %svg-common;
+	background-position: 0 4.647785039941903%;
+}
+
+.svg-icon_avatar_1-dims {
+	width: 93px;
+	height: 87px;
+}
+
+.svg-icon_avatar_2 {
+	@extend %svg-common;
+	background-position: 0 10.965867828612927%;
+}
+
+.svg-icon_avatar_2-dims {
+	width: 87px;
+	height: 87px;
+}
+
+.svg-icon_avatar_3 {
+	@extend %svg-common;
+	background-position: 0 17.423133235724745%;
+}
+
+.svg-icon_avatar_3-dims {
+	width: 87px;
+	height: 98px;
+}
+
+.svg-icon_avatar_4 {
+	@extend %svg-common;
+	background-position: 0 24.40087145969499%;
+}
+
+.svg-icon_avatar_4-dims {
+	width: 87px;
+	height: 87px;
+}
+
+.svg-icon_methods_1 {
+	@extend %svg-common;
+	background-position: 0 32.216298552932216%;
+}
+
+.svg-icon_methods_1-dims {
+	width: 164px;
+	height: 151px;
+}
+
+.svg-icon_methods_2 {
+	@extend %svg-common;
+	background-position: 0 43.6834094368341%;
+}
+
+.svg-icon_methods_2-dims {
+	width: 164px;
+	height: 150px;
+}
+
+.svg-icon_methods_3 {
+	@extend %svg-common;
+	background-position: 0 55.09893455098935%;
+}
+
+.svg-icon_methods_3-dims {
+	width: 165px;
+	height: 150px;
+}
+
+.svg-icon_methods_4 {
+	@extend %svg-common;
+	background-position: 0 66.5144596651446%;
+}
+
+.svg-icon_methods_4-dims {
+	width: 164px;
+	height: 150px;
+}
+
+.svg-img_about_teacher {
+	@extend %svg-common;
+	background-position: 0 77.59633236085325%;
+}
+
+.svg-img_about_teacher-dims {
+	width: 304px;
+	height: 144.35px;
+}
+
+.svg-img_about_teacher_left {
+	@extend %svg-common;
+	background-position: 0 92.19242902208202%;
+}
+
+.svg-img_about_teacher_left-dims {
+	width: 91px;
+	height: 196px;
+}
+
+.svg-logo_lidemy {
+	@extend %svg-common;
+	background-position: 0 96.94602272727273%;
+}
+
+.svg-logo_lidemy-dims {
+	width: 56px;
+	height: 56px;
+}
+
+.svg-logo_mtr {
+	@extend %svg-common;
+	background-position: 0 100%;
+}
+
+.svg-logo_mtr-dims {
+	width: 114px;
+	height: 43px;
+}
+

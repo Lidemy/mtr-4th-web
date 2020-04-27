@@ -1,3 +1,5 @@
+$width-header: 1000px;
+
 /* header -------------------- */
 .header {
   position: fixed;
@@ -57,7 +59,7 @@ header.menu-opened {
 /* header > content */
 .header__content {
   height: 90px;
-  width: 1000px;
+  width: $width-header;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
@@ -94,14 +96,13 @@ header.menu-opened {
 }
 
 .header__logo-img {
+  @extend .svg-logo_mtr;
   display: block;
   height: 40px;
   width: 110px;
-  background: url(./../image/logo_mtr.png) left top no-repeat;
-  background-size: auto 100%;
 
   @include mq('mobile-l') {
-    height: 30px;
+    transform: scale(0.85);
   }
 }
 
@@ -130,7 +131,6 @@ header.menu-opened {
 }
 
 /* header > content > nav */
-
 .header nav {
   width: 100%;
   display: flex;
@@ -234,6 +234,14 @@ nav li:hover {
 
 /* uncss:ignore start */
 /* media query */
+@media (min-width: $width-header) {
+  .header.is-shrunk {
+    .header__content {
+      margin-right:calc((100% - 1000px) / 2);
+    }
+  }
+}
+
 @media (min-width: $width-desktop-s) {
   // header shrunk
   .header.is-shrunk {

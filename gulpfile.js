@@ -6,7 +6,6 @@ const postcss = require('gulp-postcss');
 const uncss = require('postcss-uncss');
 const autoprefixer = require('autoprefixer');
 const minifyCSS = require('gulp-csso');
-const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const connect = require('gulp-connect');
@@ -19,6 +18,11 @@ const glob = require('glob');
 const es = require('event-stream');
 const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
+const svgSprite = require('gulp-svg-sprite');
+const merge = require('merge-stream');
+
+
+const env = process.env.NODE_ENV || 'development';
 
 const base = {
   src: 'src',
@@ -38,7 +42,7 @@ const paths = {
     dest: base.dest,
   },
   image: {
-    src: `${base.src}/image/*`,
+    src: `${base.src}/image/*.+(jpg|jpeg|gif|png|svg)`,
     dest: `${base.dest}/image`,
   }
 };
@@ -59,7 +63,7 @@ const js = (done) => {
     var tasks = files.map(function (entry) {
       return browserify({
         entries: [entry],
-        debug: true,
+        debug: env === 'development',
         transform: [babelify.configure(),]
       })
         .bundle()
@@ -83,15 +87,47 @@ function html() {
     .pipe(connect.reload())
 }
 
+function sprite() {
+  const config = {
+    shape: {
+      dimension: {
+        maxWidth: 300,
+        maxHeight: 300,
+      },
+      spacing: {
+        padding: 2,
+      },
+    },
+    mode: {
+      view: {
+        bust: false,
+        example: true,
+        layout: 'vertical',
+        sprite: 'sprite.svg',
+        render: {
+          scss: { dest: '_sprite.scss' }
+        }
+      },
+    }
+  };
+  return src('src/image/sprite/*.svg')
+    .pipe(svgSprite(config))
+    .pipe(gulp.dest('src/scss/sprite'));
+}
+
 function css() {
   const processors = [
     autoprefixer({ overrideBrowserslist: ['last 2 version'] }),
-    // uncss({
-    //   html: ['public/*.html'],
-    //   timeout: 1000,
-    // })
   ];
-  return src(paths.css.src)
+
+  if (process.env.NODE_ENV === 'production') {
+    processors.push(
+      uncss({
+        html: ['public/*.html'],
+      })
+    )
+  }
+  const css = gulp.src(paths.css.src)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
@@ -103,6 +139,11 @@ function css() {
     }))
     .pipe(dest(paths.css.dest))
     .pipe(connect.reload())
+  
+  const copySprite = gulp.src('src/scss/sprite/view/*.svg')
+    .pipe(gulp.dest('public/css/'))
+
+  return merge(css, copySprite);
 }
 
 function font() {
@@ -117,25 +158,34 @@ function img() {
     .pipe(connect.reload())
 }
 
-function watch() {
-  gulp.watch(`${base.src}/scss/**/*`, css);
-  gulp.watch(`${base.src}/html/**/*`, html);
-  gulp.watch(`${base.src}/js/**/*`, js);
-  gulp.watch(`${base.src}/image/*`, img);
+function watch(done) {
+  if (process.env.NODE_ENV !== 'production') {
+    gulp.watch(`${base.src}/scss/**/*`, css);
+    gulp.watch(`${base.src}/html/**/*`, html);
+    gulp.watch(`${base.src}/js/**/*`, js);
+    gulp.watch(`${base.src}/image/*`, img);
+    gulp.watch(`${base.src}/image/*`, gulp.series(sprite, css));
+  }
+  done();
 }
 
-function server() {
-  var options = {
-    port: 8080,
-    livereload: true,
-  };
-  connect.server(options);
+function server(done) {
+  if (process.env.NODE_ENV !== 'production') {
+    var options = {
+      port: 8080,
+      livereload: true,
+    };
+    connect.server(options);
+  }
+  done();
 };
 
 const resource = gulp.parallel(html, css, js, img, font)
-const build = gulp.series(clean, resource, gulp.parallel(watch, server))
+const build = gulp.series(clean, sprite, resource, gulp.parallel(watch, server))
 
 exports.clean = clean;
 exports.default = build;
+exports.js = js;
 exports.css = css
-exports.make = gulp.series(clean, resource);
+exports.img = img
+exports.sprite = gulp.series(sprite, css);

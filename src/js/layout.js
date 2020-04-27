@@ -1,36 +1,40 @@
 import throttle from './throttle';
+import smoothscroll from 'smoothscroll-polyfill';
 
-function scrollToHash(e) {
+// Support safari scroll behavior
+smoothscroll.polyfill();
+
+function scrollToOffset(e, offset) {
   e.preventDefault();
 
-  const url = location.hash.substr(1);
-  if (!url) return
+  if ('top' === offset) {
+    offset = 0;
+  } else if (!offset) {
+    const url = location.hash.substr(1);
+    if (!url) return
 
-  const target = document.querySelector(`.${url}`).offsetTop - 60;
+    offset = document.querySelector(`.${url}`).offsetTop - 120;
+  }
+
   window.scrollTo({
-    top: target,
+    top: offset,
     left: 0,
-    behavior: 'smooth' // => 滑動效果
+    behavior: 'smooth'
   });
 }
 
-['hashchange', 'DOMContentLoaded'].forEach(function (item) {
-  window.addEventListener(item, scrollToHash);
-});
+const btnScroll = document.querySelector(".scroll-top-btn");
 
-document.querySelector(".scroll-top-btn").addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // => 滑動效果
-  });
-})
-
+// Add scroll throttle
 window.addEventListener('scroll', throttle(function() {
-  let scrollBarPosition = window.pageYOffset
-  if(scrollBarPosition > 900) {
-    document.querySelector(".scroll-top-btn").classList.remove("content-invisible") 
+  if (window.pageYOffset > 900) {
+    btnScroll.classList.remove("content-invisible") 
   } else {
-    document.querySelector(".scroll-top-btn").classList.add("content-invisible")
+    btnScroll.classList.add("content-invisible")
   }
-}, 200))
+}, 500))
+
+// Add event listener
+window.addEventListener('DOMContentLoaded', scrollToOffset);
+window.addEventListener('hashchange', scrollToOffset);
+btnScroll.addEventListener('click', function(e) { scrollToOffset(e, 'top') })

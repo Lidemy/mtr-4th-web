@@ -35,13 +35,12 @@ $breakpoints: (
   display: $display;
 }
 
-@mixin arrow-icon-pseudo($url: './../image/icon_arrow_right_red.png', $width: 45px, $height: 20px) {
+@mixin arrow-icon-pseudo($width: 45px, $height: 20px) {
+  @extend .svg-icon_arrow_right;
   @include pseudo(inline-block);
   @include relative($top: 7px, $left: 15px);
   width: $width;
   height: $height;
-  background: url($url) left top no-repeat;
-  background-size: 100% auto;
 }
 
 /* position */

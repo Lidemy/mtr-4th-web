@@ -1,5 +1,5 @@
 {
-  "name": "mtr-4rd-web",
+  "name": "mtr-4th-web",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -22,6 +22,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "postcss-uncss": "^0.17.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "uncss": "^0.17.3",
     "vinyl-buffer": "^1.0.1"
   },
@@ -39,13 +40,17 @@
     "glob": "^7.1.6",
     "gulp-babel": "^8.0.0",
     "gulp-connect": "^5.7.0",
+    "gulp-svg-sprite": "^1.5.0",
     "jquery": "^3.5.0",
+    "merge-stream": "^2.0.0",
     "popper.js": "^1.16.1",
     "rfs": "^9.0.3",
     "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "NODE_ENV='development' gulp",
+    "gulp-build": "NODE_ENV='production' gulp"
   },
   "repository": {
     "type": "git",

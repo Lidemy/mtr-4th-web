@@ -1,5 +1,7 @@
 extends layout/layout.pug
 
+include mixin/_mixin.pug
+
 //- mixin
 mixin list_item(title, activeClass)
   li(class= `faq__list__item ${activeClass || ''}`)
@@ -23,8 +25,9 @@ block current
   - var currentUrl = "faq"
 
 block content
-  .section.faq
-    h2.faq__title FAQ
+  .section.faq.anchor-faq
+    //- h2.faq__title FAQ
+    +common_title('FAQ', 'anchor-faq')
     ul.faq__list
       +list_item('為什麼這個計畫到了第四期還是「實驗」計畫？', 'active')
         p 這個計畫搞不好永遠都會叫做「實驗」計畫，因為每一期我都當作一個實驗，實驗我的教學成效如何、品質如何，根據學生的回饋調整課程內容，繼續做下一輪的實驗，持續優化、改進。

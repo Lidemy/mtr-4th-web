@@ -1,3 +1,9 @@
+.syllabus__container {
+  .common__title {
+    margin: 1.5rem 0;
+  }
+}
+
 /* syllabus__header */
 .syllabus__header ul {
   max-width: $width-desktop-s;
@@ -19,6 +25,7 @@
 
 /* syllabus__header-text */
 .syllabus__header ul a {
+  @include font-size(16px);
   @extend %transition;
   width: 185px;
   padding: 15px 20px;
@@ -30,6 +37,10 @@
   @include mq('desktop-s') {
     width: calc((100% - 40px) / 2);
     margin-bottom: 20px;
+  }
+  @include mq('mobile-l') {
+    padding: 15px 10px;
+    width: calc((100% - 15px) / 2);
   }
 
   &:after {
@@ -44,9 +55,13 @@
     color: white;
     padding-top: 4px;
     border-radius: 50%;
+    z-index: 1;
 
     @include mq('desktop-s') {
-      display: none;
+      right: -30px;
+    }
+    @include mq('mobile-l') {
+      right: -18px;
     }
   }
 
@@ -56,11 +71,20 @@
 
     p {
       color: white;
+      @include font-size(14px);
     }
   }
 
   &:nth-last-of-type(1):after {
     display: none;
+  }
+
+  &:nth-of-type(2) {
+     @include mq('desktop-s') {
+        &:after {
+          display: none;
+        }
+      }
   }
 
   p {
@@ -115,9 +139,10 @@
       font-weight: bold;
       padding-bottom: 20px;
       border-bottom: 5px solid black;
+      letter-spacing: 0.15rem;
 
       @include mq('mobile-l') {
-        @include font-size(72px);
+        font-size: 50px;
       }
     }
 
@@ -154,7 +179,7 @@
     z-index: 1;
 
     @include mq('desktop-s') {
-      top: -320px;
+      top: -400px;
     }
   }
 

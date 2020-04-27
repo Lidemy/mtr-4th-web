@@ -84,12 +84,11 @@
   font-weight: normal;
 
   &:before {
+    @extend .svg-icon_arrow_right_red;
     @include pseudo(inline-block);
     @include relative($top: 7px, $left: 15px);
     width: 45px;
     height: 20px;
-    background: url(./../image/icon_arrow_right_red.png) left top no-repeat;
-    background-size: 100% auto;
   }
 }
 

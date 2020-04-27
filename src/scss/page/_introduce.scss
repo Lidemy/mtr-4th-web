@@ -282,15 +282,15 @@
 
       &:before {
         @include arrow-icon-pseudo();
-        @include absolute($top: 3px, $left: -8px);
+        @include absolute($top: 0px, $left: -13px);
       }
 
       .theme-easy &:before {
-        background-image: url('./../image/icon_arrow_right_red.png');
+        @extend .svg-icon_arrow_right_red;
       }
 
       .theme-hard &:before {
-        background-image: url('./../image/icon_arrow_right_blue.png');
+        @extend .svg-icon_arrow_right_blue;
       }
 
       .theme-hard &:hover {
@@ -446,12 +446,12 @@
   li {
     @include font-size(16px);
     line-height: 2.2em;
-    padding-left: 35px;
+    padding-left: 23px;
     position: relative;
 
     &:before {
-      @include arrow-icon-pseudo('./../image/icon_arrow_right.png');
-      @include absolute($top: 8px, $left: 5px);
+      @include arrow-icon-pseudo('./../image/icon_arrow_right.svg');
+      @include absolute($top: 8px, $left: 0);
       width: 20px;
       height: 20px;
     }

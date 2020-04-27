@@ -28,9 +28,9 @@
 		margin-bottom: 28px;
 
 		.pic {
-			@extend %responsive-img;
-			width: 55px;
-			height: 55px;
+			@extend .svg-logo_lidemy;
+			width: 52px;
+			height: 52px;
 			margin-right: 16px;
 		}
 
@@ -108,8 +108,7 @@
 			.logo {
 				margin-bottom: .5rem;
 				.pic {
-					width: 40px;
-					height: 40px;
+					transform: scale(0.75);
 				}
 
 				h3 {

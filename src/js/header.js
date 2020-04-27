@@ -34,7 +34,7 @@ $(document).ready(function() {
     }
   }
 
-  $(document).scroll(throttle(setShrinkHeader, 150))
+  $(document).scroll(throttle(setShrinkHeader, 300))
 
   $(".header__responsive__icon").click(openMenu)
 })
