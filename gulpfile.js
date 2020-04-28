@@ -191,5 +191,4 @@ exports.default = build;
 exports.js = js;
 exports.css = css
 exports.img = img
-exports.critical = critical
 exports.sprite = gulp.series(sprite, css);

@@ -71,7 +71,6 @@
 
     p {
       color: white;
-      @include font-size(14px);
     }
   }
 
@@ -88,6 +87,7 @@
   }
 
   p {
+    @include font-size(14px);
     margin-bottom: 0;
   }
 }
