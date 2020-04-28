@@ -29,7 +29,7 @@ console.log('--- current mode: ', env);
 
 const base = {
   src: 'src',
-  dest: 'public',
+  dest: 'docs',
 }
 const paths = {
   css: {
@@ -126,7 +126,7 @@ function css() {
   if (env === 'production') {
     processors.push(
       uncss({
-        html: ['public/*.html'],
+        html: ['docs/*.html'],
       })
     )
   }
@@ -144,7 +144,7 @@ function css() {
     .pipe(connect.reload())
   
   const copySprite = gulp.src('src/scss/sprite/view/*.svg')
-    .pipe(gulp.dest('public/css/'))
+    .pipe(gulp.dest('docs/css/'))
 
   return merge(css, copySprite);
 }
