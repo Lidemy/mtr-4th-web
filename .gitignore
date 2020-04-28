@@ -2,4 +2,4 @@
 public/
 node_modules/
 build/
-src/scss/sprite/*
+src/scss/sprite/
