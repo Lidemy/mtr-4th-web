@@ -1,40 +1,49 @@
-import $ from 'jquery';
 import throttle from './throttle'
 
-$(document).ready(function() {
-  let timer;
+let timer;
+let header = document.querySelector('.header')
+let headerContent = document.querySelectorAll(
+  '.header__cta-btn, .header__nav'
+)
 
-  function setShrinkHeader() {
-    var scrollHeight = $(document).scrollTop();
-    clearTimeout(timer)
-    if(scrollHeight > 120) {
-      $(".header").addClass("is-shrunk");
-      $(".header__cta-btn, .header__nav").addClass("content-invisible")
-    } else {
-      $(".header").removeClass("is-shrunk");
-      
-      timer = setTimeout(function() {
-        $(".header__cta-btn.content-invisible, .header__nav.content-invisible").removeClass("content-invisible")
-      }, 50);
-    }
+function setShrinkHeader() {
+  clearTimeout(timer)
+
+  if (window.pageYOffset > 120) {
+    header.classList.add('is-shrunk')
+    headerContent.forEach((content) => {
+      content.classList.add('content-invisible')
+    })
+  } else {
+    header.classList.remove('is-shrunk')
+    timer = setTimeout(function () {
+      headerContent.forEach((content) => {
+        content.classList.remove('content-invisible')
+      })
+    }, 50)
   }
+}
 
-  function openMenu() {
-    $(".header").toggleClass("menu-opened")
+function openMenu() {
+  // mobile menu open
+  header.classList.toggle('menu-opened')
 
-    // desktop nav shrink 
-    $(".header").toggleClass("is-shrunk")
+  // desktop nav shrink
+  header.classList.toggle('is-shrunk')
+  const isheaderShrunk = header.classList.contains('is-shrunk')
 
-    if($('.header').hasClass('is-shrunk')) {
-      $(".header__cta-btn, .header__nav").addClass("content-invisible")
-    } else {
-      setTimeout(function() {
-        $(".header__cta-btn.content-invisible, .header__nav.content-invisible").removeClass("content-invisible")
-      }, 50);
-    }
+  if (isheaderShrunk) {
+    headerContent.forEach((content) => {
+      content.classList.add('content-invisible')
+    })
+  } else {
+    setTimeout(function () {
+      headerContent.forEach((content) => {
+        content.classList.remove('content-invisible')
+      })
+    }, 50)
   }
+}
 
-  $(document).scroll(throttle(setShrinkHeader, 300))
-
-  $(".header__responsive__icon").click(openMenu)
-})
+document.addEventListener('scroll', throttle(setShrinkHeader, 200))
+document.querySelector(".header__responsive__icon").addEventListener('click', openMenu)
