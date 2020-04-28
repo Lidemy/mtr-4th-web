@@ -66,9 +66,9 @@
 }
 
 /* main-visual : rwd */
-@include mq('desktop-xl') {
+@include mq('desktop-l') {
   .project__title { 
-    padding: 50px 0;
+    padding: 45px 0;
   }
 }
 
@@ -236,9 +236,13 @@
       &__item {
         flex: 0;
         padding: 0;
+        text-align: center;
 
         .title {
           font-size: 17px;
+          border: 1px solid lighten($grey-light, 30);
+          padding: 2px 10px;
+          border-radius: 2px;
         }
       }
     }
@@ -799,7 +803,7 @@
 /* previous-experience -------------------- */
 .previous-experience {
   background-color: $main-color;
-  padding: 95px 20px 100px 20px;
+  padding: 50px 20px;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -808,9 +812,15 @@
   background-position: top 10px left -65px, bottom -170px right -110px;
   background-repeat: no-repeat;
 
+  @include mq('desktop-s') {
+    background-blend-mode: soft-light;
+    padding-bottom: 50px;
+    background-position: top 10px left -65px,bottom -230px right -50px;
+  }
+
   .common__title {
     color: white;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 
     a:hover, a:before {
       color: white;
@@ -845,11 +855,12 @@
     box-shadow: 0px 10px 0px darken($main-color, 10);
     border-radius: 20px;
     padding: 20px 25px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     flex: 1;
   
     p {
       color: #4B5D68;
+      @include font-size(15px);
     }
   }
 
@@ -857,21 +868,29 @@
     @include font-size(14px);
     line-height: 2.0em;
     position: relative;
-    padding-left: 80px;
+    padding-left: 55px;
 
     &:before {
       @include pseudo(inline-block);
-      @include absolute($top: -5px, $left: 0px);
-      content: "";
-      width: 65px;
-      height: 65px;
-      background-color: $grey;
-      border-radius: 50%;
+      @include absolute($top: 10px, $left: 5px);
+      @extend %fontawesome-icon;
+      content: fa-content($fa-var-user-circle);
+      font-size: 35px;
+      // width: 40px;
+      // height: 40px;
     }
 
     .author-name {
       @include font-size(18px);
       font-weight: bold;
     }
+  }
+
+
+  &:nth-of-type(2) &-author:before {
+    // @extend .svg-icon_avatar_2;
+  }
+  &:nth-of-type(3) &-author:before {
+    // @extend .svg-icon_avatar_3;
   }
 }

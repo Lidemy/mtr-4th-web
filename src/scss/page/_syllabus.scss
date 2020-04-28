@@ -179,6 +179,9 @@
     z-index: 1;
 
     @include mq('desktop-s') {
+      top: -240px;
+    }
+    @include mq('tablet') {
       top: -400px;
     }
   }
@@ -190,7 +193,9 @@
     z-index: 1;
 
     @include mq('tablet') {
-      display: none;
+      .theme-light & {
+        display: none;
+      }
     }
   }
 

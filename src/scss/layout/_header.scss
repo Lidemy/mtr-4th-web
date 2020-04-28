@@ -46,13 +46,6 @@ header.menu-opened {
       display: block;
     }
   }
-
-  @include mq('mobile-l') {
-    .header__content {
-      padding-top: 30px;
-      border-radius: 20px;
-    }
-  }
 }
 /* uncss:ignore end */
 
@@ -184,7 +177,7 @@ header.menu-opened {
     @extend %transition;
     display: inline-block;
     padding: 16px 0;
-    margin: 0 15px;
+    margin: 0 13px;
     position: relative;
 
     @include mq('desktop-s') {
@@ -242,7 +235,7 @@ nav li:hover {
   }
 }
 
-@media (min-width: $width-desktop-s) {
+@media (min-width: 901px) {
   // header shrunk
   .header.is-shrunk {
     .header__logo {

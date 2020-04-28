@@ -1,5 +1,24 @@
-html, body {
-  background: $main-bg-Color
+body {
+  background-color: $main-bg-Color;
+}
+
+body.theme-index {
+  background-color: white;
+  background-image: url(./../image/grey_bg.svg), url(./../image/red_line_bg.svg);
+  background-position: right -60vw top 400px,left -25vw top -300px;
+  background-repeat: no-repeat;
+
+  @include mq('desktop-m') {
+    background-position: right -35vw top 43vw,left -40vw top -360px;
+    background-size: 90%;
+  }
+  @include mq('tablet') {
+    background-position: right -35vw top 55vw;
+    background-image: url(./../image/grey_bg.svg);
+  }
+  @include mq('mobile-l') {
+    background-position: right -35vw top 65vw;
+  }
 }
 
 .wrapper {
@@ -34,10 +53,6 @@ html, body {
   @include mq('desktop-l') {
     right: 20px;
   }
-  
-  @include mq('tablet') {
-    @include size(40px);
-  }
 }
 
 /* uncss:ignore start */
@@ -49,11 +64,10 @@ html, body {
 
 
 .theme-index {
-  background: white;
   .wrapper {
     background: url(./../image/img_visual_light.svg) center top no-repeat;
     background-position-y: 100px;
-    padding-top: 240px;
+    padding-top: 220px;
 
     @include mq('mobile-l') {
       background-position-y: 75px;
@@ -63,8 +77,17 @@ html, body {
   }
 
   .full-bg {
-    background: url(./../image/bg_dot.svg);
+    background-color: white;
+    background-image: url(./../image/bg_dot.svg), url(./../image/grey_bg.svg), url(./../image/theme_light_red_bg.svg);
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-position: center,left 50vw top 150px,left -45vw bottom -50px;
     padding: 0;
+
+    @include mq('desktop-l') {
+      background-image: url(./../image/bg_dot.svg), url(./../image/grey_bg.svg);
+      background-position: center,left 30vw top 400px;
+      background-repeat: repeat, no-repeat;
+    }
   }
 }
 

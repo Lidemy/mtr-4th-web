@@ -75,7 +75,7 @@ block content
         | 你有看過有課程對外公開自己的缺點嗎？沒有的話，現在 讓你看看
       +features__item('直播解惑')
         | 除了錄好的線上課程以外，還有不定期直播，開放各式各樣的提問，現場幫你解答。
-    .pic.features__pic
+    .pic.features__pic.rellax(data-rellax-speed="2" data-rellax-percentage="0.5")
       img(src="./image/img_features.svg")
 
   section.section.methods.anchor-methods
@@ -93,24 +93,25 @@ block content
       +methods__item('社群互動系統')
         | 上課方式為觀看錄製好的線上課程影片，碰到問題可以隨時找助教跟老師求救。
 
-  section.section.about-teacher__container.anchor-about-teacher
-    +common_title('導師介紹', 'anchor-about-teacher')
-    .about-teacher
-      .about-teacher__content
-        p.about-teacher__desc
-          | 小時候開始自學程式，考大學時因為討厭物理化學所以念了個與程式不相干的文組科系，唸到大二就休學出去工作了。在新加坡工作過兩年半，是專職的前端工程師。
-          | 一直都對教學有很大的熱忱，相信把話講得清楚又明白是一種專業，相信分享與交流可以讓世界更美好。
-          <br/><br/>
-          | 我不喜歡把自己講的很厲害，也不喜歡用學經歷說明什麼——我都用作品說話。 底下是我寫過的幾篇文章：
-        .about-teacher__list
-          a(href='https://medium.com/hulis-blog/frontend-engineer-guide-297821512f4e') 零基礎的小明要如何成為前端工程師？
-          a(href='https://medium.com/@hulitw/front-end-learning-path-55201571ecfe') 紮實的網頁前端學習路線與資源推薦
-          a(href='https://medium.com/@hulitw/ramen-and-api-6238437dc544') 從拉麵店的販賣機理解什麼是 API
-          a(href='https://medium.com/hulis-blog/4-years-review-7fb7edc52687') 成為前端工程師的四週年回顧
-          a(href='https://medium.com/@hulitw/learn-coding-9c572c2fb2') 當我們在學程式時，要學的到底是什麼？
 
   .full-bg
-    section.section.schedule__container.anchor-schedule
+    section.section.about-teacher__container.anchor-about-teacher.rellax(data-rellax-speed="4" data-rellax-percentage="0.5")
+      +common_title('導師介紹', 'anchor-about-teacher')
+      .about-teacher
+        .about-teacher__content
+          p.about-teacher__desc
+            | 小時候開始自學程式，考大學時因為討厭物理化學所以念了個與程式不相干的文組科系，唸到大二就休學出去工作了。在新加坡工作過兩年半，是專職的前端工程師。
+            | 一直都對教學有很大的熱忱，相信把話講得清楚又明白是一種專業，相信分享與交流可以讓世界更美好。
+            <br/><br/>
+            | 我不喜歡把自己講的很厲害，也不喜歡用學經歷說明什麼——我都用作品說話。 底下是我寫過的幾篇文章：
+          .about-teacher__list
+            a(href='https://medium.com/hulis-blog/frontend-engineer-guide-297821512f4e') 零基礎的小明要如何成為前端工程師？
+            a(href='https://medium.com/@hulitw/front-end-learning-path-55201571ecfe') 紮實的網頁前端學習路線與資源推薦
+            a(href='https://medium.com/@hulitw/ramen-and-api-6238437dc544') 從拉麵店的販賣機理解什麼是 API
+            a(href='https://medium.com/hulis-blog/4-years-review-7fb7edc52687') 成為前端工程師的四週年回顧
+            a(href='https://medium.com/@hulitw/learn-coding-9c572c2fb2') 當我們在學程式時，要學的到底是什麼？
+
+    section.section.schedule__container.anchor-schedule.rellax(data-rellax-speed="3" data-rellax-percentage="0.5")
       +common_title('課程時程', 'anchor-schedule')
       .schedule
         ul.schedule__list__container
@@ -123,36 +124,40 @@ block content
     section.section.target__container.anchor-target
       +common_title('適合怎樣的人', 'anchor-target')
       .target
-        +target__dialog('新手', '小美', 'theme-student')
-          .
-            我是#[strong 新手]，適合這堂課嗎？
-        +target__dialog('導師', 'Huli', 'theme-blue')
-          | 原本這個課程就是為了完全沒有程式基礎的新手而生，歷屆也有許多零基礎且非相關背景轉職成功的案例。
-          | 此課程以新手為主，希望能循序漸進且穩紮穩打，幫助零基礎的人轉職成合格的工程師。
+        .rellax(data-rellax-speed="3" data-rellax-mobile-speed="8" data-rellax-percentage="0.5")
+          +target__dialog('新手', '小美', 'theme-student')
+            .
+              我是#[strong 新手]，適合這堂課嗎？
+          +target__dialog('導師', 'Huli', 'theme-blue')
+            | 原本這個課程就是為了完全沒有程式基礎的新手而生，歷屆也有許多零基礎且非相關背景轉職成功的案例。
+            | 此課程以新手為主，希望能循序漸進且穩紮穩打，幫助零基礎的人轉職成合格的工程師。
 
-        p.target__dialog__line
-          i(class="fas fa-volume-up")
-          | 有程式基礎的 小花 - 加入聊天室
-        +target__dialog('有基礎的', '小花', 'theme-student')
-          .
-            我有#[strong 程式基礎]，適合這堂課嗎？
-        +target__dialog('導師', 'Huli', 'theme-blue')
-          | 程式基礎的人在課程的起步會比較快，但在網頁這一塊依然有許多東西要學習，因此課程也適合有基礎的人。
+        .rellax(data-rellax-speed="3.5" data-rellax-mobile-speed="10" data-rellax-percentage="0.5")
+          p.target__dialog__line
+            i(class="fas fa-volume-up")
+            | 有程式基礎的 小花 - 加入聊天室
+          +target__dialog('有基礎的', '小花', 'theme-student')
+            .
+              我有#[strong 程式基礎]，適合這堂課嗎？
+          +target__dialog('導師', 'Huli', 'theme-blue')
+            | 程式基礎的人在課程的起步會比較快，但在網頁這一塊依然有許多東西要學習，因此課程也適合有基礎的人。
 
-        p.target__dialog__line
-          i(class="fas fa-volume-up")
-          | 工程師 泡泡 - 加入聊天室
-        +target__dialog('工程師', '泡泡', 'theme-student')
-          .
-            我#[strong 已經是工程師了]，適合這堂課嗎？
-        +target__dialog('導師', 'Huli', 'theme-blue')
-          .
-            課程特色之一是基礎紮實，歷屆也有許多已經在工作的工程師發現自己基礎不足而回來上課，想要打好基礎。
-            工程師建議觀看#[a(href="syllabus.html") 詳細課綱]，若是覺得對自己有幫助再來報名課程。
+        .rellax(data-rellax-speed="2" data-rellax-mobile-speed="5" data-rellax-percentage="0.5")
+          p.target__dialog__line
+            i(class="fas fa-volume-up")
+            | 工程師 泡泡 - 加入聊天室
+          +target__dialog('工程師', '泡泡', 'theme-student')
+            .
+              我#[strong 已經是工程師了]，適合這堂課嗎？
+          +target__dialog('導師', 'Huli', 'theme-blue')
+            .
+              課程特色之一是基礎紮實，歷屆也有許多已經在工作的工程師發現自己基礎不足而回來上課，想要打好基礎。
+              工程師建議觀看#[a(href="syllabus.html") 詳細課綱]，若是覺得對自己有幫助再來報名課程。
 
+  .wave
   section.section.previous-experience.anchor-previous-experience
     +common_title('歷屆學員心得', 'anchor-previous-experience')
-    ul.previous-experience__list 
+    ul.previous-experience__list
       +experience__item({name: "Yakim hsu", tag: "第三期學生"})
           p
             | 萬分感謝 Huli，雖然課程中的互動沒有很多，但最後找工作階段非常謝謝 Huli 不斷得給我建議也一起討論工作如何選擇，

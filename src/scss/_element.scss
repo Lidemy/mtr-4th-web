@@ -92,6 +92,12 @@
   }
 }
 
+/* wave -------------------- */
+.wave {
+  height: 24px;
+  background: url(./../image/wave.svg) left top repeat-x;
+}
+
 /* post -------------------- */
 .post {
   max-width: $width-tablet;

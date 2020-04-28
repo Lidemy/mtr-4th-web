@@ -20,9 +20,12 @@ const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
 const svgSprite = require('gulp-svg-sprite');
 const merge = require('merge-stream');
+const gulpif = require('gulp-if');
 
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV;
+
+console.log('--- current mode: ', env);
 
 const base = {
   src: 'src',
@@ -120,7 +123,7 @@ function css() {
     autoprefixer({ overrideBrowserslist: ['last 2 version'] }),
   ];
 
-  if (process.env.NODE_ENV === 'production') {
+  if (env === 'production') {
     processors.push(
       uncss({
         html: ['public/*.html'],
@@ -132,7 +135,7 @@ function css() {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
     .pipe(minifyCSS())
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(env === 'development', sourcemaps.write()))
     .pipe(rename({
       basename: 'main',
       suffix: '.min'
@@ -159,7 +162,7 @@ function img() {
 }
 
 function watch(done) {
-  if (process.env.NODE_ENV !== 'production') {
+  if (env !== 'production') {
     gulp.watch(`${base.src}/scss/**/*`, css);
     gulp.watch(`${base.src}/html/**/*`, html);
     gulp.watch(`${base.src}/js/**/*`, js);
@@ -170,7 +173,7 @@ function watch(done) {
 }
 
 function server(done) {
-  if (process.env.NODE_ENV !== 'production') {
+  if (env !== 'production') {
     var options = {
       port: 8080,
       livereload: true,
@@ -188,4 +191,5 @@ exports.default = build;
 exports.js = js;
 exports.css = css
 exports.img = img
+exports.critical = critical
 exports.sprite = gulp.series(sprite, css);

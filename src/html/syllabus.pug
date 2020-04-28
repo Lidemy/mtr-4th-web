@@ -12,8 +12,8 @@ mixin syllabus_intro(content)
     div.syllabus__intro-content-icon= content.desc
     p.syllabus__intro-text= content.text
   if content.isThemeLight
-    img(src= "./image/theme_light_blue_bg.svg", alt= "blue_bg").syllabus__intro-blue-bg
-    img(src= "./image/theme_light_red_bg.svg", alt= "red_bg").syllabus__intro-red-bg
+    img.syllabus__intro-blue-bg.rellax(src= "./image/theme_light_blue_bg.svg", alt= "blue_bg" data-rellax-speed="2" data-rellax-percentage="0.5")
+    img.syllabus__intro-red-bg.rellax(src= "./image/theme_light_red_bg.svg", alt= "red_bg" data-rellax-speed="3" data-rellax-percentage="0.5")
     .syllabus_intro-img
       img(src= "./image/theme_light_character.svg", alt= "character").syllabus__intro-character
 
