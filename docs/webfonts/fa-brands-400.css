@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Font Awesome 5 Brands Regular";
+    src: url("fa-brands-400.eot"); /* IE9 */
+    src: url("fa-brands-400.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("fa-brands-400.woff") format("woff"), /* chrome, firefox */
+    url("fa-brands-400.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("fa-brands-400.svg#Font Awesome 5 Brands Regular") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

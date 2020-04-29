@@ -14,6 +14,7 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
+    "gulp-fontmin-woff2": "^0.7.6",
     "gulp-imagemin": "^7.1.0",
     "gulp-postcss": "^8.0.0",
     "gulp-pug": "^4.0.1",
@@ -52,7 +53,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "NODE_ENV='development' gulp",
-    "gulp-build": "NODE_ENV='production' gulp && cp CNAME ./docs/CNAME"
+    "gulp-build": "NODE_ENV='production' gulp",
+    "dev": "npm run gulp",
+    "start": "npm run gulp",
+    "build": "npm run gulp-build"
   },
   "repository": {
     "type": "git",
