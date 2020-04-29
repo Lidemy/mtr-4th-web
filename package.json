@@ -53,7 +53,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "NODE_ENV='development' gulp",
-    "gulp-build": "NODE_ENV='production' gulp"
+    "gulp-build": "NODE_ENV='production' gulp",
+    "dev": "npm run gulp",
+    "start": "npm run gulp",
+    "build": "npm run gulp-build"
   },
   "repository": {
     "type": "git",

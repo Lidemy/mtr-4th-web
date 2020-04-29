@@ -21,13 +21,13 @@ $ npm install
 ### ✏️ dev
 
 ```
-npm run gulp
+npm run dev
 ```
 
 ### ✏️ production
 
 ```
-npm run gulp-build
+npm run build
 ```
 
 ### optimize webfont
