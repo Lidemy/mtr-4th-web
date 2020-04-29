@@ -92,6 +92,16 @@
 	text-align: center;
 	background: $main-color;
 	color: white;
+
+	a {
+		color: white;
+	}
+}
+
+p.footer__footnote {
+	a:hover {
+		color: white;
+	}
 }
 
 

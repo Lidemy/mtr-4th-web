@@ -167,7 +167,7 @@ function img() {
 }
 
 function beforeEnd() {
-  return src(`${base.src}/CNAME`)
+  return src(`${base.src}/statics/*`)
     .pipe(dest(`${base.dest}`))
 }
 
