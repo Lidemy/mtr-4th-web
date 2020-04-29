@@ -185,6 +185,7 @@ function watch(done) {
 function server(done) {
   if (env !== 'production') {
     var options = {
+      root: 'docs',
       port: 8080,
       livereload: true,
     };
