@@ -78,7 +78,6 @@ body.theme-index {
 
   .full-bg {
     background-color: white;
-    background-image: url(./../image/bg_dot.svg), url(./../image/grey_bg.svg), url(./../image/theme_light_red_bg.svg);
     background-repeat: repeat, no-repeat, no-repeat;
     background-position: center,left 50vw top 150px,left -45vw bottom -50px;
     padding: 0;
@@ -98,14 +97,14 @@ body.theme-index {
 
 .full-bg {
   background: $color-theme-light;
-  padding: 5rem 20px;
+  padding: 4rem 20px;
 
   &.theme-dark {
     background: $main-color;
   }
 
   @include mq('mobile-l') {
-    padding: 3rem 15px;
+    padding: 2rem 15px;
   }
 }
 

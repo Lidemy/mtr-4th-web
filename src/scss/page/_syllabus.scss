@@ -54,7 +54,7 @@
 
   &:after {
     @extend %fontawesome-icon;
-    @include font-size(14px);
+    font-size: 12px;
     @include pseudo(inline-block);
     @include absolute($top: 32px, $right: -37px);
     content: fa-content($fa-var-arrow-right);
@@ -62,7 +62,7 @@
     width: 22px;
     background-color: black;
     color: white;
-    padding-top: 4px;
+    padding: 6px;
     border-radius: 50%;
     z-index: 1;
 

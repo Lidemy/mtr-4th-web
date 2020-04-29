@@ -23,6 +23,13 @@ mixin apply-list__item(title)
       p.apply-list__desc
         block
 
+mixin course-schedule(year, day, content)
+  li.course-schedule__item
+    .course-schedule__date
+      time.year= year
+      time.day= day
+    p= content
+
 //- header
 block head
   +head_block({
@@ -128,7 +135,7 @@ block content
   .apply__container
     .section.apply
       .pic
-        img(src="image/img_apply.svg", alt="")
+        img(src="image/img_apply.svg")
       .apply__content
         +post_item('報名方式', 'anchor-registration')
           p.
@@ -188,6 +195,23 @@ block content
             button.copy__btn(data-toggle="tooltip" data-placement="top" title="Copy me" data-clipboard-target="#copy__text") 複製報名表內容
         p.
           收到信件之後大概三四天內會回覆一個罐頭回信，讓你知道有收到了。若是過一週都沒收到回信，麻煩請私訊粉絲專頁詢問。請記得，Google 表單填完跟寄信之後才算是報名成功，兩者缺一不可，有任何問題也都可以私訊粉絲專頁。
+
+      +post_item('時程列表', 'anchor-schedule-list')
+        ul.course-schedule
+          h4.course-schedule__title 報名期間
+          .course-schedule__list
+            +course-schedule('2020', '05/01', '報名開始')
+            +course-schedule('2020', '06/05', '報名結束')
+            +course-schedule('2020', '06/08', '結果通知')
+          h4.course-schedule__title 課程進行中
+          .course-schedule__list
+            +course-schedule('2020', '06/12', '課程開始')
+            +course-schedule('2020', '08/12', '繳交保證金 5000 元並選擇課程方案')
+            +course-schedule('2020', '09/12', '選擇「B 買斷方案」的同學開始分期付款')
+          h4.course-schedule__title 準備求職囉
+          .course-schedule__list
+            +course-schedule('2020', '12/12', '課程結束，「A 求職方案」的同學開始準備求職')
+            +course-schedule('2021', '02/12', '求職期限截止，選擇「A 求職方案」的同學在這個時間點以前沒有找到工作都不用付學費')
 
   include layout/cta_block.pug
   script(defer src="js/clipboard.bundle.js")

@@ -94,10 +94,10 @@ block content
         | 透過距離剛剛好，不會太近也不會太遠的課程交流平台，可以分享自己的學習心得，也可以看見其他同學的，彼此討論交流。
 
 
-  .full-bg
+  .full-bg.lazy(data-bg-multi="url(image/bg_dot.svg), url(image/grey_bg.svg), url(image/theme_light_red_bg.svg)")
     section.section.about-teacher__container.anchor-about-teacher.rellax(data-rellax-speed="4" data-rellax-percentage="0.5")
       +common_title('導師介紹', 'anchor-about-teacher')
-      .about-teacher
+      .about-teacher.lazy(data-bg="image/bg_grid.png")
         .about-teacher__content
           p.about-teacher__desc
             | 小時候開始自學程式，考大學時因為討厭物理化學所以念了個與程式不相干的文組科系，唸到大二就休學出去工作了。在新加坡工作過兩年半，是專職的前端工程師。
@@ -154,8 +154,8 @@ block content
               課程特色之一是基礎紮實，歷屆也有許多已經在工作的工程師發現自己基礎不足而回來上課，想要打好基礎。
               工程師建議觀看#[a(href="syllabus.html") 詳細課綱]，若是覺得對自己有幫助再來報名課程。
 
-  .wave
-  section.section.previous-experience.anchor-previous-experience
+  .wave.lazy(data-bg="image/wave.svg")
+  section.section.previous-experience.anchor-previous-experience.lazy(data-bg-multi="url(image/index_portrait_1.svg), url(image/index_portrait_2.svg)")
     +common_title('歷屆學員心得', 'anchor-previous-experience')
     ul.previous-experience__list
       +experience__item({name: "Yakim hsu", tag: "第三期學生"})

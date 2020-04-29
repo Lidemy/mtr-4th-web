@@ -2,7 +2,7 @@
 .main-visual {
   background: url(./../image/img_visual.png) center top no-repeat;
   background-size: 100% auto;
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 1rem auto 1rem auto;
   width: 100%;
   height: calc(90vh - 160px);
@@ -14,7 +14,7 @@
 .project__title {
   margin: 0 auto;
   text-align: center;
-  padding: 70px 0;
+  padding: 100px 0;
 
   &__num {
     display: flex;
@@ -41,7 +41,7 @@
 }
 
 
-/* main-visual > project__title */
+/* main-visual > project__desc */
 .project__desc {
   width: 60%;
   margin: 0 auto;
@@ -66,17 +66,21 @@
 }
 
 /* main-visual : rwd */
-@include mq('desktop-l') {
-  .project__title { 
+.project__title {
+  @include mq('desktop-xl') {
+    padding: 70px 0;
+  }
+  @include mq('desktop-l') {
     padding: 45px 0;
+  }
+  @include mq('desktop-m') {
+    padding: 25px;
+    margin-bottom: 2rem;
   }
 }
 
 @include mq('desktop-m') {
   .project__title { 
-    padding: 25px;
-    margin-bottom: 2rem;
-
     &__num {
       display: flex;
       @include font-size(36px);
@@ -399,7 +403,6 @@
 
 /* about-teacher -------------------- */
 .about-teacher {
-  background: url(./../image/bg_grid.png) center center repeat;
   background-size: 24px;
   position: relative;
   padding: 70px 50px 30px;
@@ -808,7 +811,6 @@
   z-index: 1;
   overflow: hidden;
   background-color: $main-color;
-  background-image: url(./../image/index_portrait_1.svg), url(./../image/index_portrait_2.svg);
   background-position: top 10px left -65px, bottom -170px right -110px;
   background-repeat: no-repeat;
 
