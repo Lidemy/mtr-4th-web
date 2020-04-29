@@ -29,3 +29,9 @@ npm run gulp
 ```
 npm run gulp-build
 ```
+
+### optimize webfont
+
+We defined every font-awesome class we used in `minfont.js` and get this unicode from `src/scss/font-awesome/scss/_variables.scss`. After we have unicodes, we can use [gulp-fontmin](https://www.npmjs.com/package/gulp-fontmin-woff2) to reduce the size of font file.
+
+Be careful if you want to use new icon, you must add the class name to `minfont.js`

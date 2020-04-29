@@ -21,8 +21,10 @@ const buffer = require('vinyl-buffer');
 const svgSprite = require('gulp-svg-sprite');
 const merge = require('merge-stream');
 const gulpif = require('gulp-if');
+const fontmin = require('gulp-fontmin-woff2');
 
-
+// run minfont.js to get this string
+const fontText = '\uf028\uf164\uf57d\uf1c0\uf7d9\uf233\uf201\uf3ed\uf126\uf51c\uf06e\uf0c9\uf35d\uf077\uf00c\uf2bd\uf061\uf063\uf062\uf073\uf550\uf14a\uf35a\uf0c5\uf30b\uf09b\uf082\uf23a\uf41b\uf3b8\uf13b\uf38b\uf268\uf457'
 const env = process.env.NODE_ENV;
 
 console.log('--- current mode: ', env);
@@ -150,7 +152,10 @@ function css() {
 }
 
 function font() {
-  return src(`${base.src}/webfonts/*`)
+  return src(`${base.src}/webfonts/*.ttf`)
+    .pipe(fontmin({
+          text: fontText,
+      }))
     .pipe(dest(`${base.dest}/webfonts`))
 }
 
