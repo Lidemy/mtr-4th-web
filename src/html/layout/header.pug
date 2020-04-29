@@ -1,7 +1,7 @@
 header.header
   .header__content
     .header__logo
-      a.header__logo-img(href="index.html")
+      a.header__logo-img(href="/", aria-label="Home")
       i(class="fas fa-bars header__responsive__icon")
     nav.header__nav
       ul
@@ -16,5 +16,5 @@ header.header
           ];
         each item in navs
           li(class= (currentUrl === item.src ? 'current' : ''))
-            a(href=`${item.src}.html`)= item.name
+            a(href= (item.src === 'index' ? '/' : item.src + '.html'))= item.name
     a.header__cta-btn(href="course-info.html") 了解報名資訊
