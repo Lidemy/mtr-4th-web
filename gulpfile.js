@@ -161,6 +161,11 @@ function img() {
     .pipe(connect.reload())
 }
 
+function beforeEnd() {
+  return src(`${base.src}/CNAME`)
+    .pipe(dest(`${base.dest}`))
+}
+
 function watch(done) {
   if (env !== 'production') {
     gulp.watch(`${base.src}/scss/**/*`, css);
@@ -184,11 +189,12 @@ function server(done) {
 };
 
 const resource = gulp.parallel(html, css, js, img, font)
-const build = gulp.series(clean, sprite, resource, gulp.parallel(watch, server))
+const build = gulp.series(clean, sprite, resource, beforeEnd, gulp.parallel(watch, server))
 
 exports.clean = clean;
 exports.default = build;
 exports.js = js;
 exports.css = css
 exports.img = img
+exports.beforeEnd = beforeEnd
 exports.sprite = gulp.series(sprite, css);

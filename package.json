@@ -52,7 +52,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "NODE_ENV='development' gulp",
-    "gulp-build": "NODE_ENV='production' gulp && cp CNAME ./docs/CNAME"
+    "gulp-build": "NODE_ENV='production' gulp"
   },
   "repository": {
     "type": "git",
