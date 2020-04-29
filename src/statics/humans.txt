@@ -1,7 +1,7 @@
 /* TEAM */
   Yakim
-  GitHub: https://yakimhsu.com/
-  Site: https://github.com/yakim-shu
+  GitHub: https://github.com/yakim-shu
+  Site: https://yakimhsu.com/
 
   Chih Yang
   GitHub: https://github.com/ChihYang41
