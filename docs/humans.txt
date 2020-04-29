@@ -1,0 +1,16 @@
+/* TEAM */
+  Yakim
+  GitHub: https://yakimhsu.com/
+  Site: https://github.com/yakim-shu
+
+  Chih Yang
+  GitHub: https://github.com/ChihYang41
+  Site: https://chihyang41.github.io/
+
+  Minw
+  GitHub: https://github.com/ishin4554
+  Site: https://medium.com/@minw
+
+  Huli
+  GitHub: https://github.com/aszx87410
+  Site: https://blog.huli.tw
