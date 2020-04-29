@@ -1,5 +1,7 @@
 extends layout/layout.pug
 
+include mixin/_mixin.pug
+
 //- mixin
 mixin syllabus_intro(content)
   if !content.isThemeLight
@@ -32,6 +34,7 @@ block current
 
 block content
   section.section.syllabus__header
+    p.syllabus__header-intro 底下是這一期的課程大綱，提供比較沒有程式基礎的新手參考。若是想要參考更完整的課綱以及作業，可以看 <a href="https://github.com/Lidemy/mentor-program-4th" target="_blank" rel="noopener">第四期課綱</a>
     ul
       -
         var headerContents = [

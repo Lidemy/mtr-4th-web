@@ -5,21 +5,30 @@
 }
 
 /* syllabus__header */
-.syllabus__header ul {
-  max-width: $width-desktop-s;
-  margin: 0 auto 55px auto;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: space-between;
-  align-items: center;
-
-  @include mq('desktop-s') {
-    flex-wrap: wrap;
+.syllabus__header {
+  &-intro {
+    max-width: 500px;
+    margin: 30px auto 50px auto;
+    text-align: center;
+    line-height: 2.5em;
   }
 
-  @include mq('mobile-l') {
-    margin-bottom: 0;
+  ul {
+    max-width: $width-desktop-s;
+    margin: 0 auto 55px auto;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+  
+    @include mq('desktop-s') {
+      flex-wrap: wrap;
+    }
+  
+    @include mq('mobile-l') {
+      margin-bottom: 0;
+    }
   }
 }
 
