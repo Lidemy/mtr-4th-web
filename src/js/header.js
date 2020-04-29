@@ -47,3 +47,8 @@ function openMenu() {
 
 document.addEventListener('scroll', throttle(setShrinkHeader, 200))
 document.querySelector(".header__responsive__icon").addEventListener('click', openMenu)
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) {
+    header.classList.remove('menu-opened')
+  }
+})
