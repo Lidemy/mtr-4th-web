@@ -57,6 +57,7 @@ function clean() {
     `${base.dest}/*`,
     `!${base.dest}/.git`,
     `!${base.dest}/.gitignore`,
+    `!${base.dest}/robots.txt`,
   ]);
 }
 

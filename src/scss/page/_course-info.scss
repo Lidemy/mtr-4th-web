@@ -151,7 +151,7 @@
 
   .pic {
     @extend %responsive-img;
-    max-width: 350px;
+    width: 350px;
     align-self: flex-end;
   }
 
@@ -277,3 +277,93 @@
   }
 }
 
+/* course-schedule ------- */
+.course-schedule {
+  &__list {
+    padding: 15px 0px;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    @include font-size(20px);
+    background: lighten($main-color, 8);;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px 30px 12px 50px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 5px 10px rgba(233, 186, 172, 0.16), 0 15px 40px rgba(233, 186, 172, .15);
+    border-bottom: 3px solid #d361608a;
+    position: relative;
+
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 1.5rem;
+    }
+
+    &:before {
+      @include pseudo(block);
+      @include size(10px);
+      @include absolute($left: 25px);
+      border-radius: 50%;
+      background: $main-color;
+    }
+  }
+
+  p {
+    @include font-size(18px);
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    margin-bottom: 0;
+    padding-left: 20px;
+    color: #a1817a;
+  }
+}
+
+.course-schedule__date {
+  text-align: center;
+  .year {
+    display:block;
+    font-size: 14px;
+    color: $grey-light;
+  }
+
+  .day {
+    display:block;
+    color: lighten($main-color, 8);
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.course-schedule {
+  @include mq('tablet') {
+    &__item {
+      padding-left: 30px;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  @include mq('mobile-l') {
+    &__item {
+      padding: 10px 15px;
+      p {
+        padding-left: 10px;
+      }
+    }
+    &__date {
+       .day {
+        font-size: 20px;
+      }
+    }
+  }
+}

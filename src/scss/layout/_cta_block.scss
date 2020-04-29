@@ -3,7 +3,8 @@
   text-align: center;
   padding: 70px 20px;
 
-  background: url(./../image/img_cta_bg.svg) 0 165px no-repeat;
+  background-position: 0 165px;
+  background-repeat: no-repeat;
   background-size: 230px auto;
 
   &__title {

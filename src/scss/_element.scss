@@ -95,7 +95,8 @@
 /* wave -------------------- */
 .wave {
   height: 24px;
-  background: url(./../image/wave.svg) left top repeat-x;
+  background-position: left top;
+  background-repeat: repeat-x;
 }
 
 /* post -------------------- */
