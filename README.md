@@ -4,6 +4,8 @@
 
 用六個月的時間，培養出一個找得到工作且基礎紮實的網頁工程師。
 
+課綱：https://github.com/Lidemy/mentor-program-4th
+
 
 ![img](src/image/og-img.png)
 
