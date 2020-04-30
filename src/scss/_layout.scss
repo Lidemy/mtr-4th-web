@@ -78,6 +78,7 @@ body.theme-index {
 
   .full-bg {
     background-color: white;
+    background-image: url(./../image/bg_dot.svg), url(./../image/grey_bg.svg), url(./../image/theme_light_red_bg.svg);
     background-repeat: repeat, no-repeat, no-repeat;
     background-position: center,left 50vw top 150px,left -45vw bottom -50px;
     padding: 0;
