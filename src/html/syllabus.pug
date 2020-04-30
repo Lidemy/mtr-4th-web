@@ -34,7 +34,7 @@ block current
 
 block content
   section.section.syllabus__header
-    p.syllabus__header-intro 底下是這一期的課程大綱，提供比較沒有程式基礎的新手參考。若是想要參考更完整的課綱以及作業，可以看 <a href="https://github.com/Lidemy/mentor-program-4th" target="_blank" rel="noopener">第四期課綱</a>
+    p.syllabus__header-intro 底下是這一期的課程大綱，提供比較沒有程式基礎的新手參考。若是想要更完整的課綱以及作業，可以參考 <a href="https://github.com/Lidemy/mentor-program-4th" target="_blank" rel="noopener">第四期完整課綱</a>
     ul
       -
         var headerContents = [
@@ -221,7 +221,7 @@ block content
               title: "Part 3",
               week: "week 11 - week 20",
               desc: "探究原理",
-              text: "學會基礎的網頁開發以後，透過一連串練習來熟悉開發流程，也會深入了解一些重要的觀念，讓學員徹底理解背後的原理。這部分主要是熟悉網頁開發中的重要觀念，例如說狀態的維持（Cookie 與 Sesion）等等。",
+              text: "學會基礎的網頁開發以後，透過一連串練習來熟悉開發流程，也會深入了解一些重要的觀念，讓學員徹底理解背後的原理。這部分主要是熟悉網頁開發中的重要觀念，例如說狀態的維持（Cookie 與 Session）等等。",
               isThemeLight: true,
             }
         +syllabus_intro(introContent)
@@ -348,3 +348,4 @@ block content
         ul.syllabus__content__list
           each content in syllabusContents
             +syllabus_item(content)
+  +cta_block('觀看教學成果','achievement.html','報名資訊', 'course-info.html')

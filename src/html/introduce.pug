@@ -1,4 +1,5 @@
 extends layout/layout.pug
+include mixin/_mixin.pug
 
 //- mixin
 mixin project_list_item(item)
@@ -251,3 +252,4 @@ block content
         each article in articles 
           +improvement_article(article)
         
+  +cta_block('觀看課程大綱','syllabus.html','教學成果', 'achievement.html')

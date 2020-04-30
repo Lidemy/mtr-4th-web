@@ -9339,6 +9339,11 @@ value-or-function@^3.0.0:
   resolved "https://registry.yarnpkg.com/value-or-function/-/value-or-function-3.0.0.tgz#1c243a50b595c1be54a754bfece8563b9ff8d813"
   integrity sha1-HCQ6ULWVwb5Up1S/7OhWO5/42BM=
 
+vanilla-lazyload@^15.1.1:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/vanilla-lazyload/-/vanilla-lazyload-15.1.1.tgz#8b465f8f5af602a6058bc10403cea939ae3e7073"
+  integrity sha512-psVgA+X9bp/VsSbxx5VMxg9VJOV1MwFYqig47d55pDBGVs5rBDy9O5CXF3uCZPEEMy7fa6J40AGfkuNNOy6zBg==
+
 verror@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
