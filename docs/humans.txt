@@ -14,3 +14,7 @@
   Huli
   GitHub: https://github.com/aszx87410
   Site: https://blog.huli.tw
+
+/* SITE */
+  Tech stack: gulp, babel, browserify, pug, scss
+  Images: font-awesome, Getillustrations
