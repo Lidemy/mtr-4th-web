@@ -5,9 +5,9 @@ include mixin/_mixin.pug
 //- mixin
 mixin syllabus_intro(content)
   if !content.isThemeLight
-    img(src= "./image/theme_light_red_bg.svg", alt= "red_bg").syllabus__intro-red-bg
+    img.syllabus__intro-red-bg(src= "./image/theme_light_red_bg.svg", alt= "red_bg")
     .syllabus_intro-img
-      img(src= "./image/theme_dark_character.svg", alt= "character").syllabus__intro-character
+      img.syllabus__intro-character.lazy(data-src= "./image/theme_dark_character.svg", alt= "character")
   .syllabus__intro-content
     h2= content.title
     div.syllabus__intro-content-icon= content.week

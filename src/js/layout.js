@@ -1,5 +1,6 @@
-import throttle from './throttle';
+import throttle     from './throttle';
 import smoothscroll from 'smoothscroll-polyfill';
+import LazyLoad     from "vanilla-lazyload";
 
 // Support safari scroll behavior
 smoothscroll.polyfill();
@@ -38,3 +39,8 @@ window.addEventListener('scroll', throttle(function() {
 window.addEventListener('DOMContentLoaded', scrollToOffset);
 window.addEventListener('hashchange', scrollToOffset);
 btnScroll.addEventListener('click', function(e) { scrollToOffset(e, 'top') })
+
+
+var ll = new LazyLoad({
+  elements_selector: ".lazy"
+});
