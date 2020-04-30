@@ -34,6 +34,10 @@ mixin head_block(headInfo)
     link(rel="icon" type="image/png" sizes="96x96" href="./image/favicon-96x96.png")
     title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
 
+    include ga.pug
+    +ga('UA-77560722-2')
+
+
 
 // layout
 doctype html
