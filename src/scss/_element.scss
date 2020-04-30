@@ -132,7 +132,6 @@
 .post__content a {
   display: inline-block;
   margin: 2px 5px;
-  padding: 0px 10px;
   color: $color-theme-dark;
   font-weight: bold;
   border: none;
@@ -140,7 +139,6 @@
   text-underline-position: under;
   text-decoration-style: wavy;
   text-decoration-color: lighten($color-theme-dark, 30);
-  box-shadow: 0 0 1px rgba(black, 0.1);
   line-height: 1.7rem;
 
   .theme-light & {

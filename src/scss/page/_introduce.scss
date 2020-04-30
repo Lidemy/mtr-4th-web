@@ -2,8 +2,11 @@
 .project {
   background: url('../image/img_project_1.svg') no-repeat;
   background-size: 350px auto;
-  background-position: right 150px top 0px;
+  background-position: right 19vw top 0px;
 
+  @include mq('desktop-xl') {
+    background-position: right 150px top;
+  }
   @include mq('desktop-l') {
     background-position: right 50px top;
   }
@@ -208,6 +211,8 @@
     @include font-size(15px);
     width: 45%;
     line-height: 33px;
+    color: darken($grey, 5);
+
 
     @include mq('desktop-s') {
       width: 80%;

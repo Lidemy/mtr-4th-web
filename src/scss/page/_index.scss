@@ -239,8 +239,14 @@
 
       &__item {
         flex: 0;
-        padding: 0;
+        padding: 0 20px;
         text-align: center;
+
+        &:nth-child(2) .title,
+        &:nth-child(3) .title,
+        &:nth-child(6) .title {
+          color: $grey;
+        }
 
         .title {
           font-size: 17px;
@@ -315,6 +321,7 @@
     }
     .desc {
       flex: 1;
+      color: $grey;
       @include font-size(14px);
     }
   }
@@ -366,11 +373,14 @@
 @include mq('tablet') {
   .methods {
     &__list {
-      justify-content: center;
+      flex-direction: column;
     }
     &__item {
-      max-width: 500px;
       width: auto;
+
+      &:nth-child(3) {
+        order: 4;
+      }
     }
   }
 }
@@ -713,16 +723,16 @@
   }
 
   a {
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 4px 10px;
+    padding-bottom: 10px;
     margin: 0 5px;
-    white-space:nowrap;
-
+    line-height: 1.5rem;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style: wavy;
+    text-decoration-color: rgba(white, 0.5);
 
     &:hover {
-      background: rgba(white, 0.1);
-      color: white;
+      color: rgba(white, 0.8);;
     }
   }
 }

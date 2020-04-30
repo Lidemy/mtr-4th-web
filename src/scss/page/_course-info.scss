@@ -202,7 +202,7 @@
 
   &__desc {
     @include font-size(15px);
-    color: $grey-light;
+    color: darken($grey-light, 10);
     line-height: 1.7rem;
   }
 
@@ -278,6 +278,8 @@
 }
 
 /* course-schedule ------- */
+$color-course-schedule: #a1817a;
+
 .course-schedule {
   &__list {
     padding: 15px 0px;
@@ -286,7 +288,7 @@
 
   &__title {
     @include font-size(20px);
-    background: lighten($main-color, 8);;
+    background: $color-course-schedule;
     color: white;
     padding: 15px;
     border-radius: 10px;
@@ -297,11 +299,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 12px 30px 12px 50px;
-    border-radius: 20px;
+    padding: 10px 30px 10px 50px;
+    border-radius: 10px;
     background: white;
     box-shadow: 0 5px 10px rgba(233, 186, 172, 0.16), 0 15px 40px rgba(233, 186, 172, .15);
-    border-bottom: 3px solid #d361608a;
+    border-bottom: 3px solid rgba($color-course-schedule, 0.4);
     position: relative;
 
     &:not(:nth-last-of-type(1)) {
@@ -313,18 +315,18 @@
       @include size(10px);
       @include absolute($left: 25px);
       border-radius: 50%;
-      background: $main-color;
+      background: $color-course-schedule;
     }
   }
 
   p {
-    @include font-size(18px);
+    @include font-size(17px);
     font-weight: bold;
     text-align: center;
     flex: 1;
     margin-bottom: 0;
     padding-left: 20px;
-    color: #a1817a;
+    color: darken($color-course-schedule, 5);
   }
 }
 
@@ -338,8 +340,9 @@
 
   .day {
     display:block;
-    color: lighten($main-color, 8);
-    font-size: 24px;
+    color: #dfaa8b;
+    font-size: 22px;
+    line-height: 1.6rem;
     font-weight: bold;
   }
 }
