@@ -92,16 +92,43 @@
 	text-align: center;
 	background: $main-color;
 	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
 
 	a {
-		color: white;
+		margin: 0 5px;
 	}
-}
 
-p.footer__footnote {
-	a:hover {
-		color: white;
+	.resource {
+		a {
+			color: rgba(white, .8);
+			border:none;
+		}
 	}
+	.copyright, .resource {
+		color: white;
+		margin: 0 10px 0;
+	}
+
+	&__btn {
+		display: inline-block;
+		margin: 5px 0;
+		a {
+			display: inline-block;
+			padding: 0px 5px;
+			border: 1px solid white;
+			border-radius: 2px;
+
+			&:hover {
+				color: white;
+				background: rgba(white, .2);
+			}
+		}
+	}
+
 }
 
 
@@ -139,9 +166,39 @@ p.footer__footnote {
 		&__follow {
 			display: none;
 		}
-
-		&__nav-list {
-			display: none;
-		}
   }
+}
+
+.footer__nav {
+	@include mq('desktop-s') {
+		&-list {
+				max-width: 100%;
+				margin-top: 2rem;
+				flex-wrap: wrap;
+				justify-content: space-between;
+		}
+
+		&-item {
+			min-width: 170px;
+			margin-bottom: 1.5rem;
+			padding: 0 10px;
+		}
+	}
+
+	@include mq('mobile-m') {
+		&-item {
+			min-width: auto;
+			width: calc((100% - 20px) / 2);
+			margin-bottom: 1.5rem;
+			padding: 0;
+
+			a {
+				font-size: 13px;
+			}
+
+			&:nth-child(odd) {
+				margin-right: 20px;
+			}
+		}
+	}
 }
