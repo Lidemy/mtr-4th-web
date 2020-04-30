@@ -29,6 +29,7 @@ mixin head_block(headInfo)
     meta(name="twitter:description" content= meta.desc)
     meta(name="twitter:image" content= meta.url + meta.img_src)
 
+    link(rel="author" type="text/plain" href="/humans.txt" )
     link(rel='stylesheet' href='css/main.min.css')
     link(rel="icon" type="image/png" sizes="96x96" href="./image/favicon-96x96.png")
     title #{headInfo.title} | Lidemy 程式導師實驗計畫第四期
