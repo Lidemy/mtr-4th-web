@@ -370,3 +370,14 @@ $color-course-schedule: #a1817a;
     }
   }
 }
+
+.pic.payment-detail {
+  @extend %responsive-img;
+  border: 1px solid $grey-light;
+  background: white;
+  margin: 2rem auto;
+  padding-bottom: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,.05);
+}
