@@ -738,7 +738,7 @@
 }
 
 /* target > theme */
-.target__dialog.theme-blue {
+.target__dialog.theme-mentor {
   flex-direction: row-reverse;
 
   .target__avatar {
@@ -771,13 +771,13 @@
 .target__dialog:nth-of-type(even) {
   margin-bottom: 0;
 }
-.target__dialog:nth-of-type(3) {
-  .target__avatar__img {
+.target .rellax:nth-of-type(2) {
+  .theme-student .target__avatar__img {
     @extend .svg-icon_avatar_2;
   }
 }
-.target__dialog:nth-of-type(5) {
-  .target__avatar__img {
+.target .rellax:nth-of-type(3) {
+  .theme-student .target__avatar__img {
     @extend .svg-icon_avatar_3;
   }
 }
@@ -802,7 +802,7 @@
       transform: scale(0.7);
       margin-right: 1rem;
 
-      .target__dialog.theme-blue & {
+      .target__dialog.theme-mentor & {
         margin-left: 1rem;
       }
     }
