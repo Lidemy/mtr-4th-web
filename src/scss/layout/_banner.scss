@@ -1,0 +1,17 @@
+/* banner -------------------- */
+.banner {
+    width: 100%;
+    height: 40px;
+    background: #795548;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    .fixed_info {
+        color: white;
+        margin: 0;
+    }
+}

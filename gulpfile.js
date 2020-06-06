@@ -75,7 +75,9 @@ const js = (done) => {
         .bundle()
         .pipe(source(entry.match(/[^\\/]+$/)[0]))
         .pipe(buffer())
+        .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(uglify())
+        .pipe(gulpif(env === 'development', sourcemaps.write()))
         .pipe(rename({
           extname: '.bundle.js'
         }))
@@ -195,7 +197,7 @@ function server(done) {
   done();
 };
 
-const resource = gulp.parallel(html, css, js, img, font)
+const resource = gulp.series(js, gulp.parallel(html, css, img, font))
 const build = gulp.series(clean, sprite, resource, beforeEnd, gulp.parallel(watch, server))
 
 exports.clean = clean;
