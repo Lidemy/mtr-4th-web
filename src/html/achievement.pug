@@ -21,11 +21,12 @@ block content
         a(href='https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb', target="_blank", rel="noopener") #[em 第一期] 程式導師實驗計畫第一期成果與心得
         a(href='https://medium.com/hulis-blog/mentor-program-2nd-result-3cb7c2b6627e', target="_blank", rel="noopener") #[em 第二期] 27% 的人找到工作——程式導師實驗計畫第二期成果報吿
         a(href='https://medium.com/@hulitw/mentor-program-3rd-result-df178bb55f4', target="_blank", rel="noopener") #[em 第三期] 華麗謝幕：程式導師實驗計畫第三期成果以及未來走向
+        a(href='https://hulitw.medium.com/mentor-program-4th-review-f8e8de92eea2', target="_blank", rel="noopener") #[em 第四期] 程式導師實驗計畫第四期檢討與心得
 
     +post_item('學生求職成果', 'anchor-report')
       .chart-container
         canvas#chart
-      p.annotation * 結業的定義：課程結束時沒有被淘汰制淘汰，意思就是一直有在跟課程，但結業時不一定有「把課程都上完」，詳情可見第三期心得，裡面有詳細數據。
+      p.annotation * 結業的定義：課程結束時沒有被淘汰制淘汰，意思就是一直有在跟課程，但結業時不一定有「把課程都上完」，詳情可見上面的心得，裡面有詳細數據。
 
   .wave
   .full-bg.theme-dark
@@ -35,14 +36,14 @@ block content
           程式導師實驗計畫在每一期結束時都會請學生寫課程心得，好的壞的都可以，還會提醒盡量寫缺點，這樣才能盡快在下一期改進。
           除此之外，並不是只有時限內找到工作的人會留下心得，時限內沒有找到工作的學生所留下的心得同等重要，而且有平衡報導的效果。
           <br><br>
-          許多課程的心得永遠只看得到那些表面的光鮮亮麗，忽略了背後的痛苦掙扎，這個計畫的心得想呈現的是學生最真實的想法。 底下是各期的完整心得：
+          許多課程的心得永遠只看得到那些表面的光鮮亮麗，忽略了背後的痛苦掙扎，這個計畫的心得想呈現的是學生最真實的想法。 底下是最近三期的完整心得：
       section.section.student-list__container
         .student-list
           -
             var studentTags = [
+              { name: '第四期', num: 7, url: 'https://github.com/Lidemy/mentor-program-4th/issues' },
               { name: '第三期', num: 10, url: 'https://github.com/Lidemy/mentor-program-3rd/issues' },
-              { name: '第二期', num: 23, url: 'https://github.com/Lidemy/mentor-program-2nd/issues' },
-              { name: '第一期', num: 5, url: 'https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb' },
+              { name: '第二期', num: 23, url: 'https://github.com/Lidemy/mentor-program-2nd/issues' }
             ]
           nav.student-list__menu
             each tag, idx in studentTags
@@ -54,6 +55,15 @@ block content
 
           -
             var students = [
+              [
+                {name: 'YSKuo', url: 'https://github.com/Lidemy/mentor-program-4th/issues/23'},
+                {name: 'krebikshaw', url: 'https://github.com/Lidemy/mentor-program-4th/issues/24'},
+                {name: 'ruofan', url: 'https://github.com/Lidemy/mentor-program-4th/issues/25'},
+                {name: 'oack7426', url: 'https://github.com/Lidemy/mentor-program-4th/issues/26'},
+                {name: 'lauviah0622', url: 'https://github.com/Lidemy/mentor-program-4th/issues/27'},
+                {name: 'ivymuchacha', url: 'https://github.com/Lidemy/mentor-program-4th/issues/28'},
+                {name: 'oceankj', url: 'https://github.com/Lidemy/mentor-program-4th/issues/29'},
+              ],
               [
                 { name: 'RZ',     url: 'https://github.com/Lidemy/mentor-program-3rd/issues/10', },
                 { name: 'minw',   url: 'https://github.com/Lidemy/mentor-program-3rd/issues/11', },
@@ -90,9 +100,6 @@ block content
                 { name: 'julia',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/26', },
                 { name: 'twgd',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/27', },
                 { name: 'enter3017sky',  url: 'https://github.com/Lidemy/mentor-program-2nd/issues/28', },
-              ],
-              [
-                { name: '學生心得',  url: 'https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb', },
               ],
             ]
           each group, idx in students

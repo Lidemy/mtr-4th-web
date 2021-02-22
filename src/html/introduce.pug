@@ -29,7 +29,7 @@ mixin improvement_card(card)
     .arrow-icon
     
 mixin improvement_article(article) 
-  - const tags = ['第一期', '第二期', '第三期']
+  - const tags = ['第一期', '第二期', '第三期', '第四期']
   li
     time= article.date
     a(href=`${article.link}` target="_blank", rel="noopener")= article.title
@@ -203,6 +203,17 @@ block content
               "修正 PHP 後端課程內容",
               "引入產品以及開發流程相關課程"
             ]
+          },
+          {
+            date: "2021/2",
+            title: "第五期改進內容",
+            content: [
+              "改善課程內容，集中資料於學習系統",
+              "改善作業範例",
+              "改善 live coding 示範流程",
+              "新增伺服器部署相關課程",
+              "重新整理前後端方向"
+            ]
           }
         ]
       each card in improvementCards
@@ -213,31 +224,31 @@ block content
         -
           var articles = [
             {
-              date: "2018/6/25",
+              date: "2018/06/25",
               title: "程式導師實驗計畫第一期成果與心得",
               link: "https://medium.com/hulis-blog/mentor-program-review-a9c6668dfb",
               tag: 1,
             },
             {
-              date: "2018/12/4",
+              date: "2018/12/04",
               title: "這是一堂沒那麼適合初學者的課程——程式導師實驗計畫第二期期中反思",
               link: "https://medium.com/hulis-blog/mentor-program-2nd-mid-c7539f67b7d7",
               tag: 2,
             },
             {
-              date: "2019/1/21",
+              date: "2019/01/21",
               title: "四個月過去了，來找我學程式的學生們怎麼樣了？",
               link: "https://medium.com/hulis-blog/mentor-program-2nd-review-e7c15f24dfb8",
               tag: 2,
             },
             {
-              date: "2019/3/13",
+              date: "2019/03/13",
               title: "27% 的人找到工作——程式導師實驗計畫第二期成果報吿",
               link: "https://medium.com/hulis-blog/mentor-program-2nd-result-3cb7c2b6627e",
               tag: 2,
             },
             {
-              date: "2019/5/29",
+              date: "2019/05/29",
               title: "從線上到線下：第三期教學實驗滿月心得分享",
               link: "https://medium.com/hulis-blog/from-online-to-offline-bd99e545277a",
               tag: 3,
@@ -247,6 +258,18 @@ block content
               title: "華麗謝幕：程式導師實驗計畫第三期成果以及未來走向",
               link: "https://medium.com/@hulitw/mentor-program-3rd-result-df178bb55f4",
               tag: 3,
+            },
+            {
+              date: "2020/10/04",
+              title: "程式導師實驗計畫第四期課程做了哪些改動？",
+              link: "https://hulitw.medium.com/lidemy-mentor-program-4th-updates-c344302c8a2d",
+              tag: 4,
+            },
+            {
+              date: "2021/02/22",
+              title: "程式導師實驗計畫第四期檢討與心得",
+              link: "https://hulitw.medium.com/mentor-program-4th-review-f8e8de92eea2",
+              tag: 4,
             },
           ].reverse();
         each article in articles 

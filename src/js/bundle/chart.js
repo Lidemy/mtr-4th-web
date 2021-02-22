@@ -23,7 +23,7 @@ const options = {
 
 // data
 const data = {
-  labels: ['第三期', '第二期', '第一期'],
+  labels: ['第四期','第三期', '第二期', '第一期'],
   scaleLabel: {
     labelString: '###'
   },
@@ -33,7 +33,7 @@ const data = {
       backgroundColor: '#D26B6B',
       hoverBackgroundColor: '#C25A5A',
       borderColor: '#FFD9D9',
-      data: [14, 8, 2],
+      data: [21, 14, 8, 2],
       barThickness: 'flex',
       maxBarThickness: 30,
 
@@ -43,7 +43,7 @@ const data = {
       backgroundColor: '#FC849A',
       hoverBackgroundColor: '#F28397',
       borderColor: '#E27474',
-      data: [39, 29, 3],
+      data: [60, 39, 29, 3],
       barThickness: 'flex',
       maxBarThickness: 30,
     },
@@ -52,7 +52,7 @@ const data = {
       backgroundColor: '#FFD2D2',
       hoverBackgroundColor: '#F6CCCC',
       borderColor: '#E27474',
-      data: [56, 38, 12],
+      data: [77, 56, 38, 12],
       barThickness: 'flex',
       maxBarThickness: 30,
     },
